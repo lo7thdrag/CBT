@@ -8,7 +8,8 @@ uses
   uSemaphoreOS in 'uSemaphoreOS.pas' {frmSemaphoreOS},
   uSemaphoreTV in 'uSemaphoreTV.pas' {frmSemaphoreTY},
   uSemaphoreWZ in 'uSemaphoreWZ.pas' {frmSemaphoreVZ},
-  uSemaphore17 in 'uSemaphore17.pas' {frmSemaphore17};
+  uSemaphore17 in 'uSemaphore17.pas' {frmSemaphore17},
+  uSemaphore80 in 'uSemaphore80.pas' {frmSemaphore80};
 
 {$R *.res}
 
@@ -22,5 +23,6 @@ begin
   Application.CreateForm(TfrmSemaphoreTY, frmSemaphoreTY);
   Application.CreateForm(TfrmSemaphoreVZ, frmSemaphoreVZ);
   Application.CreateForm(TfrmSemaphore17, frmSemaphore17);
+  Application.CreateForm(TfrmSemaphore80, frmSemaphore80);
   Application.Run;
 end.

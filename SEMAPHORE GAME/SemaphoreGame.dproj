@@ -98,36 +98,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uMain.pas">
+        <DCCReference Include="uSemaphore.pas">
             <Form>frmSemaphore</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uSemaphoreAG.pas">
+        <DCCReference Include="uSemaphoreA0.pas">
             <Form>frmSemaphoreAG</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uSemaphoreHN.pas">
-            <Form>frmSemaphoreHN</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uSemaphoreOS.pas">
-            <Form>frmSemaphoreOS</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uSemaphoreTV.pas">
-            <Form>frmSemaphoreTY</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uSemaphoreWZ.pas">
-            <Form>frmSemaphoreVZ</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uSemaphore17.pas">
-            <Form>frmSemaphore17</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uSemaphore80.pas">
-            <Form>frmSemaphore80</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

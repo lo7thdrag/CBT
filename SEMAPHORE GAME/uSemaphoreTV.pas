@@ -8,20 +8,6 @@ uses
 
 type
   TfrmSemaphoreTY = class(TForm)
-    imgT: TImage;
-    imgU: TImage;
-    imgV: TImage;
-    imgKeluar: TImage;
-    imgKembali: TImage;
-    imgOke: TImage;
-    imgSemaphore: TImage;
-    lblT: TLabel;
-    lblU: TLabel;
-    lblV: TLabel;
-    lblKeluar: TLabel;
-    lblKembali: TLabel;
-    lblOke: TLabel;
-    lblSemaphore: TLabel;
   private
     { Private declarations }
   public

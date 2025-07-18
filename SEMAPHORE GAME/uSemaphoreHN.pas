@@ -4,35 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-
-  uMain, uSemaphoreAG;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
   TfrmSemaphoreHN = class(TForm)
-    imgH: TImage;
-    imgI: TImage;
-    imgJ: TImage;
-    imgK: TImage;
-    imgL: TImage;
-    imgKembali: TImage;
-    imgM: TImage;
-    imgN: TImage;
-    imgOke: TImage;
-    imgSemaphore: TImage;
-    lblH: TLabel;
-    lblI: TLabel;
-    lblJ: TLabel;
-    lblK: TLabel;
-    lblL: TLabel;
-    lblKembali: TLabel;
-    lblM: TLabel;
-    lblN: TLabel;
-    lblOke: TLabel;
-    lblSemaphore: TLabel;
-    imgKeluar: TImage;
-    lblKeluar: TLabel;
-    procedure lblKembaliClick(Sender: TObject);
+    procedure lblExitClick(Sender: TObject);
+    procedure lblOkeClick(Sender: TObject);
+    procedure pnlSemaphoreHNClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,10 +23,18 @@ var
 implementation
 
 {$R *.dfm}
+uses
+  uSemaphore, uSemaphoreAG, uSemaphoreOS;
 
-procedure TfrmSemaphoreHN.lblKembaliClick(Sender: TObject);
+procedure TfrmSemaphoreHN.lblExitClick(Sender: TObject);
 begin
   frmSemaphoreAG.Show;
 end;
+
+procedure TfrmSemaphoreHN.lblOkeClick(Sender: TObject);
+begin
+  frmSemaphoreOS.Show;
+end;
+
 
 end.

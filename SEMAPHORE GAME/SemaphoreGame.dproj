@@ -103,7 +103,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uSemaphoreA0.pas">
-            <Form>frmSemaphoreAG</Form>
+            <Form>frmSemaphoreA0</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

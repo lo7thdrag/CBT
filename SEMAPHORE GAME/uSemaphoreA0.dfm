@@ -1,8 +1,8 @@
-object frmSemaphoreAG: TfrmSemaphoreAG
+object frmSemaphoreA0: TfrmSemaphoreA0
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'frmSemaphoreAG'
+  Caption = 'frmSemaphoreA0'
   ClientHeight = 468
   ClientWidth = 651
   Color = clBtnFace
@@ -13,8 +13,220 @@ object frmSemaphoreAG: TfrmSemaphoreAG
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object pnlSemaphoreAG: TPanel
+    Left = 0
+    Top = 0
+    Width = 651
+    Height = 468
+    Align = alClient
+    TabOrder = 0
+    object imgA: TImage
+      Left = 113
+      Top = 129
+      Width = 80
+      Height = 80
+    end
+    object imgB: TImage
+      Left = 228
+      Top = 129
+      Width = 80
+      Height = 80
+    end
+    object imgC: TImage
+      Left = 343
+      Top = 129
+      Width = 80
+      Height = 80
+    end
+    object imgD: TImage
+      Left = 458
+      Top = 129
+      Width = 80
+      Height = 80
+    end
+    object imgE: TImage
+      Left = 170
+      Top = 259
+      Width = 80
+      Height = 80
+    end
+    object imgExit: TImage
+      Left = 44
+      Top = 366
+      Width = 99
+      Height = 41
+      OnClick = imgExitClick
+    end
+    object imgF: TImage
+      Left = 285
+      Top = 259
+      Width = 80
+      Height = 80
+    end
+    object imgG: TImage
+      Left = 400
+      Top = 259
+      Width = 80
+      Height = 80
+    end
+    object imgLanjut: TImage
+      Left = 508
+      Top = 366
+      Width = 99
+      Height = 41
+      OnClick = imgLanjutClick
+    end
+    object imgSemaphore: TImage
+      Left = 197
+      Top = 48
+      Width = 257
+      Height = 41
+    end
+    object Label1: TLabel
+      Left = 143
+      Top = 153
+      Width = 16
+      Height = 38
+      Alignment = taCenter
+      Caption = 'A'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = lblKembaliClick
+    end
+    object Label2: TLabel
+      Left = 258
+      Top = 153
+      Width = 16
+      Height = 38
+      Alignment = taCenter
+      Caption = 'B'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblC: TLabel
+      Left = 373
+      Top = 153
+      Width = 15
+      Height = 38
+      Alignment = taCenter
+      Caption = 'C'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblD: TLabel
+      Left = 488
+      Top = 153
+      Width = 18
+      Height = 38
+      Alignment = taCenter
+      Caption = 'D'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblE: TLabel
+      Left = 200
+      Top = 283
+      Width = 15
+      Height = 38
+      Alignment = taCenter
+      Caption = 'E'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblF: TLabel
+      Left = 315
+      Top = 283
+      Width = 14
+      Height = 38
+      Alignment = taCenter
+      Caption = 'F'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblG: TLabel
+      Left = 430
+      Top = 283
+      Width = 17
+      Height = 38
+      Alignment = taCenter
+      Caption = 'G'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblKembali: TLabel
+      Left = 56
+      Top = 372
+      Width = 74
+      Height = 38
+      Cursor = crHandPoint
+      Caption = 'Keluar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = lblKembaliClick
+    end
+    object lblLanjut: TLabel
+      Left = 522
+      Top = 370
+      Width = 70
+      Height = 38
+      Caption = 'Lanjut'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = lblLanjutClick
+    end
+    object lblSemaphore: TLabel
+      Left = 251
+      Top = 55
+      Width = 150
+      Height = 38
+      Caption = 'SEMAPHORE'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Vani'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
   object pnlSemaphoreHN: TPanel
     Left = 0
     Top = 0
@@ -22,15 +234,12 @@ object frmSemaphoreAG: TfrmSemaphoreAG
     Height = 468
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 32
-    ExplicitTop = 16
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Image1: TImage
       Left = 44
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image1Click
     end
     object imgH: TImage
       Left = 113
@@ -61,6 +270,7 @@ object frmSemaphoreAG: TfrmSemaphoreAG
       Top = 366
       Width = 99
       Height = 41
+      OnClick = imgKembaliClick
     end
     object imgL: TImage
       Left = 170
@@ -85,6 +295,7 @@ object frmSemaphoreAG: TfrmSemaphoreAG
       Top = 366
       Width = 99
       Height = 41
+      OnClick = imgOkeClick
     end
     object Image2: TImage
       Left = 197
@@ -253,21 +464,19 @@ object frmSemaphoreAG: TfrmSemaphoreAG
     Height = 468
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = 136
-    ExplicitTop = 192
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgKeluar: TImage
       Left = 44
       Top = 366
       Width = 99
       Height = 41
+      OnClick = imgKeluarClick
     end
     object Image3: TImage
       Left = 390
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image3Click
     end
     object imgO: TImage
       Left = 170
@@ -280,6 +489,7 @@ object frmSemaphoreAG: TfrmSemaphoreAG
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image4Click
     end
     object imgP: TImage
       Left = 285
@@ -444,27 +654,26 @@ object frmSemaphoreAG: TfrmSemaphoreAG
     Height = 468
     Align = alClient
     TabOrder = 3
-    ExplicitLeft = 144
-    ExplicitTop = 112
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Image6: TImage
       Left = 44
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image6Click
     end
     object Image7: TImage
       Left = 390
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image7Click
     end
     object Image8: TImage
       Left = 508
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image8Click
     end
     object Image9: TImage
       Left = 197
@@ -595,27 +804,26 @@ object frmSemaphoreAG: TfrmSemaphoreAG
     Height = 468
     Align = alClient
     TabOrder = 4
-    ExplicitLeft = 136
-    ExplicitTop = 104
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Image10: TImage
       Left = 44
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image10Click
     end
     object Image11: TImage
       Left = 390
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image11Click
     end
     object Image12: TImage
       Left = 508
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image12Click
     end
     object Image13: TImage
       Left = 197
@@ -766,10 +974,6 @@ object frmSemaphoreAG: TfrmSemaphoreAG
     Height = 468
     Align = alClient
     TabOrder = 5
-    ExplicitLeft = 112
-    ExplicitTop = 40
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object img1: TImage
       Left = 113
       Top = 129
@@ -817,18 +1021,21 @@ object frmSemaphoreAG: TfrmSemaphoreAG
       Top = 366
       Width = 99
       Height = 41
+      OnClick = ImageKeluarClick
     end
     object Image15: TImage
       Left = 390
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image15Click
     end
     object Image16: TImage
       Left = 508
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image16Click
     end
     object Image17: TImage
       Left = 197
@@ -997,10 +1204,6 @@ object frmSemaphoreAG: TfrmSemaphoreAG
     Height = 468
     Align = alClient
     TabOrder = 6
-    ExplicitLeft = 104
-    ExplicitTop = 112
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object img0: TImage
       Left = 405
       Top = 194
@@ -1024,12 +1227,14 @@ object frmSemaphoreAG: TfrmSemaphoreAG
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image18Click
     end
     object Image20: TImage
       Left = 508
       Top = 366
       Width = 99
       Height = 41
+      OnClick = Image20Click
     end
     object Image21: TImage
       Left = 197
@@ -1119,218 +1324,6 @@ object frmSemaphoreAG: TfrmSemaphoreAG
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = Label21Click
-    end
-  end
-  object pnlSemaphoreAG: TPanel
-    Left = 0
-    Top = 0
-    Width = 651
-    Height = 468
-    Align = alClient
-    TabOrder = 0
-    ExplicitLeft = 32
-    ExplicitTop = 96
-    ExplicitWidth = 185
-    ExplicitHeight = 41
-    object imgA: TImage
-      Left = 113
-      Top = 129
-      Width = 80
-      Height = 80
-    end
-    object imgB: TImage
-      Left = 228
-      Top = 129
-      Width = 80
-      Height = 80
-    end
-    object imgC: TImage
-      Left = 343
-      Top = 129
-      Width = 80
-      Height = 80
-    end
-    object imgD: TImage
-      Left = 458
-      Top = 129
-      Width = 80
-      Height = 80
-    end
-    object imgE: TImage
-      Left = 170
-      Top = 259
-      Width = 80
-      Height = 80
-    end
-    object imgExit: TImage
-      Left = 44
-      Top = 366
-      Width = 99
-      Height = 41
-    end
-    object imgF: TImage
-      Left = 285
-      Top = 259
-      Width = 80
-      Height = 80
-    end
-    object imgG: TImage
-      Left = 400
-      Top = 259
-      Width = 80
-      Height = 80
-    end
-    object imgLanjut: TImage
-      Left = 508
-      Top = 366
-      Width = 99
-      Height = 41
-    end
-    object imgSemaphore: TImage
-      Left = 197
-      Top = 48
-      Width = 257
-      Height = 41
-    end
-    object Label1: TLabel
-      Left = 143
-      Top = 153
-      Width = 16
-      Height = 38
-      Alignment = taCenter
-      Caption = 'A'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = lblKembaliClick
-    end
-    object Label2: TLabel
-      Left = 258
-      Top = 153
-      Width = 16
-      Height = 38
-      Alignment = taCenter
-      Caption = 'B'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lblC: TLabel
-      Left = 373
-      Top = 153
-      Width = 15
-      Height = 38
-      Alignment = taCenter
-      Caption = 'C'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lblD: TLabel
-      Left = 488
-      Top = 153
-      Width = 18
-      Height = 38
-      Alignment = taCenter
-      Caption = 'D'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lblE: TLabel
-      Left = 200
-      Top = 283
-      Width = 15
-      Height = 38
-      Alignment = taCenter
-      Caption = 'E'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lblF: TLabel
-      Left = 315
-      Top = 283
-      Width = 14
-      Height = 38
-      Alignment = taCenter
-      Caption = 'F'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lblG: TLabel
-      Left = 430
-      Top = 283
-      Width = 17
-      Height = 38
-      Alignment = taCenter
-      Caption = 'G'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lblKembali: TLabel
-      Left = 48
-      Top = 371
-      Width = 91
-      Height = 38
-      Caption = 'Kembali'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = lblKembaliClick
-    end
-    object lblLanjut: TLabel
-      Left = 522
-      Top = 370
-      Width = 70
-      Height = 38
-      Caption = 'Lanjut'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = lblLanjutClick
-    end
-    object lblSemaphore: TLabel
-      Left = 251
-      Top = 55
-      Width = 150
-      Height = 38
-      Caption = 'SEMAPHORE'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Vani'
-      Font.Style = [fsBold]
-      ParentFont = False
     end
   end
 end

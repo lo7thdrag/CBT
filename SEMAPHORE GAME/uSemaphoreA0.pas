@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
-  TfrmSemaphoreAG = class(TForm)
+  TfrmSemaphoreA0 = class(TForm)
     pnlSemaphoreAG: TPanel;
     imgA: TImage;
     imgB: TImage;
@@ -157,6 +157,26 @@ type
     procedure Label12Click(Sender: TObject);
     procedure Label16Click(Sender: TObject);
     procedure Label20Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure imgExitClick(Sender: TObject);
+    procedure imgLanjutClick(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure imgKembaliClick(Sender: TObject);
+    procedure imgOkeClick(Sender: TObject);
+    procedure imgKeluarClick(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure Image7Click(Sender: TObject);
+    procedure Image8Click(Sender: TObject);
+    procedure Image10Click(Sender: TObject);
+    procedure Image11Click(Sender: TObject);
+    procedure Image12Click(Sender: TObject);
+    procedure ImageKeluarClick(Sender: TObject);
+    procedure Image15Click(Sender: TObject);
+    procedure Image16Click(Sender: TObject);
+    procedure Image18Click(Sender: TObject);
+    procedure Image20Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -164,7 +184,7 @@ type
   end;
 
 var
-  frmSemaphoreAG: TfrmSemaphoreAG;
+  frmSemaphoreA0: TfrmSemaphoreA0;
 
 implementation
 
@@ -172,91 +192,191 @@ implementation
 uses
   uSemaphore;
 
-procedure TfrmSemaphoreAG.Label10Click(Sender: TObject);
+procedure TfrmSemaphoreA0.FormShow(Sender: TObject);
 begin
-  pnlSemaphoreWZ.BringToFront;
+  pnlSemaphoreAG.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label12Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image10Click(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmSemaphoreAG.Label13Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image11Click(Sender: TObject);
 begin
   pnlSemaphoreTV.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label14Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image12Click(Sender: TObject);
 begin
   pnlSemaphore17.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label16Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreAG.Label17Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image15Click(Sender: TObject);
 begin
   pnlSemaphoreWZ.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label18Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image16Click(Sender: TObject);
 begin
   pnlSemaphore80.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label20Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image18Click(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmSemaphoreAG.Label21Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.Image20Click(Sender: TObject);
 begin
   pnlSemaphore17.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label5Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image3Click(Sender: TObject);
 begin
   pnlSemaphoreHN.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label6Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image4Click(Sender: TObject);
 begin
   pnlSemaphoreTV.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.Label8Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image6Click(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmSemaphoreAG.Label9Click(Sender: TObject);
+procedure TfrmSemaphoreA0.Image7Click(Sender: TObject);
 begin
   pnlSemaphoreOS.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.lblExitClick(Sender: TObject);
+procedure TfrmSemaphoreA0.Image8Click(Sender: TObject);
+begin
+  pnlSemaphoreWZ.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.ImageKeluarClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmSemaphoreAG.lblKeluarClick(Sender: TObject);
+procedure TfrmSemaphoreA0.imgExitClick(Sender: TObject);
+begin
+  pnlSemaphoreAG.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.imgKeluarClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmSemaphoreAG.lblKembaliClick(Sender: TObject);
+procedure TfrmSemaphoreA0.imgKembaliClick(Sender: TObject);
 begin
-  pnlSemaphoreAG.BringToFront;;
+  pnlSemaphoreAG.BringToFront;
 end;
 
-procedure TfrmSemaphoreAG.lblLanjutClick(Sender: TObject);
+procedure TfrmSemaphoreA0.imgLanjutClick(Sender: TObject);
 begin
   pnlSemaphoreHN.BringToFront;
 end;
-procedure TfrmSemaphoreAG.lblOkeClick(Sender: TObject);
+
+procedure TfrmSemaphoreA0.imgOkeClick(Sender: TObject);
+begin
+  pnlSemaphoreOS.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label10Click(Sender: TObject);
+begin
+  pnlSemaphoreWZ.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label12Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.Label13Click(Sender: TObject);
+begin
+  pnlSemaphoreTV.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label14Click(Sender: TObject);
+begin
+  pnlSemaphore17.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label16Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.Label17Click(Sender: TObject);
+begin
+  pnlSemaphoreWZ.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label18Click(Sender: TObject);
+begin
+  pnlSemaphore80.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label20Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.Label21Click(Sender: TObject);
+begin
+  pnlSemaphore17.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label5Click(Sender: TObject);
+begin
+  pnlSemaphoreHN.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label6Click(Sender: TObject);
+begin
+  pnlSemaphoreTV.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.Label8Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.Label9Click(Sender: TObject);
+begin
+  pnlSemaphoreOS.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.lblExitClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.lblKeluarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSemaphoreA0.lblKembaliClick(Sender: TObject);
+begin
+  pnlSemaphoreAG.BringToFront;
+end;
+
+procedure TfrmSemaphoreA0.lblLanjutClick(Sender: TObject);
+begin
+  pnlSemaphoreHN.BringToFront;
+end;
+procedure TfrmSemaphoreA0.lblOkeClick(Sender: TObject);
 begin
   pnlSemaphoreOS.BringToFront;
 end;

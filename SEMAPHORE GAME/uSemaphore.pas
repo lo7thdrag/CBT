@@ -20,6 +20,7 @@ type
     imgSemaphoreKirim: TImage;
     lblSemaphoreKirim: TLabel;
     procedure lblSemaphoreHurufClick(Sender: TObject);
+    procedure imgSEmaphoreHurufClick(Sender: TObject);
 //    procedure imgMorseGameClick(Sender: TObject);
   private
     { Private declarations }
@@ -37,9 +38,14 @@ implementation
 uses
   uSemaphoreA0;
 
+procedure TfrmSemaphore.imgSEmaphoreHurufClick(Sender: TObject);
+begin
+  frmSemaphoreA0.Show;
+end;
+
 procedure TfrmSemaphore.lblSemaphoreHurufClick(Sender: TObject);
 begin
-  frmSemaphoreAG.Show;
+  frmSemaphoreA0.Show;
 end;
 
 end.

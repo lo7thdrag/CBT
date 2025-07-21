@@ -39,6 +39,7 @@ object frmSemaphore: TfrmSemaphore
     Top = 154
     Width = 257
     Height = 41
+    OnClick = imgSEmaphoreHurufClick
   end
   object imgSemaphoreBaca: TImage
     Left = 350

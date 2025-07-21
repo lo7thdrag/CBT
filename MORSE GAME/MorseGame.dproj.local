@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024-05-15 12:06:56.000.717,=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024-05-15 12:08:23.000.837,=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025-03-13 16:17:55.000.206,=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025-07-18 17:38:01.000.034,=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025-07-18 17:39:02.000.723,D:\CBT\MORSE GAME\uMain.pas=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025-07-18 17:39:02.000.723,D:\CBT\MORSE GAME\uMain.dfm=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025-07-18 17:39:15.000.973,D:\CBT\MORSE GAME\MorseGame.dproj=C:\Users\nesta\OneDrive\文档\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

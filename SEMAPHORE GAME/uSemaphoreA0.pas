@@ -3,13 +3,22 @@ unit uSemaphoreA0;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage, TFlatSpeedButtonUnit;
 
 type
   TfrmSemaphoreA0 = class(TForm)
-    pnlSemaphoreAG: TPanel;
+    imgBackground: TImage;
+    tmr1: TTimer;
+    pnlBackground: TPanel;
+    imgModel: TImage;
+    imgDescription: TImage;
+    lblDescTanganKanan: TLabel;
+    lblDescTanganKiri: TLabel;
+    lblHuruf: TLabel;
+    pnl1: TPanel;
     imgA: TImage;
     imgB: TImage;
     imgC: TImage;
@@ -17,7 +26,13 @@ type
     imgE: TImage;
     imgF: TImage;
     imgG: TImage;
-    pnlSemaphoreHN: TPanel;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    imgPrev: TImage;
+    imgNext: TImage;
     imgH: TImage;
     imgI: TImage;
     imgJ: TImage;
@@ -25,110 +40,76 @@ type
     imgL: TImage;
     imgM: TImage;
     imgN: TImage;
-    pnlSemaphoreOS: TPanel;
     imgO: TImage;
     imgP: TImage;
     imgQ: TImage;
     imgR: TImage;
     imgS: TImage;
-    pnlSemaphoreTV: TPanel;
     imgT: TImage;
     imgU: TImage;
     imgV: TImage;
-    pnlSemaphoreWZ: TPanel;
     imgW: TImage;
     imgX: TImage;
     imgY: TImage;
     imgZ: TImage;
-    imgBackground: TImage;
-    tmr1: TTimer;
-    pnlHeader: TPanel;
-    pnlBackground: TPanel;
-    imgModel: TImage;
-    imgDescription: TImage;
+    imgNumeral: TImage;
+    imgSpasi: TImage;
+    pnl2: TPanel;
+    img1: TImage;
+    img2: TImage;
     img3: TImage;
     img4: TImage;
     img5: TImage;
     img6: TImage;
     img7: TImage;
-    img1: TImage;
-    lbl1: TLabel;
-    lblDescTanganKanan: TLabel;
-    lblDescTanganKiri: TLabel;
-    lblHuruf: TLabel;
-    procedure lblKembaliClick(Sender: TObject);
-    procedure lblLanjutClick(Sender: TObject);
-    procedure lblOkeClick(Sender: TObject);
-    procedure lblExitClick(Sender: TObject);
-    procedure Label6Click(Sender: TObject);
-    procedure Label5Click(Sender: TObject);
-    procedure lblKeluarClick(Sender: TObject);
-    procedure Label10Click(Sender: TObject);
-    procedure Label9Click(Sender: TObject);
-    procedure Label14Click(Sender: TObject);
-    procedure Label13Click(Sender: TObject);
-    procedure Label18Click(Sender: TObject);
-    procedure Label17Click(Sender: TObject);
-    procedure Label21Click(Sender: TObject);
-    procedure Label8Click(Sender: TObject);
-    procedure Label12Click(Sender: TObject);
-    procedure Label16Click(Sender: TObject);
-    procedure Label20Click(Sender: TObject);
+    img27: TImage;
+    img28: TImage;
+    tmr2: TTimer;
+
     procedure FormShow(Sender: TObject);
-    procedure imgExitClick(Sender: TObject);
-    procedure imgLanjutClick(Sender: TObject);
-    procedure Image1Click(Sender: TObject);
-    procedure imgKembaliClick(Sender: TObject);
-    procedure imgOkeClick(Sender: TObject);
-    procedure imgKeluarClick(Sender: TObject);
-    procedure Image3Click(Sender: TObject);
-    procedure Image4Click(Sender: TObject);
-    procedure Image6Click(Sender: TObject);
-    procedure Image7Click(Sender: TObject);
-    procedure Image8Click(Sender: TObject);
-    procedure Image10Click(Sender: TObject);
-    procedure Image11Click(Sender: TObject);
-    procedure Image12Click(Sender: TObject);
-    procedure ImageKeluarClick(Sender: TObject);
-    procedure Image15Click(Sender: TObject);
-    procedure Image16Click(Sender: TObject);
-    procedure Image18Click(Sender: TObject);
-    procedure Image20Click(Sender: TObject);
-    procedure imgAClick(Sender: TObject);
-    procedure imgBClick(Sender: TObject);
-    procedure imgCClick(Sender: TObject);
-    procedure imgDClick(Sender: TObject);
+
+    procedure btnPrevClick(Sender: TObject);
+    procedure btnNextClick(Sender: TObject);
+
+    procedure btnHurufClick(Sender: TObject);
+
     procedure tmr1Timer(Sender: TObject);
-    procedure imgEClick(Sender: TObject);
-    procedure imgFClick(Sender: TObject);
-    procedure imgGClick(Sender: TObject);
-    procedure imgModelClick(Sender: TObject);
+    procedure tmr2Timer(Sender: TObject);
+    procedure btnGroupClick(Sender: TObject);
+
   private
-    { Private declarations }
+    isGeserKanan: Boolean;
+    tempTime: Integer;
+
+    procedure SetButtonHurufPosition(posVal: Integer);
+
   public
     { Public declarations }
   end;
 
 var
   frmSemaphoreA0: TfrmSemaphoreA0;
-  imgAExpanded: Boolean = False;
-  imgBExpanded: Boolean = False;
-  imgCExpanded: Boolean = False;
-  imgDExpanded: Boolean = False;
-  imgEExpanded: Boolean = False;
-  imgFExpanded: Boolean = False;
-  imgGExpanded: Boolean = False;
-  imgHExpanded: Boolean = False;
-  imgIExpanded: Boolean = False;
-  imgJExpanded: Boolean = False;
-  imgKExpanded: Boolean = False;
-  imgLExpanded: Boolean = False;
-  imgMExpanded: Boolean = False;
+
 implementation
 
 {$R *.dfm}
+
 uses
   uSemaphore;
+
+procedure EnableComposited(WinControl: TWinControl);
+var
+  i: Integer;
+  NewExStyle: DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or
+    WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for i := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfrmSemaphoreA0.FormShow(Sender: TObject);
 begin
@@ -137,586 +118,187 @@ begin
   Height := Screen.Monitors[0].Height;
   Width := Screen.Monitors[0].Width;
 
-  pnlSemaphoreAG.BringToFront;
+{$REGION ' Initiate button huruf position '}
+  imgA.Left := 0;
+  imgB.Left := 120;
+  imgC.Left := 240;
+  imgD.Left := 360;
+  imgE.Left := 480;
+  imgF.Left := 600;
+  imgG.Left := 720;
+  imgH.Left := 840;
+  imgI.Left := 960;
+  imgJ.Left := 1080;
+  imgK.Left := 1200;
+  imgL.Left := 1320;
+  imgM.Left := 1440;
+  imgN.Left := 1560;
+  imgO.Left := 1680;
+  imgP.Left := 1800;
+  imgQ.Left := 1920;
+  imgR.Left := 2040;
+  imgS.Left := 2160;
+  imgT.Left := 2280;
+  imgU.Left := 2400;
+  imgV.Left := 2520;
+  imgW.Left := 2640;
+  imgX.Left := 2760;
+  imgY.Left := 2880;
+  imgZ.Left := 3000;
+  imgNumeral.Left := 3120;
+  imgSpasi.Left := 3240;
+{$ENDREGION}
+  EnableComposited(pnlBackground);
 end;
 
-procedure TfrmSemaphoreA0.Image10Click(Sender: TObject);
+procedure TfrmSemaphoreA0.btnGroupClick(Sender: TObject);
 begin
-  Close;
+  //
 end;
 
-procedure TfrmSemaphoreA0.Image11Click(Sender: TObject);
+procedure TfrmSemaphoreA0.btnHurufClick(Sender: TObject);
 begin
-  pnlSemaphoreTV.BringToFront;
-end;
+  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + TImage(Sender).Hint
+    + '.png');
 
-procedure TfrmSemaphoreA0.Image12Click(Sender: TObject);
-begin
-// pnlSemaphore17.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image15Click(Sender: TObject);
-begin
-  pnlSemaphoreWZ.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image16Click(Sender: TObject);
-begin
-//  pnlSemaphore80.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image18Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Image1Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Image20Click(Sender: TObject);
-begin
-//  pnlSemaphore17.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image3Click(Sender: TObject);
-begin
-  pnlSemaphoreHN.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image4Click(Sender: TObject);
-begin
-  pnlSemaphoreTV.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image6Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Image7Click(Sender: TObject);
-begin
-  pnlSemaphoreOS.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Image8Click(Sender: TObject);
-begin
-  pnlSemaphoreWZ.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.ImageKeluarClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.imgModelClick(Sender: TObject);
-begin
-  ShowMessage('Width : ' + Width.ToString + 'Height : ' + Height.ToString);
-end;
-
-procedure TfrmSemaphoreA0.imgAClick(Sender: TObject);
-begin
-  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\A.PNG');
-//  if not imgAExpanded then
-//  begin
-//    imgA.Width  := 217;
-//    imgA.Height := 188;
-//    imgA.Left   := (ClientWidth - imgA.Width)div 2;
-//    imgA.Top    := (ClientHeight - imgA.Height)div 2;
-////    lblA.Left   := (ClientWidth - lblA.Width)div 2;
-////    lblA.Top    := (ClientHeight - lblA.Height)div 2;
-//
-//  // Sembunyikan elemen lain
-//    imgB.Visible := False;
-//    imgC.Visible := False;
-//    imgD.Visible := False;
-//    imgE.Visible := False;
-//    imgF.Visible := False;
-//    imgG.Visible := False;
-////    lblB.Visible := False;
-////    lblC.Visible := False;
-////    lblD.Visible := False;
-////    lblE.Visible := False;
-////    lblF.Visible := False;
-////    lblG.Visible := False;
-//
-//    imgAExpanded := True;
-//    end
-//    else
-//    begin
-//    // Kembalikan ukuran dan posisi awal
-//      imgA.Width  := 80;
-//      imgA.Height := 80;
-//      imgA.Left   := 113;
-//      imgA.Top    := 129;
-////      lblA.Left   := 145;
-////      lblA.Top    := 150;
-//
-//    // Tampilkan kembali elemen lain
-//      imgB.Visible := True;
-//      imgC.Visible := True;
-//      imgD.Visible := True;
-//      imgE.Visible := True;
-//      imgF.Visible := True;
-//      imgG.Visible := True;
-////      lblB.Visible := True;
-////      lblC.Visible := True;
-////      lblD.Visible := True;
-////      lblE.Visible := True;
-////      lblF.Visible := True;
-////      lblG.Visible := True;
-//
-//      imgAExpanded := False;
-//    end;
-end;
-
-procedure TfrmSemaphoreA0.imgBClick(Sender: TObject);
-begin
-  if not imgBExpanded then
+{$REGION ''}
+  if TImage(Sender).Hint = 'a' then
   begin
-    imgB.Width  := 217;
-    imgB.Height := 188;
-    imgB.Left   := (ClientWidth - imgB.Width)div 2;
-    imgB.Top    := (ClientHeight - imgB.Height)div 2;
-//    lblB.Left   := (ClientWidth - lblB.Width)div 2;
-//    lblB.Top    := (ClientHeight - lblB.Height)div 2;
-
-  // Sembunyikan elemen lain
-    imgA.Visible := False;
-    imgC.Visible := False;
-    imgD.Visible := False;
-    imgE.Visible := False;
-    imgF.Visible := False;
-    imgG.Visible := False;
-//    lblA.Visible := False;
-//    lblC.Visible := False;
-//    lblD.Visible := False;
-//    lblE.Visible := False;
-//    lblF.Visible := False;
-//    lblG.Visible := False;
-
-    imgBExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgB.Width  := 80;
-      imgB.Height := 80;
-      imgB.Left   := 228;
-      imgB.Top    := 129;
-//      lblB.Left   := 260;
-//      lblB.Top    := 150;
-
-    // Tampilkan kembali elemen lain
-      imgA.Visible := True;
-      imgC.Visible := True;
-      imgD.Visible := True;
-      imgE.Visible := True;
-      imgF.Visible := True;
-      imgG.Visible := True;
-//      lblA.Visible := True;
-//      lblC.Visible := True;
-//      lblD.Visible := True;
-//      lblE.Visible := True;
-//      lblF.Visible := True;
-//      lblG.Visible := True;
-
-      imgBExpanded := False;
-    end;
-end;
-
-procedure TfrmSemaphoreA0.imgCClick(Sender: TObject);
-begin
- if not imgCExpanded then
+    lblHuruf.Caption := 'A';
+    lblDescTanganKanan.Caption :=
+      '- Tangan kanan diangkat searah jarum jam pukul 07.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if TImage(Sender).Hint = 'b' then
   begin
-    imgC.Width  := 217;
-    imgC.Height := 188;
-    imgC.Left   := (ClientWidth - imgC.Width)div 2;
-    imgC.Top    := (ClientHeight - imgC.Height)div 2;
-//    lblC.Left   := (ClientWidth - lblC.Width)div 2;
-//    lblC.Top    := (ClientHeight - lblC.Height)div 2;
-
-  // Sembunyikan elemen lain
-    imgA.Visible := False;
-    imgB.Visible := False;
-    imgD.Visible := False;
-    imgE.Visible := False;
-    imgF.Visible := False;
-    imgG.Visible := False;
-//    lblA.Visible := False;
-//    lblB.Visible := False;
-//    lblD.Visible := False;
-//    lblE.Visible := False;
-//    lblF.Visible := False;
-//    lblG.Visible := False;
-
-    imgCExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgC.Width  := 80;
-      imgC.Height := 80;
-      imgC.Left   := 343;
-      imgC.Top    := 129;
-//      lblC.Left   := 373;
-//      lblC.Top    := 150;
-
-    // Tampilkan kembali elemen lain
-      imgA.Visible := True;
-      imgB.Visible := True;
-      imgD.Visible := True;
-      imgE.Visible := True;
-      imgF.Visible := True;
-      imgG.Visible := True;
-//      lblA.Visible := True;
-//      lblB.Visible := True;
-//      lblD.Visible := True;
-//      lblE.Visible := True;
-//      lblF.Visible := True;
-//      lblG.Visible := True;
-
-      imgCExpanded := False;
-    end;
-end;
-
-procedure TfrmSemaphoreA0.imgDClick(Sender: TObject);
-begin
-  if not imgDExpanded then
+    lblHuruf.Caption := 'B';
+    lblDescTanganKanan.Caption :=
+      '- Tangan kanan diangkat searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if TImage(Sender).Hint = 'c' then
   begin
-    imgD.Width  := 217;
-    imgD.Height := 188;
-    imgD.Left   := (ClientWidth - imgD.Width)div 2;
-    imgD.Top    := (ClientHeight - imgD.Height)div 2;
-//    lblD.Left   := (ClientWidth - lblD.Width)div 2;
-//    lblD.Top    := (ClientHeight - lblD.Height)div 2;
-
-  // Sembunyikan elemen lain
-    imgA.Visible := False;
-    imgB.Visible := False;
-    imgC.Visible := False;
-    imgE.Visible := False;
-    imgF.Visible := False;
-    imgG.Visible := False;
-//    lblA.Visible := False;
-//    lblB.Visible := False;
-//    lblC.Visible := False;
-//    lblE.Visible := False;
-//    lblF.Visible := False;
-//    lblG.Visible := False;
-
-    imgDExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgD.Width  := 80;
-      imgD.Height := 80;
-      imgD.Left   := 458;
-      imgD.Top    := 129;
-//      lblD.Left   := 489;
-//      lblD.Top    := 150;
-
-    // Tampilkan kembali elemen lain
-      imgA.Visible := True;
-      imgB.Visible := True;
-      imgC.Visible := True;
-      imgE.Visible := True;
-      imgF.Visible := True;
-      imgG.Visible := True;
-//      lblA.Visible := True;
-//      lblB.Visible := True;
-//      lblC.Visible := True;
-//      lblE.Visible := True;
-//      lblF.Visible := True;
-//      lblG.Visible := True;
-
-      imgDExpanded := False;
-    end;
-end;
-
-procedure TfrmSemaphoreA0.imgEClick(Sender: TObject);
-begin
-  if not imgEExpanded then
+    lblHuruf.Caption := 'C';
+    lblDescTanganKanan.Caption :=
+      '- Tangan kanan diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if TImage(Sender).Hint = 'd' then
   begin
-    imgE.Width  := 217;
-    imgE.Height := 188;
-    imgE.Left   := (ClientWidth - imgE.Width)div 2;
-    imgE.Top    := (ClientHeight - imgE.Height)div 2;
-//    lblE.Left   := (ClientWidth - lblE.Width)div 2;
-//    lblE.Top    := (ClientHeight - lblE.Height)div 2;
-
-  // Sembunyikan elemen lain
-    imgA.Visible := False;
-    imgB.Visible := False;
-    imgC.Visible := False;
-    imgD.Visible := False;
-    imgF.Visible := False;
-    imgG.Visible := False;
-//    lblA.Visible := False;
-//    lblB.Visible := False;
-//    lblC.Visible := False;
-//    lblD.Visible := False;
-//    lblF.Visible := False;
-//    lblG.Visible := False;
-
-    imgEExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgE.Width  := 80;
-      imgE.Height := 80;
-      imgE.Left   := 170;
-      imgE.Top    := 264;
-//      lblE.Left   := 202;
-//      lblE.Top    := 280;
-
-    // Tampilkan kembali elemen lain
-      imgA.Visible := True;
-      imgB.Visible := True;
-      imgC.Visible := True;
-      imgD.Visible := True;
-      imgF.Visible := True;
-      imgG.Visible := True;
-//      lblA.Visible := True;
-//      lblB.Visible := True;
-//      lblC.Visible := True;
-//      lblD.Visible := True;
-//      lblF.Visible := True;
-//      lblG.Visible := True;
-
-      imgEExpanded := False;
-    end;
-end;
-
-procedure TfrmSemaphoreA0.imgExitClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.imgFClick(Sender: TObject);
-begin
-  if not imgFExpanded then
+    lblHuruf.Caption := 'D';
+    lblDescTanganKanan.Caption :=
+      '- Tangan kanan diangkat searah jarum jam pukul 12.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if TImage(Sender).Hint = 'e' then
   begin
-    imgF.Width  := 217;
-    imgF.Height := 188;
-    imgF.Left   := (ClientWidth - imgF.Width)div 2;
-    imgF.Top    := (ClientHeight - imgF.Height)div 2;
-//    lblF.Left   := (ClientWidth - lblF.Width)div 2;
-//    lblF.Top    := (ClientHeight - lblF.Height)div 2;
-
-  // Sembunyikan elemen lain
-    imgA.Visible := False;
-    imgB.Visible := False;
-    imgC.Visible := False;
-    imgD.Visible := False;
-    imgE.Visible := False;
-    imgG.Visible := False;
-//    lblA.Visible := False;
-//    lblB.Visible := False;
-//    lblC.Visible := False;
-//    lblD.Visible := False;
-//    lblE.Visible := False;
-//    lblG.Visible := False;
-
-    imgFExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgF.Width  := 80;
-      imgF.Height := 80;
-      imgF.Left   := 285;
-      imgF.Top    := 264;
-//      lblF.Left   := 318;
-//      lblF.Top    := 280;
-
-    // Tampilkan kembali elemen lain
-      imgA.Visible := True;
-      imgB.Visible := True;
-      imgC.Visible := True;
-      imgD.Visible := True;
-      imgE.Visible := True;
-      imgG.Visible := True;
-//      lblA.Visible := True;
-//      lblB.Visible := True;
-//      lblC.Visible := True;
-//      lblD.Visible := True;
-//      lblE.Visible := True;
-//      lblG.Visible := True;
-
-      imgFExpanded := False;
-    end;
-end;
-
-procedure TfrmSemaphoreA0.imgGClick(Sender: TObject);
-begin
-  if not imgGExpanded then
+    lblHuruf.Caption := 'E';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 13.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if TImage(Sender).Hint = 'f' then
   begin
-    imgG.Width  := 217;
-    imgG.Height := 188;
-    imgG.Left   := (ClientWidth - imgG.Width)div 2;
-    imgG.Top    := (ClientHeight - imgG.Height)div 2;
-//    lblG.Left   := (ClientWidth - lblG.Width)div 2;
-//    lblG.Top    := (ClientHeight - lblG.Height)div 2;
+    lblHuruf.Caption := 'F';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 13.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
 
-  // Sembunyikan elemen lain
-    imgA.Visible := False;
-    imgB.Visible := False;
-    imgC.Visible := False;
-    imgD.Visible := False;
-    imgE.Visible := False;
-    imgF.Visible := False;
-//    lblA.Visible := False;
-//    lblB.Visible := False;
-//    lblC.Visible := False;
-//    lblD.Visible := False;
-//    lblE.Visible := False;
-//    lblF.Visible := False;
 
-    imgGExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgG.Width  := 80;
-      imgG.Height := 80;
-      imgG.Left   := 400;
-      imgG.Top    := 264;
-//      lblG.Left   := 431;
-//      lblG.Top    := 280;
-
-    // Tampilkan kembali elemen lain
-      imgA.Visible := True;
-      imgB.Visible := True;
-      imgC.Visible := True;
-      imgD.Visible := True;
-      imgE.Visible := True;
-      imgF.Visible := True;
-//      lblA.Visible := True;
-//      lblB.Visible := True;
-//      lblC.Visible := True;
-//      lblD.Visible := True;
-//      lblE.Visible := True;
-//      lblF.Visible := True;
-
-      imgGExpanded := False;
-    end;
+{$ENDREGION}
 end;
 
-procedure TfrmSemaphoreA0.imgKeluarClick(Sender: TObject);
+procedure TfrmSemaphoreA0.btnNextClick(Sender: TObject);
 begin
-  Close;
+  if (imgSpasi.Left <= 720) or (tmr1.Enabled) then
+    Exit;
+
+  tempTime := 0;
+  tmr1.Enabled := True;
+  isGeserKanan := False;
 end;
 
-procedure TfrmSemaphoreA0.imgKembaliClick(Sender: TObject);
+procedure TfrmSemaphoreA0.btnPrevClick(Sender: TObject);
 begin
-  pnlSemaphoreAG.BringToFront;
+  if (imgA.Left >= 0) or (tmr1.Enabled) then
+    Exit;
+
+  tempTime := 0;
+  tmr1.Enabled := True;
+  isGeserKanan := True;
 end;
 
-procedure TfrmSemaphoreA0.imgLanjutClick(Sender: TObject);
+procedure TfrmSemaphoreA0.SetButtonHurufPosition(posVal: Integer);
 begin
-  pnlSemaphoreHN.BringToFront;
+  imgA.Left := imgA.Left + posVal;
+  imgB.Left := imgB.Left + posVal;
+  imgC.Left := imgC.Left + posVal;
+  imgD.Left := imgD.Left + posVal;
+  imgE.Left := imgE.Left + posVal;
+  imgF.Left := imgF.Left + posVal;
+  imgG.Left := imgG.Left + posVal;
+  imgH.Left := imgH.Left + posVal;
+  imgI.Left := imgI.Left + posVal;
+  imgJ.Left := imgJ.Left + posVal;
+  imgK.Left := imgK.Left + posVal;
+  imgL.Left := imgL.Left + posVal;
+  imgM.Left := imgM.Left + posVal;
+  imgN.Left := imgN.Left + posVal;
+  imgO.Left := imgO.Left + posVal;
+  imgP.Left := imgP.Left + posVal;
+  imgQ.Left := imgQ.Left + posVal;
+  imgR.Left := imgR.Left + posVal;
+  imgS.Left := imgS.Left + posVal;
+  imgT.Left := imgT.Left + posVal;
+  imgU.Left := imgU.Left + posVal;
+  imgV.Left := imgV.Left + posVal;
+  imgW.Left := imgW.Left + posVal;
+  imgX.Left := imgX.Left + posVal;
+  imgY.Left := imgY.Left + posVal;
+  imgZ.Left := imgZ.Left + posVal;
+  imgNumeral.Left := imgNumeral.Left + posVal;
+  imgSpasi.Left := imgSpasi.Left + posVal;
 end;
 
-procedure TfrmSemaphoreA0.imgOkeClick(Sender: TObject);
-begin
-  pnlSemaphoreOS.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label10Click(Sender: TObject);
-begin
-  pnlSemaphoreWZ.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label12Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Label13Click(Sender: TObject);
-begin
-  pnlSemaphoreTV.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label14Click(Sender: TObject);
-begin
-//  pnlSemaphore17.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label16Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Label17Click(Sender: TObject);
-begin
-  pnlSemaphoreWZ.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label18Click(Sender: TObject);
-begin
-//  pnlSemaphore80.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label20Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Label21Click(Sender: TObject);
-begin
-//  pnlSemaphore17.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label5Click(Sender: TObject);
-begin
-  pnlSemaphoreHN.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label6Click(Sender: TObject);
-begin
-  pnlSemaphoreTV.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.Label8Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.Label9Click(Sender: TObject);
-begin
-  pnlSemaphoreOS.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.lblExitClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.lblKeluarClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSemaphoreA0.lblKembaliClick(Sender: TObject);
-begin
-  pnlSemaphoreAG.BringToFront;
-end;
-
-procedure TfrmSemaphoreA0.lblLanjutClick(Sender: TObject);
-begin
-  pnlSemaphoreHN.BringToFront;
-end;
-procedure TfrmSemaphoreA0.lblOkeClick(Sender: TObject);
-begin
-  pnlSemaphoreOS.BringToFront;
-end;
 procedure TfrmSemaphoreA0.tmr1Timer(Sender: TObject);
 begin
-//    lblTimer.Caption := FormatDateTime('dddd, dd/mm/yyyy hh:nn:ss', now);
+  tempTime := tempTime + 10;
+
+  if tempTime < 121 then
+  begin
+    if isGeserKanan then
+    begin
+      SetButtonHurufPosition(10);
+    end
+    else
+    begin
+      SetButtonHurufPosition(-10);
+    end;
+  end
+  else
+  begin
+    tmr1.Enabled := False;
+  end;
+end;
+
+procedure TfrmSemaphoreA0.tmr2Timer(Sender: TObject);
+begin
+  tempTime := tempTime + 10;
+
+  if tempTime < 121 then
+  begin
+    if isGeserKanan then
+    begin
+      SetButtonHurufPosition(10);
+    end
+    else
+    begin
+      SetButtonHurufPosition(-10);
+    end;
+  end
+  else
+  begin
+    tmr1.Enabled := False;
+  end;
 end;
 
 end.

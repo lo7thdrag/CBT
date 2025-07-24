@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, TFlatSpeedButtonUnit;
 
 type
   TfrmSemaphoreA0 = class(TForm)
@@ -15,133 +15,47 @@ type
     imgC: TImage;
     imgD: TImage;
     imgE: TImage;
-    imgExit: TImage;
     imgF: TImage;
     imgG: TImage;
-    imgLanjut: TImage;
-    imgSemaphore: TImage;
-    lblA: TLabel;
-    lblB: TLabel;
-    lblC: TLabel;
-    lblE: TLabel;
-    lblF: TLabel;
-    lblG: TLabel;
-    lblKembali: TLabel;
-    lblLanjut: TLabel;
-    lblSemaphore: TLabel;
     pnlSemaphoreHN: TPanel;
-    Image1: TImage;
     imgH: TImage;
     imgI: TImage;
     imgJ: TImage;
     imgK: TImage;
-    imgKembali: TImage;
     imgL: TImage;
     imgM: TImage;
     imgN: TImage;
-    imgOke: TImage;
-    Image2: TImage;
-    lblExit: TLabel;
-    lblH: TLabel;
-    lblI: TLabel;
-    lblJ: TLabel;
-    lblK: TLabel;
-    Label3: TLabel;
-    lblL: TLabel;
-    lblM: TLabel;
-    lblN: TLabel;
-    lblOke: TLabel;
-    Label4: TLabel;
     pnlSemaphoreOS: TPanel;
-    imgKeluar: TImage;
-    Image3: TImage;
     imgO: TImage;
-    Image4: TImage;
     imgP: TImage;
     imgQ: TImage;
     imgR: TImage;
     imgS: TImage;
-    Image5: TImage;
-    lblKeluar: TLabel;
-    Label5: TLabel;
-    lblO: TLabel;
-    Label6: TLabel;
-    lblP: TLabel;
-    lblQ: TLabel;
-    lblR: TLabel;
-    lblS: TLabel;
-    Label7: TLabel;
     pnlSemaphoreTV: TPanel;
-    Image6: TImage;
-    Image7: TImage;
-    Image8: TImage;
-    Image9: TImage;
     imgT: TImage;
     imgU: TImage;
     imgV: TImage;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    lblT: TLabel;
-    lblU: TLabel;
-    lblV: TLabel;
     pnlSemaphoreWZ: TPanel;
-    Image10: TImage;
-    Image11: TImage;
-    Image12: TImage;
-    Image13: TImage;
     imgW: TImage;
     imgX: TImage;
     imgY: TImage;
     imgZ: TImage;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    lblW: TLabel;
-    lblX: TLabel;
-    lblY: TLabel;
-    lblZ: TLabel;
-    pnlSemaphore17: TPanel;
-    img1: TImage;
-    img2: TImage;
+    imgBackground: TImage;
+    tmr1: TTimer;
+    pnlHeader: TPanel;
+    pnlBackground: TPanel;
+    imgModel: TImage;
+    imgDescription: TImage;
     img3: TImage;
     img4: TImage;
     img5: TImage;
     img6: TImage;
     img7: TImage;
-    ImageKeluar: TImage;
-    Image15: TImage;
-    Image16: TImage;
-    Image17: TImage;
+    img1: TImage;
     lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
-    lbl7: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label19: TLabel;
-    pnlSemaphore80: TPanel;
-    img0: TImage;
-    img8: TImage;
-    img9: TImage;
-    Image18: TImage;
-    Image20: TImage;
-    Image21: TImage;
-    lbl0: TLabel;
-    lbl8: TLabel;
-    lbl9: TLabel;
-    Label20: TLabel;
-    Label23: TLabel;
-    Label21: TLabel;
-    Timer1: TTimer;
-    lblD: TLabel;
-    lblTimer: TLabel;
+    lblDescTanganKanan: TLabel;
+    lblDescTanganKiri: TLabel;
+    lblHuruf: TLabel;
     procedure lblKembaliClick(Sender: TObject);
     procedure lblLanjutClick(Sender: TObject);
     procedure lblOkeClick(Sender: TObject);
@@ -184,10 +98,11 @@ type
     procedure imgBClick(Sender: TObject);
     procedure imgCClick(Sender: TObject);
     procedure imgDClick(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+    procedure tmr1Timer(Sender: TObject);
     procedure imgEClick(Sender: TObject);
     procedure imgFClick(Sender: TObject);
     procedure imgGClick(Sender: TObject);
+    procedure imgModelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -217,6 +132,11 @@ uses
 
 procedure TfrmSemaphoreA0.FormShow(Sender: TObject);
 begin
+  Top := Screen.Monitors[0].Top;
+  Left := Screen.Monitors[0].Left;
+  Height := Screen.Monitors[0].Height;
+  Width := Screen.Monitors[0].Width;
+
   pnlSemaphoreAG.BringToFront;
 end;
 
@@ -232,7 +152,7 @@ end;
 
 procedure TfrmSemaphoreA0.Image12Click(Sender: TObject);
 begin
-  pnlSemaphore17.BringToFront;
+// pnlSemaphore17.BringToFront;
 end;
 
 procedure TfrmSemaphoreA0.Image15Click(Sender: TObject);
@@ -242,7 +162,7 @@ end;
 
 procedure TfrmSemaphoreA0.Image16Click(Sender: TObject);
 begin
-  pnlSemaphore80.BringToFront;
+//  pnlSemaphore80.BringToFront;
 end;
 
 procedure TfrmSemaphoreA0.Image18Click(Sender: TObject);
@@ -257,7 +177,7 @@ end;
 
 procedure TfrmSemaphoreA0.Image20Click(Sender: TObject);
 begin
-  pnlSemaphore17.BringToFront;
+//  pnlSemaphore17.BringToFront;
 end;
 
 procedure TfrmSemaphoreA0.Image3Click(Sender: TObject);
@@ -290,59 +210,65 @@ begin
   Close;
 end;
 
+procedure TfrmSemaphoreA0.imgModelClick(Sender: TObject);
+begin
+  ShowMessage('Width : ' + Width.ToString + 'Height : ' + Height.ToString);
+end;
+
 procedure TfrmSemaphoreA0.imgAClick(Sender: TObject);
 begin
-  if not imgAExpanded then
-  begin
-    imgA.Width  := 217;
-    imgA.Height := 188;
-    imgA.Left   := (ClientWidth - imgA.Width)div 2;
-    imgA.Top    := (ClientHeight - imgA.Height)div 2;
-    lblA.Left   := (ClientWidth - lblA.Width)div 2;
-    lblA.Top    := (ClientHeight - lblA.Height)div 2;
-
-  // Sembunyikan elemen lain
-    imgB.Visible := False;
-    imgC.Visible := False;
-    imgD.Visible := False;
-    imgE.Visible := False;
-    imgF.Visible := False;
-    imgG.Visible := False;
-    lblB.Visible := False;
-    lblC.Visible := False;
-    lblD.Visible := False;
-    lblE.Visible := False;
-    lblF.Visible := False;
-    lblG.Visible := False;
-
-    imgAExpanded := True;
-    end
-    else
-    begin
-    // Kembalikan ukuran dan posisi awal
-      imgA.Width  := 80;
-      imgA.Height := 80;
-      imgA.Left   := 113;
-      imgA.Top    := 129;
-      lblA.Left   := 145;
-      lblA.Top    := 150;
-
-    // Tampilkan kembali elemen lain
-      imgB.Visible := True;
-      imgC.Visible := True;
-      imgD.Visible := True;
-      imgE.Visible := True;
-      imgF.Visible := True;
-      imgG.Visible := True;
-      lblB.Visible := True;
-      lblC.Visible := True;
-      lblD.Visible := True;
-      lblE.Visible := True;
-      lblF.Visible := True;
-      lblG.Visible := True;
-
-      imgAExpanded := False;
-    end;
+  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\A.PNG');
+//  if not imgAExpanded then
+//  begin
+//    imgA.Width  := 217;
+//    imgA.Height := 188;
+//    imgA.Left   := (ClientWidth - imgA.Width)div 2;
+//    imgA.Top    := (ClientHeight - imgA.Height)div 2;
+////    lblA.Left   := (ClientWidth - lblA.Width)div 2;
+////    lblA.Top    := (ClientHeight - lblA.Height)div 2;
+//
+//  // Sembunyikan elemen lain
+//    imgB.Visible := False;
+//    imgC.Visible := False;
+//    imgD.Visible := False;
+//    imgE.Visible := False;
+//    imgF.Visible := False;
+//    imgG.Visible := False;
+////    lblB.Visible := False;
+////    lblC.Visible := False;
+////    lblD.Visible := False;
+////    lblE.Visible := False;
+////    lblF.Visible := False;
+////    lblG.Visible := False;
+//
+//    imgAExpanded := True;
+//    end
+//    else
+//    begin
+//    // Kembalikan ukuran dan posisi awal
+//      imgA.Width  := 80;
+//      imgA.Height := 80;
+//      imgA.Left   := 113;
+//      imgA.Top    := 129;
+////      lblA.Left   := 145;
+////      lblA.Top    := 150;
+//
+//    // Tampilkan kembali elemen lain
+//      imgB.Visible := True;
+//      imgC.Visible := True;
+//      imgD.Visible := True;
+//      imgE.Visible := True;
+//      imgF.Visible := True;
+//      imgG.Visible := True;
+////      lblB.Visible := True;
+////      lblC.Visible := True;
+////      lblD.Visible := True;
+////      lblE.Visible := True;
+////      lblF.Visible := True;
+////      lblG.Visible := True;
+//
+//      imgAExpanded := False;
+//    end;
 end;
 
 procedure TfrmSemaphoreA0.imgBClick(Sender: TObject);
@@ -353,8 +279,8 @@ begin
     imgB.Height := 188;
     imgB.Left   := (ClientWidth - imgB.Width)div 2;
     imgB.Top    := (ClientHeight - imgB.Height)div 2;
-    lblB.Left   := (ClientWidth - lblB.Width)div 2;
-    lblB.Top    := (ClientHeight - lblB.Height)div 2;
+//    lblB.Left   := (ClientWidth - lblB.Width)div 2;
+//    lblB.Top    := (ClientHeight - lblB.Height)div 2;
 
   // Sembunyikan elemen lain
     imgA.Visible := False;
@@ -363,12 +289,12 @@ begin
     imgE.Visible := False;
     imgF.Visible := False;
     imgG.Visible := False;
-    lblA.Visible := False;
-    lblC.Visible := False;
-    lblD.Visible := False;
-    lblE.Visible := False;
-    lblF.Visible := False;
-    lblG.Visible := False;
+//    lblA.Visible := False;
+//    lblC.Visible := False;
+//    lblD.Visible := False;
+//    lblE.Visible := False;
+//    lblF.Visible := False;
+//    lblG.Visible := False;
 
     imgBExpanded := True;
     end
@@ -379,8 +305,8 @@ begin
       imgB.Height := 80;
       imgB.Left   := 228;
       imgB.Top    := 129;
-      lblB.Left   := 260;
-      lblB.Top    := 150;
+//      lblB.Left   := 260;
+//      lblB.Top    := 150;
 
     // Tampilkan kembali elemen lain
       imgA.Visible := True;
@@ -389,12 +315,12 @@ begin
       imgE.Visible := True;
       imgF.Visible := True;
       imgG.Visible := True;
-      lblA.Visible := True;
-      lblC.Visible := True;
-      lblD.Visible := True;
-      lblE.Visible := True;
-      lblF.Visible := True;
-      lblG.Visible := True;
+//      lblA.Visible := True;
+//      lblC.Visible := True;
+//      lblD.Visible := True;
+//      lblE.Visible := True;
+//      lblF.Visible := True;
+//      lblG.Visible := True;
 
       imgBExpanded := False;
     end;
@@ -408,8 +334,8 @@ begin
     imgC.Height := 188;
     imgC.Left   := (ClientWidth - imgC.Width)div 2;
     imgC.Top    := (ClientHeight - imgC.Height)div 2;
-    lblC.Left   := (ClientWidth - lblC.Width)div 2;
-    lblC.Top    := (ClientHeight - lblC.Height)div 2;
+//    lblC.Left   := (ClientWidth - lblC.Width)div 2;
+//    lblC.Top    := (ClientHeight - lblC.Height)div 2;
 
   // Sembunyikan elemen lain
     imgA.Visible := False;
@@ -418,12 +344,12 @@ begin
     imgE.Visible := False;
     imgF.Visible := False;
     imgG.Visible := False;
-    lblA.Visible := False;
-    lblB.Visible := False;
-    lblD.Visible := False;
-    lblE.Visible := False;
-    lblF.Visible := False;
-    lblG.Visible := False;
+//    lblA.Visible := False;
+//    lblB.Visible := False;
+//    lblD.Visible := False;
+//    lblE.Visible := False;
+//    lblF.Visible := False;
+//    lblG.Visible := False;
 
     imgCExpanded := True;
     end
@@ -434,8 +360,8 @@ begin
       imgC.Height := 80;
       imgC.Left   := 343;
       imgC.Top    := 129;
-      lblC.Left   := 373;
-      lblC.Top    := 150;
+//      lblC.Left   := 373;
+//      lblC.Top    := 150;
 
     // Tampilkan kembali elemen lain
       imgA.Visible := True;
@@ -444,12 +370,12 @@ begin
       imgE.Visible := True;
       imgF.Visible := True;
       imgG.Visible := True;
-      lblA.Visible := True;
-      lblB.Visible := True;
-      lblD.Visible := True;
-      lblE.Visible := True;
-      lblF.Visible := True;
-      lblG.Visible := True;
+//      lblA.Visible := True;
+//      lblB.Visible := True;
+//      lblD.Visible := True;
+//      lblE.Visible := True;
+//      lblF.Visible := True;
+//      lblG.Visible := True;
 
       imgCExpanded := False;
     end;
@@ -463,8 +389,8 @@ begin
     imgD.Height := 188;
     imgD.Left   := (ClientWidth - imgD.Width)div 2;
     imgD.Top    := (ClientHeight - imgD.Height)div 2;
-    lblD.Left   := (ClientWidth - lblD.Width)div 2;
-    lblD.Top    := (ClientHeight - lblD.Height)div 2;
+//    lblD.Left   := (ClientWidth - lblD.Width)div 2;
+//    lblD.Top    := (ClientHeight - lblD.Height)div 2;
 
   // Sembunyikan elemen lain
     imgA.Visible := False;
@@ -473,12 +399,12 @@ begin
     imgE.Visible := False;
     imgF.Visible := False;
     imgG.Visible := False;
-    lblA.Visible := False;
-    lblB.Visible := False;
-    lblC.Visible := False;
-    lblE.Visible := False;
-    lblF.Visible := False;
-    lblG.Visible := False;
+//    lblA.Visible := False;
+//    lblB.Visible := False;
+//    lblC.Visible := False;
+//    lblE.Visible := False;
+//    lblF.Visible := False;
+//    lblG.Visible := False;
 
     imgDExpanded := True;
     end
@@ -489,8 +415,8 @@ begin
       imgD.Height := 80;
       imgD.Left   := 458;
       imgD.Top    := 129;
-      lblD.Left   := 489;
-      lblD.Top    := 150;
+//      lblD.Left   := 489;
+//      lblD.Top    := 150;
 
     // Tampilkan kembali elemen lain
       imgA.Visible := True;
@@ -499,12 +425,12 @@ begin
       imgE.Visible := True;
       imgF.Visible := True;
       imgG.Visible := True;
-      lblA.Visible := True;
-      lblB.Visible := True;
-      lblC.Visible := True;
-      lblE.Visible := True;
-      lblF.Visible := True;
-      lblG.Visible := True;
+//      lblA.Visible := True;
+//      lblB.Visible := True;
+//      lblC.Visible := True;
+//      lblE.Visible := True;
+//      lblF.Visible := True;
+//      lblG.Visible := True;
 
       imgDExpanded := False;
     end;
@@ -518,8 +444,8 @@ begin
     imgE.Height := 188;
     imgE.Left   := (ClientWidth - imgE.Width)div 2;
     imgE.Top    := (ClientHeight - imgE.Height)div 2;
-    lblE.Left   := (ClientWidth - lblE.Width)div 2;
-    lblE.Top    := (ClientHeight - lblE.Height)div 2;
+//    lblE.Left   := (ClientWidth - lblE.Width)div 2;
+//    lblE.Top    := (ClientHeight - lblE.Height)div 2;
 
   // Sembunyikan elemen lain
     imgA.Visible := False;
@@ -528,12 +454,12 @@ begin
     imgD.Visible := False;
     imgF.Visible := False;
     imgG.Visible := False;
-    lblA.Visible := False;
-    lblB.Visible := False;
-    lblC.Visible := False;
-    lblD.Visible := False;
-    lblF.Visible := False;
-    lblG.Visible := False;
+//    lblA.Visible := False;
+//    lblB.Visible := False;
+//    lblC.Visible := False;
+//    lblD.Visible := False;
+//    lblF.Visible := False;
+//    lblG.Visible := False;
 
     imgEExpanded := True;
     end
@@ -544,8 +470,8 @@ begin
       imgE.Height := 80;
       imgE.Left   := 170;
       imgE.Top    := 264;
-      lblE.Left   := 202;
-      lblE.Top    := 280;
+//      lblE.Left   := 202;
+//      lblE.Top    := 280;
 
     // Tampilkan kembali elemen lain
       imgA.Visible := True;
@@ -554,12 +480,12 @@ begin
       imgD.Visible := True;
       imgF.Visible := True;
       imgG.Visible := True;
-      lblA.Visible := True;
-      lblB.Visible := True;
-      lblC.Visible := True;
-      lblD.Visible := True;
-      lblF.Visible := True;
-      lblG.Visible := True;
+//      lblA.Visible := True;
+//      lblB.Visible := True;
+//      lblC.Visible := True;
+//      lblD.Visible := True;
+//      lblF.Visible := True;
+//      lblG.Visible := True;
 
       imgEExpanded := False;
     end;
@@ -578,8 +504,8 @@ begin
     imgF.Height := 188;
     imgF.Left   := (ClientWidth - imgF.Width)div 2;
     imgF.Top    := (ClientHeight - imgF.Height)div 2;
-    lblF.Left   := (ClientWidth - lblF.Width)div 2;
-    lblF.Top    := (ClientHeight - lblF.Height)div 2;
+//    lblF.Left   := (ClientWidth - lblF.Width)div 2;
+//    lblF.Top    := (ClientHeight - lblF.Height)div 2;
 
   // Sembunyikan elemen lain
     imgA.Visible := False;
@@ -588,12 +514,12 @@ begin
     imgD.Visible := False;
     imgE.Visible := False;
     imgG.Visible := False;
-    lblA.Visible := False;
-    lblB.Visible := False;
-    lblC.Visible := False;
-    lblD.Visible := False;
-    lblE.Visible := False;
-    lblG.Visible := False;
+//    lblA.Visible := False;
+//    lblB.Visible := False;
+//    lblC.Visible := False;
+//    lblD.Visible := False;
+//    lblE.Visible := False;
+//    lblG.Visible := False;
 
     imgFExpanded := True;
     end
@@ -604,8 +530,8 @@ begin
       imgF.Height := 80;
       imgF.Left   := 285;
       imgF.Top    := 264;
-      lblF.Left   := 318;
-      lblF.Top    := 280;
+//      lblF.Left   := 318;
+//      lblF.Top    := 280;
 
     // Tampilkan kembali elemen lain
       imgA.Visible := True;
@@ -614,12 +540,12 @@ begin
       imgD.Visible := True;
       imgE.Visible := True;
       imgG.Visible := True;
-      lblA.Visible := True;
-      lblB.Visible := True;
-      lblC.Visible := True;
-      lblD.Visible := True;
-      lblE.Visible := True;
-      lblG.Visible := True;
+//      lblA.Visible := True;
+//      lblB.Visible := True;
+//      lblC.Visible := True;
+//      lblD.Visible := True;
+//      lblE.Visible := True;
+//      lblG.Visible := True;
 
       imgFExpanded := False;
     end;
@@ -633,8 +559,8 @@ begin
     imgG.Height := 188;
     imgG.Left   := (ClientWidth - imgG.Width)div 2;
     imgG.Top    := (ClientHeight - imgG.Height)div 2;
-    lblG.Left   := (ClientWidth - lblG.Width)div 2;
-    lblG.Top    := (ClientHeight - lblG.Height)div 2;
+//    lblG.Left   := (ClientWidth - lblG.Width)div 2;
+//    lblG.Top    := (ClientHeight - lblG.Height)div 2;
 
   // Sembunyikan elemen lain
     imgA.Visible := False;
@@ -643,12 +569,12 @@ begin
     imgD.Visible := False;
     imgE.Visible := False;
     imgF.Visible := False;
-    lblA.Visible := False;
-    lblB.Visible := False;
-    lblC.Visible := False;
-    lblD.Visible := False;
-    lblE.Visible := False;
-    lblF.Visible := False;
+//    lblA.Visible := False;
+//    lblB.Visible := False;
+//    lblC.Visible := False;
+//    lblD.Visible := False;
+//    lblE.Visible := False;
+//    lblF.Visible := False;
 
     imgGExpanded := True;
     end
@@ -659,8 +585,8 @@ begin
       imgG.Height := 80;
       imgG.Left   := 400;
       imgG.Top    := 264;
-      lblG.Left   := 431;
-      lblG.Top    := 280;
+//      lblG.Left   := 431;
+//      lblG.Top    := 280;
 
     // Tampilkan kembali elemen lain
       imgA.Visible := True;
@@ -669,12 +595,12 @@ begin
       imgD.Visible := True;
       imgE.Visible := True;
       imgF.Visible := True;
-      lblA.Visible := True;
-      lblB.Visible := True;
-      lblC.Visible := True;
-      lblD.Visible := True;
-      lblE.Visible := True;
-      lblF.Visible := True;
+//      lblA.Visible := True;
+//      lblB.Visible := True;
+//      lblC.Visible := True;
+//      lblD.Visible := True;
+//      lblE.Visible := True;
+//      lblF.Visible := True;
 
       imgGExpanded := False;
     end;
@@ -717,7 +643,7 @@ end;
 
 procedure TfrmSemaphoreA0.Label14Click(Sender: TObject);
 begin
-  pnlSemaphore17.BringToFront;
+//  pnlSemaphore17.BringToFront;
 end;
 
 procedure TfrmSemaphoreA0.Label16Click(Sender: TObject);
@@ -732,7 +658,7 @@ end;
 
 procedure TfrmSemaphoreA0.Label18Click(Sender: TObject);
 begin
-  pnlSemaphore80.BringToFront;
+//  pnlSemaphore80.BringToFront;
 end;
 
 procedure TfrmSemaphoreA0.Label20Click(Sender: TObject);
@@ -742,7 +668,7 @@ end;
 
 procedure TfrmSemaphoreA0.Label21Click(Sender: TObject);
 begin
-  pnlSemaphore17.BringToFront;
+//  pnlSemaphore17.BringToFront;
 end;
 
 procedure TfrmSemaphoreA0.Label5Click(Sender: TObject);
@@ -788,9 +714,9 @@ procedure TfrmSemaphoreA0.lblOkeClick(Sender: TObject);
 begin
   pnlSemaphoreOS.BringToFront;
 end;
-procedure TfrmSemaphoreA0.Timer1Timer(Sender: TObject);
+procedure TfrmSemaphoreA0.tmr1Timer(Sender: TObject);
 begin
-    lblTimer.Caption := FormatDateTime('dddd, dd/mm/yyyy hh:nn:ss', now);
+//    lblTimer.Caption := FormatDateTime('dddd, dd/mm/yyyy hh:nn:ss', now);
 end;
 
 end.

@@ -234,26 +234,14 @@ begin
   else if TImage(Sender).Hint = 'e' then
   begin
     lblHuruf.Caption := 'E';
-<<<<<<< HEAD
     lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
     lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
-=======
-    lblDescTanganKanan.Caption :=
-      '- Tangan kanan diangkat searah jarum jam pukul 13.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
->>>>>>> 9e62f0e4ad180632ef4e47c90eab629854685ba5
   end
   else if TImage(Sender).Hint = 'f' then
   begin
     lblHuruf.Caption := 'F';
-<<<<<<< HEAD
     lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 15.00';
     lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
-=======
-    lblDescTanganKanan.Caption :=
-      '- Tangan kanan diangkat searah jarum jam pukul 13.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
->>>>>>> 9e62f0e4ad180632ef4e47c90eab629854685ba5
   end
   else if TImage(Sender).Hint = 'g' then
   begin

@@ -8,6 +8,10 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage, TFlatSpeedButtonUnit;
 
+const
+  C_ABJAD_ID : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+
 type
   TfrmSemaphoreA0 = class(TForm)
     imgBackground: TImage;
@@ -54,12 +58,13 @@ type
     imgNumeral: TImage;
     imgSpasi: TImage;
     tmr2: TTimer;
+    lblPlayAll: TLabel;
+    lblBeranda: TLabel;
 
     procedure FormShow(Sender: TObject);
 
     procedure btnPrevClick(Sender: TObject);
     procedure btnNextClick(Sender: TObject);
-
     procedure btnHurufClick(Sender: TObject);
 
     procedure tmr1Timer(Sender: TObject);
@@ -67,14 +72,17 @@ type
     procedure btnGroupClick(Sender: TObject);
     procedure lblGroupMouseEnter(Sender: TObject);
     procedure lblGroupMouseLeave(Sender: TObject);
+    procedure lblPlayAllClick(Sender: TObject);
+    procedure lblBerandaClick(Sender: TObject);
 
   private
     isGeserKanan: Boolean;
     isGeserPerGroup: Boolean;
     groupId : Integer;
-    tempTime: Integer;
+    tempTime, tempTime2: Integer;
 
     procedure SetButtonHurufPosition(posVal: Integer);
+    procedure LoadHuruf(hrfVal: string);
 
   public
     { Public declarations }
@@ -145,6 +153,17 @@ begin
   EnableComposited(pnlBackground);
 end;
 
+procedure TfrmSemaphoreA0.lblPlayAllClick(Sender: TObject);
+begin
+  tempTime2 := 0;
+  tmr2.Enabled := True;
+end;
+
+procedure TfrmSemaphoreA0.lblBerandaClick(Sender: TObject);
+begin
+  Close
+end;
+
 procedure TfrmSemaphoreA0.lblGroupMouseEnter(Sender: TObject);
 begin
   if Sender is TLabel then
@@ -161,6 +180,185 @@ begin
     TLabel(sender).Font.Color := clWhite;
     TLabel(sender).Font.Size := 18;
   end;
+end;
+
+procedure TfrmSemaphoreA0.LoadHuruf(hrfVal: string);
+begin
+  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + hrfVal + '.png');
+  lblHuruf.Font.Size := 90;
+
+  {$REGION ' Set Deskription '}
+  if hrfVal = 'a' then
+  begin
+    lblHuruf.Caption := 'A';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 07.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'b' then
+  begin
+    lblHuruf.Caption := 'B';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'c' then
+  begin
+    lblHuruf.Caption := 'C';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'd' then
+  begin
+    lblHuruf.Caption := 'D';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'e' then
+  begin
+    lblHuruf.Caption := 'E';
+    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'f' then
+  begin
+    lblHuruf.Caption := 'F';
+    lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 15.00';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'g' then
+  begin
+    lblHuruf.Caption := 'G';
+    lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 16.30';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
+  end
+  else if hrfVal = 'h' then
+  begin
+    lblHuruf.Caption := 'H';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
+  end
+  else if hrfVal = 'i' then
+  begin
+    lblHuruf.Caption := 'I';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
+  end
+  else if hrfVal = 'j' then
+  begin
+    lblHuruf.Caption := 'J';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 15.00';
+  end
+  else if hrfVal = 'k' then
+  begin
+    lblHuruf.Caption := 'K';
+    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 12.00';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
+  end
+  else if hrfVal = 'l' then
+  begin
+    lblHuruf.Caption := 'L';
+    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
+  end
+  else if hrfVal = 'm' then
+  begin
+    lblHuruf.Caption := 'M';
+    lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 15.00';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
+  end
+  else if hrfVal = 'n' then
+  begin
+    lblHuruf.Caption := 'N';
+    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
+  end
+   else if hrfVal = 'o' then
+  begin
+    lblHuruf.Caption := 'O';
+    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 09.00';
+  end
+  else if hrfVal = 'p' then
+  begin
+    lblHuruf.Caption := 'P';
+    lblDescTanganKanan.Caption :='- Tangan kanan  searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 12.00';
+  end
+  else if hrfVal = 'q' then
+  begin
+    lblHuruf.Caption := 'Q';
+    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if hrfVal = 'r' then
+  begin
+    lblHuruf.Caption := 'R';
+    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 15.00';
+  end
+  else if hrfVal = 's' then
+  begin
+    lblHuruf.Caption := 'S';
+    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 16.30';
+  end
+   else if hrfVal = 't' then
+  begin
+    lblHuruf.Caption := 'T';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 12.00';
+  end
+  else if hrfVal = 'u' then
+  begin
+    lblHuruf.Caption := 'U';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 10.30';
+  end
+  else if hrfVal = 'v' then
+  begin
+    lblHuruf.Caption := 'V';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 16.30';
+  end
+  else if hrfVal = 'w' then
+  begin
+    lblHuruf.Caption := 'W';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 15.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if hrfVal = 'x' then
+  begin
+    lblHuruf.Caption := 'X';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if hrfVal = 'y' then
+  begin
+    lblHuruf.Caption := 'Y';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if hrfVal = 'z' then
+  begin
+    lblHuruf.Caption := 'Z';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
+  end
+  else if hrfVal = 'spasi' then
+  begin
+    lblHuruf.Font.Size := 50;
+    lblHuruf.Caption := 'SPASI';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
+  end
+  else if hrfVal = 'numeral' then
+  begin
+    lblHuruf.Font.Size := 50;
+    lblHuruf.Caption := 'NUM';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 18.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 18.30';
+  end
+  {$ENDREGION}
 end;
 
 procedure TfrmSemaphoreA0.btnGroupClick(Sender: TObject);
@@ -212,181 +410,7 @@ end;
 
 procedure TfrmSemaphoreA0.btnHurufClick(Sender: TObject);
 begin
-  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + TImage(Sender).Hint + '.png');
-  lblHuruf.Font.Size := 90;
-
-  {$REGION ' Set Deskription '}
-  if TImage(Sender).Hint = 'a' then
-  begin
-    lblHuruf.Caption := 'A';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 07.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'b' then
-  begin
-    lblHuruf.Caption := 'B';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'c' then
-  begin
-    lblHuruf.Caption := 'C';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'd' then
-  begin
-    lblHuruf.Caption := 'D';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'e' then
-  begin
-    lblHuruf.Caption := 'E';
-    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'f' then
-  begin
-    lblHuruf.Caption := 'F';
-    lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 15.00';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'g' then
-  begin
-    lblHuruf.Caption := 'G';
-    lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 16.30';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
-  end
-  else if TImage(Sender).Hint = 'h' then
-  begin
-    lblHuruf.Caption := 'H';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
-  end
-  else if TImage(Sender).Hint = 'i' then
-  begin
-    lblHuruf.Caption := 'I';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
-  end
-  else if TImage(Sender).Hint = 'j' then
-  begin
-    lblHuruf.Caption := 'J';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 15.00';
-  end
-  else if TImage(Sender).Hint = 'k' then
-  begin
-    lblHuruf.Caption := 'K';
-    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 12.00';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
-  end
-  else if TImage(Sender).Hint = 'l' then
-  begin
-    lblHuruf.Caption := 'L';
-    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
-  end
-  else if TImage(Sender).Hint = 'm' then
-  begin
-    lblHuruf.Caption := 'M';
-    lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 15.00';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
-  end
-  else if TImage(Sender).Hint = 'n' then
-  begin
-    lblHuruf.Caption := 'N';
-    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 16.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
-  end
-   else if TImage(Sender).Hint = 'o' then
-  begin
-    lblHuruf.Caption := 'O';
-    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 10.30';
-    lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 09.00';
-  end
-  else if TImage(Sender).Hint = 'p' then
-  begin
-    lblHuruf.Caption := 'P';
-    lblDescTanganKanan.Caption :='- Tangan kanan  searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 12.00';
-  end
-  else if TImage(Sender).Hint = 'q' then
-  begin
-    lblHuruf.Caption := 'Q';
-    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
-  end
-  else if TImage(Sender).Hint = 'r' then
-  begin
-    lblHuruf.Caption := 'R';
-    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 15.00';
-  end
-  else if TImage(Sender).Hint = 's' then
-  begin
-    lblHuruf.Caption := 'S';
-    lblDescTanganKanan.Caption :='- Tangan kanan searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 16.30';
-  end
-   else if TImage(Sender).Hint = 't' then
-  begin
-    lblHuruf.Caption := 'T';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 12.00';
-  end
-  else if TImage(Sender).Hint = 'u' then
-  begin
-    lblHuruf.Caption := 'U';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 10.30';
-  end
-  else if TImage(Sender).Hint = 'v' then
-  begin
-    lblHuruf.Caption := 'V';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 16.30';
-  end
-  else if TImage(Sender).Hint = 'w' then
-  begin
-    lblHuruf.Caption := 'W';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 15.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
-  end
-  else if TImage(Sender).Hint = 'x' then
-  begin
-    lblHuruf.Caption := 'X';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
-  end
-  else if TImage(Sender).Hint = 'y' then
-  begin
-    lblHuruf.Caption := 'Y';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
-  end
-  else if TImage(Sender).Hint = 'z' then
-  begin
-    lblHuruf.Caption := 'Z';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
-  end
-  else if TImage(Sender).Hint = 'spasi' then
-  begin
-    lblHuruf.Font.Size := 50;
-    lblHuruf.Caption := 'SPASI';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
-  end
-  else if TImage(Sender).Hint = 'numeral' then
-  begin
-    lblHuruf.Font.Size := 50;
-    lblHuruf.Caption := 'NUM';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 18.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 18.30';
-  end
-  {$ENDREGION}
+  LoadHuruf(TImage(Sender).Hint)
 end;
 
 procedure TfrmSemaphoreA0.btnNextClick(Sender: TObject);
@@ -536,22 +560,17 @@ end;
 
 procedure TfrmSemaphoreA0.tmr2Timer(Sender: TObject);
 begin
-  tempTime := tempTime + 10;
 
-  if tempTime < 121 then
+  LoadHuruf(C_ABJAD_ID[tempTime2]);
+
+  tempTime2 := tempTime2 + 1;
+
+  if tempTime2 > 27 then
   begin
-    if isGeserKanan then
-    begin
-      SetButtonHurufPosition(10);
-    end
-    else
-    begin
-      SetButtonHurufPosition(-10);
-    end;
-  end
-  else
-  begin
-    tmr1.Enabled := False;
+    lblHuruf.Caption := '-';
+    lblDescTanganKanan.Caption := '-';
+    lblDescTanganKiri.Caption := '-';
+    tmr2.Enabled := False;
   end;
 end;
 

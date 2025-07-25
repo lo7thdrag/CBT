@@ -9,7 +9,6 @@ uses
 type
   TfrmSemaphore = class(TForm)
     imgIntroduce: TImage;
-    lblIntroduce: TLabel;
     imgSEmaphoreHuruf: TImage;
     imgSemaphoreBaca: TImage;
     imgExit: TImage;
@@ -19,11 +18,13 @@ type
     imgSemaphoreKata: TImage;
     lblSemaphoreKata: TLabel;
     imgSemaphoreKirim: TImage;
-    lblSemaphoreKirim: TLabel;
     lbl1: TLabel;
     imgBackground: TImage;
+    lbl2: TLabel;
+    lbl3: TLabel;
     procedure lblSemaphoreHurufClick(Sender: TObject);
     procedure imgSEmaphoreHurufClick(Sender: TObject);
+    procedure lbl3Click(Sender: TObject);
 //    procedure imgMorseGameClick(Sender: TObject);
   private
     { Private declarations }
@@ -44,6 +45,11 @@ uses
 procedure TfrmSemaphore.imgSEmaphoreHurufClick(Sender: TObject);
 begin
   frmSemaphoreA0.Show;
+end;
+
+procedure TfrmSemaphore.lbl3Click(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TfrmSemaphore.lblSemaphoreHurufClick(Sender: TObject);

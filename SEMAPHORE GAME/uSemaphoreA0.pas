@@ -26,11 +26,10 @@ type
     imgE: TImage;
     imgF: TImage;
     imgG: TImage;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
+    lblAG: TLabel;
+    lblHN: TLabel;
+    lblOU: TLabel;
+    lblVZ: TLabel;
     imgPrev: TImage;
     imgNext: TImage;
     imgH: TImage;
@@ -54,16 +53,6 @@ type
     imgZ: TImage;
     imgNumeral: TImage;
     imgSpasi: TImage;
-    pnl2: TPanel;
-    img1: TImage;
-    img2: TImage;
-    img3: TImage;
-    img4: TImage;
-    img5: TImage;
-    img6: TImage;
-    img7: TImage;
-    img27: TImage;
-    img28: TImage;
     tmr2: TTimer;
 
     procedure FormShow(Sender: TObject);
@@ -76,9 +65,13 @@ type
     procedure tmr1Timer(Sender: TObject);
     procedure tmr2Timer(Sender: TObject);
     procedure btnGroupClick(Sender: TObject);
+    procedure lblAGMouseEnter(Sender: TObject);
+    procedure lblAGMouseLeave(Sender: TObject);
 
   private
     isGeserKanan: Boolean;
+    isGeserPerGroup: Boolean;
+    groupId : Integer;
     tempTime: Integer;
 
     procedure SetButtonHurufPosition(posVal: Integer);
@@ -151,9 +144,61 @@ begin
   EnableComposited(pnlBackground);
 end;
 
+procedure TfrmSemaphoreA0.lblAGMouseEnter(Sender: TObject);
+begin
+  lblAG.Font.Color := clRed;
+end;
+
+procedure TfrmSemaphoreA0.lblAGMouseLeave(Sender: TObject);
+begin
+  lblAG.Font.Color := clWhite;
+end;
+
 procedure TfrmSemaphoreA0.btnGroupClick(Sender: TObject);
 begin
-  //
+  if tmr1.Enabled then
+    Exit;
+
+  tempTime := 0;
+  tmr1.Enabled := True;
+  isGeserPerGroup := True;
+
+  if TLabel(Sender).Name = 'lblAG' then
+  begin
+    groupId := 1;
+
+    if imgA.Left < 0 then
+      isGeserKanan := True
+    else
+      isGeserKanan := False;
+  end
+  else if TLabel(Sender).Name = 'lblHN' then
+  begin
+    groupId := 2;
+
+    if imgH.Left < 0 then
+      isGeserKanan := True
+    else
+      isGeserKanan := False;
+  end
+  else if TLabel(Sender).Name = 'lblOU' then
+  begin
+    groupId := 3;
+
+    if imgO.Left < 0 then
+      isGeserKanan := True
+    else
+      isGeserKanan := False;
+  end
+  else if TLabel(Sender).Name = 'lblVZ' then
+  begin
+    groupId := 4;
+
+    if imgV.Left < 0 then
+      isGeserKanan := True
+    else
+      isGeserKanan := False;
+  end
 end;
 
 procedure TfrmSemaphoreA0.btnHurufClick(Sender: TObject);
@@ -189,14 +234,26 @@ begin
   else if TImage(Sender).Hint = 'e' then
   begin
     lblHuruf.Caption := 'E';
+<<<<<<< HEAD
     lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
     lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
+=======
+    lblDescTanganKanan.Caption :=
+      '- Tangan kanan diangkat searah jarum jam pukul 13.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+>>>>>>> 9e62f0e4ad180632ef4e47c90eab629854685ba5
   end
   else if TImage(Sender).Hint = 'f' then
   begin
     lblHuruf.Caption := 'F';
+<<<<<<< HEAD
     lblDescTanganKiri.Caption :='- Tangan kiri searah jarum jam pukul 15.00';
     lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 06.00';
+=======
+    lblDescTanganKanan.Caption :=
+      '- Tangan kanan diangkat searah jarum jam pukul 13.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 06.00';
+>>>>>>> 9e62f0e4ad180632ef4e47c90eab629854685ba5
   end
   else if TImage(Sender).Hint = 'g' then
   begin
@@ -284,7 +341,6 @@ begin
   end
 
 
-
 {$ENDREGION}
 end;
 
@@ -296,6 +352,7 @@ begin
   tempTime := 0;
   tmr1.Enabled := True;
   isGeserKanan := False;
+  isGeserPerGroup := False;
 end;
 
 procedure TfrmSemaphoreA0.btnPrevClick(Sender: TObject);
@@ -306,6 +363,7 @@ begin
   tempTime := 0;
   tmr1.Enabled := True;
   isGeserKanan := True;
+  isGeserPerGroup := False;
 end;
 
 procedure TfrmSemaphoreA0.SetButtonHurufPosition(posVal: Integer);
@@ -344,21 +402,91 @@ procedure TfrmSemaphoreA0.tmr1Timer(Sender: TObject);
 begin
   tempTime := tempTime + 10;
 
-  if tempTime < 121 then
+  if isGeserPerGroup then
   begin
-    if isGeserKanan then
-    begin
-      SetButtonHurufPosition(10);
-    end
-    else
-    begin
-      SetButtonHurufPosition(-10);
+    {$REGION ' Geser Per Group '}
+    case groupId of
+      1:
+      begin
+        if imgA.Left <> 0 then
+        begin
+          if isGeserKanan then
+            SetButtonHurufPosition(10)
+          else
+            SetButtonHurufPosition(-10);
+        end
+        else
+        begin
+          tmr1.Enabled := False;
+        end;
+      end;
+      2:
+      begin
+        if imgH.Left <> 0 then
+        begin
+          if isGeserKanan then
+            SetButtonHurufPosition(10)
+          else
+            SetButtonHurufPosition(-10);
+        end
+        else
+        begin
+          tmr1.Enabled := False;
+        end;
+      end;
+      3:
+      begin
+        if imgO.Left <> 0 then
+        begin
+          if isGeserKanan then
+            SetButtonHurufPosition(10)
+          else
+            SetButtonHurufPosition(-10);
+        end
+        else
+        begin
+          tmr1.Enabled := False;
+        end;
+      end;
+      4:
+      begin
+        if imgV.Left <> 0 then
+        begin
+          if isGeserKanan then
+            SetButtonHurufPosition(10)
+          else
+            SetButtonHurufPosition(-10);
+        end
+        else
+        begin
+          tmr1.Enabled := False;
+        end;
+      end;
     end;
+
+    {$ENDREGION}
   end
   else
   begin
-    tmr1.Enabled := False;
+    {$REGION ' Geser Per Huruf '}
+    if tempTime < 121 then
+    begin
+      if isGeserKanan then
+      begin
+        SetButtonHurufPosition(10);
+      end
+      else
+      begin
+        SetButtonHurufPosition(-10);
+      end;
+    end
+    else
+    begin
+      tmr1.Enabled := False;
+    end;
+    {$ENDREGION}
   end;
+
 end;
 
 procedure TfrmSemaphoreA0.tmr2Timer(Sender: TObject);

@@ -3,8 +3,8 @@ object frmSemaphore: TfrmSemaphore
   Top = 48
   BorderStyle = bsNone
   Caption = 'frmSemaphore'
-  ClientHeight = 468
-  ClientWidth = 651
+  ClientHeight = 782
+  ClientWidth = 1207
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

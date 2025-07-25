@@ -65,8 +65,8 @@ type
     procedure tmr1Timer(Sender: TObject);
     procedure tmr2Timer(Sender: TObject);
     procedure btnGroupClick(Sender: TObject);
-    procedure lblAGMouseEnter(Sender: TObject);
-    procedure lblAGMouseLeave(Sender: TObject);
+    procedure lblGroupMouseEnter(Sender: TObject);
+    procedure lblGroupMouseLeave(Sender: TObject);
 
   private
     isGeserKanan: Boolean;
@@ -111,7 +111,7 @@ begin
   Height := Screen.Monitors[0].Height;
   Width := Screen.Monitors[0].Width;
 
-{$REGION ' Initiate button huruf position '}
+  {$REGION ' Initiate button huruf position '}
   imgA.Left := 0;
   imgB.Left := 120;
   imgC.Left := 240;
@@ -140,18 +140,27 @@ begin
   imgZ.Left := 3000;
   imgNumeral.Left := 3120;
   imgSpasi.Left := 3240;
-{$ENDREGION}
+  {$ENDREGION}
+
   EnableComposited(pnlBackground);
 end;
 
-procedure TfrmSemaphoreA0.lblAGMouseEnter(Sender: TObject);
+procedure TfrmSemaphoreA0.lblGroupMouseEnter(Sender: TObject);
 begin
-  lblAG.Font.Color := clRed;
+  if Sender is TLabel then
+  begin
+    TLabel(sender).Font.Color := $00E1B034;
+    TLabel(sender).Font.Size := 20;
+  end;
 end;
 
-procedure TfrmSemaphoreA0.lblAGMouseLeave(Sender: TObject);
+procedure TfrmSemaphoreA0.lblGroupMouseLeave(Sender: TObject);
 begin
-  lblAG.Font.Color := clWhite;
+  if Sender is TLabel then
+  begin
+    TLabel(sender).Font.Color := clWhite;
+    TLabel(sender).Font.Size := 18;
+  end;
 end;
 
 procedure TfrmSemaphoreA0.btnGroupClick(Sender: TObject);
@@ -206,7 +215,7 @@ begin
   imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + TImage(Sender).Hint
     + '.png');
 
-{$REGION ''}
+  {$REGION ' Set Deskription '}
   if TImage(Sender).Hint = 'a' then
   begin
     lblHuruf.Caption := 'A';
@@ -252,13 +261,13 @@ begin
   else if TImage(Sender).Hint = 'h' then
   begin
     lblHuruf.Caption := 'H';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09,00';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
     lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
   end
   else if TImage(Sender).Hint = 'i' then
   begin
     lblHuruf.Caption := 'I';
-    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10,30';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
     lblDescTanganKiri.Caption := '- Tangan kiri searah jarum jam pukul 07.30';
   end
   else if TImage(Sender).Hint = 'j' then
@@ -276,7 +285,7 @@ begin
   else if TImage(Sender).Hint = 'l' then
   begin
     lblHuruf.Caption := 'L';
-    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13,30';
+    lblDescTanganKiri.Caption :='- Tangan kiri diangkat searah jarum jam pukul 13.30';
     lblDescTanganKanan.Caption := '- Tangan kanan searah jarum jam pukul 07.30';
   end
   else if TImage(Sender).Hint = 'm' then
@@ -329,7 +338,7 @@ begin
   end
 
 
-{$ENDREGION}
+  {$ENDREGION}
 end;
 
 procedure TfrmSemaphoreA0.btnNextClick(Sender: TObject);

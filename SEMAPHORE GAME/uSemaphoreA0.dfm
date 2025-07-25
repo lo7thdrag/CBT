@@ -30719,70 +30719,80 @@ object frmSemaphoreA0: TfrmSemaphoreA0
       ParentFont = False
     end
     object lblHN: TLabel
-      Left = 1348
-      Top = 440
-      Width = 54
+      Left = 1352
+      Top = 443
+      Width = 50
       Height = 33
       Cursor = crHandPoint
       Alignment = taCenter
+      AutoSize = False
       Caption = 'H-N'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -27
+      Font.Height = -24
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnGroupClick
+      OnMouseEnter = lblGroupMouseEnter
+      OnMouseLeave = lblGroupMouseLeave
     end
     object lblOU: TLabel
-      Left = 1669
-      Top = 440
-      Width = 53
+      Left = 1671
+      Top = 443
+      Width = 50
       Height = 33
       Cursor = crHandPoint
       Alignment = taCenter
+      AutoSize = False
       Caption = 'O-U'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -27
+      Font.Height = -24
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnGroupClick
+      OnMouseEnter = lblGroupMouseEnter
+      OnMouseLeave = lblGroupMouseLeave
     end
     object lblAG: TLabel
-      Left = 1588
+      Left = 1589
       Top = 198
       Width = 50
       Height = 33
       Cursor = crHandPoint
       Alignment = taCenter
+      AutoSize = False
       Caption = 'A-G'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -27
+      Font.Height = -24
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnGroupClick
-      OnMouseEnter = lblAGMouseEnter
-      OnMouseLeave = lblAGMouseLeave
+      OnMouseEnter = lblGroupMouseEnter
+      OnMouseLeave = lblGroupMouseLeave
     end
     object lblVZ: TLabel
-      Left = 1768
-      Top = 608
-      Width = 33
-      Height = 23
+      Left = 1760
+      Top = 604
+      Width = 50
+      Height = 33
       Cursor = crHandPoint
       Alignment = taCenter
+      AutoSize = False
       Caption = 'V-Z'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnGroupClick
+      OnMouseEnter = lblGroupMouseEnter
+      OnMouseLeave = lblGroupMouseLeave
     end
     object imgPrev: TImage
       Left = 501

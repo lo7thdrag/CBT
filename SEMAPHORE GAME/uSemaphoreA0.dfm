@@ -29642,8 +29642,6 @@ object frmSemaphoreA0: TfrmSemaphoreA0
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -32
-    ExplicitTop = 24
     DesignSize = (
       1920
       1080)
@@ -30724,7 +30722,7 @@ object frmSemaphoreA0: TfrmSemaphoreA0
       Left = 1669
       Top = 443
       Width = 54
-      Height = 36
+      Height = 33
       Cursor = crHandPoint
       Alignment = taCenter
       Caption = 'H-N'

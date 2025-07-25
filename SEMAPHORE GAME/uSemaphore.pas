@@ -19,6 +19,7 @@ type
     lblSemaphoreKata: TLabel;
     imgSemaphoreKirim: TImage;
     lblSemaphoreKirim: TLabel;
+    lbl1: TLabel;
     procedure lblSemaphoreHurufClick(Sender: TObject);
     procedure imgSEmaphoreHurufClick(Sender: TObject);
 //    procedure imgMorseGameClick(Sender: TObject);

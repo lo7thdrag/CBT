@@ -212,8 +212,8 @@ end;
 
 procedure TfrmSemaphoreA0.btnHurufClick(Sender: TObject);
 begin
-  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + TImage(Sender).Hint
-    + '.png');
+  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + TImage(Sender).Hint + '.png');
+  lblHuruf.Font.Size := 90;
 
   {$REGION ' Set Deskription '}
   if TImage(Sender).Hint = 'a' then
@@ -372,14 +372,16 @@ begin
     lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
     lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
   end
-  else if TImage(Sender).Hint = 'space' then
+  else if TImage(Sender).Hint = 'spasi' then
   begin
-    lblHuruf.Caption := 'SPACE';
+    lblHuruf.Font.Size := 50;
+    lblHuruf.Caption := 'SPASI';
     lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
     lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
   end
-  else if TImage(Sender).Hint = 'num' then
+  else if TImage(Sender).Hint = 'numeral' then
   begin
+    lblHuruf.Font.Size := 50;
     lblHuruf.Caption := 'NUM';
     lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 18.30';
     lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 18.30';

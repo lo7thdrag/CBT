@@ -30704,19 +30704,20 @@ object frmSemaphoreA0: TfrmSemaphoreA0
       ParentFont = False
     end
     object lblHuruf: TLabel
-      Left = 255
+      Left = 208
       Top = 262
-      Width = 121
+      Width = 217
       Height = 145
       Alignment = taCenter
       AutoSize = False
-      Caption = '-'
+      Caption = 'SPASI'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -120
+      Font.Height = -67
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      Layout = tlCenter
     end
     object lblHN: TLabel
       Left = 1352
@@ -39280,6 +39281,7 @@ object frmSemaphoreA0: TfrmSemaphoreA0
         Top = 10
         Width = 100
         Height = 100
+        Hint = 'numeral'
         DragCursor = crHandPoint
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000000540000
@@ -39601,6 +39603,7 @@ object frmSemaphoreA0: TfrmSemaphoreA0
         Top = 10
         Width = 100
         Height = 100
+        Hint = 'spasi'
         DragCursor = crHandPoint
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000000540000

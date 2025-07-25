@@ -16,14 +16,14 @@ object frmSemaphore: TfrmSemaphore
   PixelsPerInch = 96
   TextHeight = 13
   object imgIntroduce: TImage
-    Left = 197
-    Top = 48
+    Left = 453
+    Top = 52
     Width = 257
     Height = 41
   end
   object lblIntroduce: TLabel
-    Left = 240
-    Top = 52
+    Left = 520
+    Top = 68
     Width = 171
     Height = 38
     Caption = 'Selamat Datang'
@@ -35,27 +35,27 @@ object frmSemaphore: TfrmSemaphore
     ParentFont = False
   end
   object imgSEmaphoreHuruf: TImage
-    Left = 44
-    Top = 154
+    Left = 452
+    Top = 138
     Width = 257
     Height = 41
     OnClick = imgSEmaphoreHurufClick
   end
   object imgSemaphoreBaca: TImage
-    Left = 350
-    Top = 154
+    Left = 460
+    Top = 226
     Width = 257
     Height = 41
   end
   object imgExit: TImage
-    Left = 44
-    Top = 366
+    Left = 18
+    Top = 694
     Width = 99
     Height = 41
   end
   object lblSemaphoreHuruf: TLabel
-    Left = 132
-    Top = 162
+    Left = 540
+    Top = 146
     Width = 81
     Height = 24
     Caption = 'Semaphore'
@@ -68,8 +68,8 @@ object frmSemaphore: TfrmSemaphore
     OnClick = lblSemaphoreHurufClick
   end
   object lblSemaphoreBaca: TLabel
-    Left = 410
-    Top = 162
+    Left = 520
+    Top = 234
     Width = 137
     Height = 24
     Alignment = taCenter
@@ -82,8 +82,8 @@ object frmSemaphore: TfrmSemaphore
     ParentFont = False
   end
   object lblExit: TLabel
-    Left = 70
-    Top = 374
+    Left = 54
+    Top = 694
     Width = 47
     Height = 24
     Caption = 'Keluar'
@@ -95,14 +95,14 @@ object frmSemaphore: TfrmSemaphore
     ParentFont = False
   end
   object imgSemaphoreKata: TImage
-    Left = 44
-    Top = 250
+    Left = 453
+    Top = 330
     Width = 257
     Height = 41
   end
   object lblSemaphoreKata: TLabel
-    Left = 98
-    Top = 259
+    Left = 507
+    Top = 339
     Width = 148
     Height = 24
     Caption = 'Simulasi Kode Pesan'
@@ -114,14 +114,14 @@ object frmSemaphore: TfrmSemaphore
     ParentFont = False
   end
   object imgSemaphoreKirim: TImage
-    Left = 350
-    Top = 250
+    Left = 460
+    Top = 426
     Width = 257
     Height = 41
   end
   object lblSemaphoreKirim: TLabel
-    Left = 420
-    Top = 259
+    Left = 530
+    Top = 435
     Width = 116
     Height = 24
     Caption = 'Transmisi Sandi'
@@ -131,5 +131,19 @@ object frmSemaphore: TfrmSemaphore
     Font.Name = 'Traditional Arabic'
     Font.Style = [fsBold]
     ParentFont = False
+  end
+  object lbl1: TLabel
+    Left = 540
+    Top = 112
+    Width = 82
+    Height = 24
+    Caption = 'Pengenalan'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Traditional Arabic'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = lblSemaphoreHurufClick
   end
 end

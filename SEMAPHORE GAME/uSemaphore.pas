@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
 type
   TfrmSemaphore = class(TForm)
     imgIntroduce: TImage;
@@ -20,6 +21,7 @@ type
     imgSemaphoreKirim: TImage;
     lblSemaphoreKirim: TLabel;
     lbl1: TLabel;
+    imgBackground: TImage;
     procedure lblSemaphoreHurufClick(Sender: TObject);
     procedure imgSEmaphoreHurufClick(Sender: TObject);
 //    procedure imgMorseGameClick(Sender: TObject);

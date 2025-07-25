@@ -336,8 +336,54 @@ begin
     lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
     lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 12.00';
   end
-
-
+  else if TImage(Sender).Hint = 'u' then
+  begin
+    lblHuruf.Caption := 'U';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 10.30';
+  end
+  else if TImage(Sender).Hint = 'v' then
+  begin
+    lblHuruf.Caption := 'V';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 12.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 16.30';
+  end
+  else if TImage(Sender).Hint = 'w' then
+  begin
+    lblHuruf.Caption := 'W';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 15.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if TImage(Sender).Hint = 'x' then
+  begin
+    lblHuruf.Caption := 'X';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if TImage(Sender).Hint = 'y' then
+  begin
+    lblHuruf.Caption := 'Y';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 09.00';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
+  end
+  else if TImage(Sender).Hint = 'z' then
+  begin
+    lblHuruf.Caption := 'Z';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
+  end
+  else if TImage(Sender).Hint = 'space' then
+  begin
+    lblHuruf.Caption := 'SPACE';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 16.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 15.00';
+  end
+  else if TImage(Sender).Hint = 'num' then
+  begin
+    lblHuruf.Caption := 'NUM';
+    lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 18.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 18.30';
+  end
   {$ENDREGION}
 end;
 

@@ -3,3 +3,5 @@ SEMAPHORE GAME/__recovery/__recovery.ini
 /SEMAPHORE GAME/__recovery
 /SEMAPHORE GAME/__recovery
 Bin/SemaphoreGame.exe
+Bin/SemaphoreGame.exe
+*.dcu

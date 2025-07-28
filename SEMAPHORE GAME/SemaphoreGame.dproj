@@ -102,12 +102,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uSemaphore.pas">
-            <Form>frmSemaphore</Form>
+        <DCCReference Include="uHome.pas">
+            <Form>frmHome</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uSemaphoreA0.pas">
-            <Form>frmSemaphoreA0</Form>
+        <DCCReference Include="uSemaphore.pas">
+            <Form>frmSemaphore</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

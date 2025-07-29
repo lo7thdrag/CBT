@@ -312,7 +312,7 @@ begin
   begin
     lblHuruf.Caption := 'U';
     lblDescTanganKanan.Caption :='- Tangan kanan diangkat searah jarum jam pukul 10.30';
-    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 10.30';
+    lblDescTanganKiri.Caption := '- Tangan kiri diangkat searah jarum jam pukul 13.30';
   end
   else if hrfVal = 'v' then
   begin

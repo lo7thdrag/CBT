@@ -102,12 +102,16 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uHome.pas">
+        <DCCReference Include="ufrmHome.pas">
             <Form>frmHome</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uSemaphore.pas">
+        <DCCReference Include="ufrmSemaphore.pas">
             <Form>frmSemaphore</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ufrmExercise.pas">
+            <Form>frmExercise</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -137,7 +141,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\SemaphoreGame.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\Bin\SemaphoreGame.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>SemaphoreGame.exe</RemoteName>
                         <Overwrite>true</Overwrite>

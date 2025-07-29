@@ -1,4 +1,4 @@
-object frmSemaphore17: TfrmSemaphore17
+object frmExercise: TfrmExercise
   Left = 0
   Top = 0
   BorderStyle = bsNone

@@ -2,8 +2,9 @@ program SemaphoreGame;
 
 uses
   Vcl.Forms,
-  uHome in 'uHome.pas' {frmHome},
-  uSemaphore in 'uSemaphore.pas' {frmSemaphore};
+  ufrmHome in 'ufrmHome.pas' {frmHome},
+  ufrmSemaphore in 'ufrmSemaphore.pas' {frmSemaphore},
+  ufrmExercise in 'ufrmExercise.pas' {frmExercise};
 
 {$R *.res}
 
@@ -12,5 +13,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmHome, frmHome);
   Application.CreateForm(TfrmSemaphore, frmSemaphore);
+  Application.CreateForm(TfrmExercise, frmExercise);
   Application.Run;
 end.

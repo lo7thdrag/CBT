@@ -1,4 +1,4 @@
-unit uSemaphore;
+unit ufrmSemaphore;
 
 interface
 
@@ -96,7 +96,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uHome;
+  ufrmHome;
 
 procedure EnableComposited(WinControl: TWinControl);
 var

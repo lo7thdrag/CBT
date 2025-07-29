@@ -1,4 +1,4 @@
-unit uHome;
+unit ufrmHome;
 
 interface
 
@@ -40,7 +40,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uSemaphore;
+  ufrmSemaphore;
 
 procedure TfrmHome.imgSEmaphoreHurufClick(Sender: TObject);
 begin

@@ -1,4 +1,4 @@
-unit uSemaphore17;
+unit ufrmExercise;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
-  TfrmSemaphore17 = class(TForm)
+  TfrmExercise = class(TForm)
   private
     { Private declarations }
   public
@@ -15,7 +15,7 @@ type
   end;
 
 var
-  frmSemaphore17: TfrmSemaphore17;
+  frmExercise: TfrmExercise;
 
 implementation
 

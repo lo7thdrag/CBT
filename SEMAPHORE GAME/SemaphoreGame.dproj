@@ -110,8 +110,20 @@
             <Form>frmSemaphore</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmExercise.pas">
-            <Form>frmExercise</Form>
+        <DCCReference Include="ufrmExerciseChoice.pas">
+            <Form>frmExerciseChoice</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ufrmExerciseRead.pas">
+            <Form>frmExerciseRead</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ufrmExerciseWrite.pas">
+            <Form>frmExerciseWrite</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ufrmSetting.pas">
+            <Form>frmSetting</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

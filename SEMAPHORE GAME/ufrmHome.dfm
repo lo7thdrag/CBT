@@ -11298,12 +11298,6 @@ object frmHome: TfrmHome
     ExplicitLeft = -713
     ExplicitTop = -298
   end
-  object imgExit: TImage
-    Left = 18
-    Top = 694
-    Width = 99
-    Height = 41
-  end
   object imgIntroduce: TImage
     Left = 623
     Top = 267
@@ -11441,32 +11435,7 @@ object frmHome: TfrmHome
       4E44AE426082}
     Stretch = True
   end
-  object imgSemaphoreBaca: TImage
-    Left = 76
-    Top = 295
-    Width = 257
-    Height = 41
-  end
-  object imgSEmaphoreHuruf: TImage
-    Left = 76
-    Top = 225
-    Width = 257
-    Height = 41
-    OnClick = imgSEmaphoreHurufClick
-  end
-  object imgSemaphoreKata: TImage
-    Left = 76
-    Top = 365
-    Width = 257
-    Height = 41
-  end
-  object imgSemaphoreKirim: TImage
-    Left = 76
-    Top = 434
-    Width = 257
-    Height = 41
-  end
-  object lbl1: TLabel
+  object lblIntroduce: TLabel
     Left = 842
     Top = 346
     Width = 235
@@ -11480,21 +11449,9 @@ object frmHome: TfrmHome
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
+    OnClick = lblIntroduceClick
   end
-  object lblExit: TLabel
-    Left = 54
-    Top = 694
-    Width = 47
-    Height = 24
-    Caption = 'Keluar'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Traditional Arabic'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object lblSemaphoreBaca: TLabel
+  object lblExercise: TLabel
     Left = 860
     Top = 511
     Width = 199
@@ -11508,8 +11465,9 @@ object frmHome: TfrmHome
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
+    OnClick = lblExerciseClick
   end
-  object lblSemaphoreHuruf: TLabel
+  object lblSemaphore: TLabel
     Left = 833
     Top = 429
     Width = 254
@@ -11523,9 +11481,9 @@ object frmHome: TfrmHome
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
-    OnClick = lblSemaphoreHurufClick
+    OnClick = lblSemaphoreClick
   end
-  object lblSemaphoreKata: TLabel
+  object lblSetting: TLabel
     Left = 876
     Top = 594
     Width = 167
@@ -11539,6 +11497,7 @@ object frmHome: TfrmHome
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
+    OnClick = lblSettingClick
   end
   object lbl2: TLabel
     Left = 670
@@ -11554,7 +11513,7 @@ object frmHome: TfrmHome
     Font.Style = []
     ParentFont = False
   end
-  object lbl3: TLabel
+  object lblExit: TLabel
     Left = 914
     Top = 677
     Width = 91
@@ -11568,6 +11527,6 @@ object frmHome: TfrmHome
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
-    OnClick = lbl3Click
+    OnClick = lblExitClick
   end
 end

@@ -6,30 +6,29 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage;
+
 type
   TfrmHome = class(TForm)
     imgIntroduce: TImage;
-    imgSEmaphoreHuruf: TImage;
-    imgSemaphoreBaca: TImage;
-    imgExit: TImage;
-    lblSemaphoreHuruf: TLabel;
-    lblSemaphoreBaca: TLabel;
-    lblExit: TLabel;
-    imgSemaphoreKata: TImage;
-    lblSemaphoreKata: TLabel;
-    imgSemaphoreKirim: TImage;
-    lbl1: TLabel;
+    lblSemaphore: TLabel;
+    lblExercise: TLabel;
+    lblSetting: TLabel;
+    lblIntroduce: TLabel;
     imgBackground: TImage;
     lbl2: TLabel;
-    lbl3: TLabel;
-    procedure lblSemaphoreHurufClick(Sender: TObject);
-    procedure imgSEmaphoreHurufClick(Sender: TObject);
-    procedure lbl3Click(Sender: TObject);
-//    procedure imgMorseGameClick(Sender: TObject);
+    lblExit: TLabel;
+    procedure lblSemaphoreClick(Sender: TObject);
+    procedure lblExitClick(Sender: TObject);
+    procedure lblIntroduceClick(Sender: TObject);
+    procedure lblExerciseClick(Sender: TObject);
+    procedure lblSettingClick(Sender: TObject);
+
   private
     { Private declarations }
+
   public
     { Public declarations }
+
   end;
 
 var
@@ -40,21 +39,51 @@ implementation
 {$R *.dfm}
 
 uses
-  ufrmSemaphore;
+  ufrmSemaphore, ufrmExerciseChoice, ufrmExerciseRead, ufrmExerciseWrite;
 
-procedure TfrmHome.imgSEmaphoreHurufClick(Sender: TObject);
+procedure TfrmHome.lblExerciseClick(Sender: TObject);
 begin
-  frmSemaphore.Show;
+  if frmExerciseChoice.ShowModal <> mrOk then
+    Exit;
+
+  case frmExerciseChoice.typeExercise of
+    0 : {Read}
+    begin
+      case frmExerciseChoice.modeExercise of
+        0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
+        1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
+        2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
+      end;
+      frmExerciseRead.Show;
+    end;
+    1 : {Write}
+    begin
+      ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
+      Exit;
+      frmExerciseWrite.Show;
+    end;
+
+  end;
 end;
 
-procedure TfrmHome.lbl3Click(Sender: TObject);
+procedure TfrmHome.lblExitClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmHome.lblSemaphoreHurufClick(Sender: TObject);
+procedure TfrmHome.lblIntroduceClick(Sender: TObject);
+begin
+  //
+end;
+
+procedure TfrmHome.lblSemaphoreClick(Sender: TObject);
 begin
   frmSemaphore.Show;
+end;
+
+procedure TfrmHome.lblSettingClick(Sender: TObject);
+begin
+  //
 end;
 
 end.

@@ -106,32 +106,32 @@
             <Form>frmHome</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmSemaphore.pas">
-            <Form>frmSemaphore</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="ufrmExerciseChoice.pas">
+        <DCCReference Include="Form Resolusi 1920 x 1080\ufrmExerciseChoice.pas">
             <Form>frmExerciseChoice</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmExerciseRead.pas">
+        <DCCReference Include="Form Resolusi 1920 x 1080\ufrmExerciseRead.pas">
             <Form>frmExerciseRead</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmExerciseWrite.pas">
+        <DCCReference Include="Form Resolusi 1920 x 1080\ufrmExerciseWrite.pas">
             <Form>frmExerciseWrite</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmSetting.pas">
+        <DCCReference Include="Form Resolusi 1920 x 1080\ufrmSemaphore.pas">
+            <Form>frmSemaphore</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Form Resolusi 1920 x 1080\ufrmSetting.pas">
             <Form>frmSetting</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmSemaphoreLittle.pas">
-            <Form>frmSemaphoreLittle</Form>
+        <DCCReference Include="Form Resolusi 1920 x 1080\uPengenalan.pas">
+            <Form>frmPengenalan</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uPengenalan.pas">
-            <Form>frmPengenalan</Form>
+        <DCCReference Include="Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas">
+            <Form>frmSemaphoreLittle</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

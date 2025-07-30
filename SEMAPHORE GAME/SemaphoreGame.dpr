@@ -3,13 +3,13 @@ program SemaphoreGame;
 uses
   Vcl.Forms,
   ufrmHome in 'ufrmHome.pas' {frmHome},
-  ufrmSemaphore in 'ufrmSemaphore.pas' {frmSemaphore},
-  ufrmExerciseChoice in 'ufrmExerciseChoice.pas' {frmExerciseChoice},
-  ufrmExerciseRead in 'ufrmExerciseRead.pas' {frmExerciseRead},
-  ufrmExerciseWrite in 'ufrmExerciseWrite.pas' {frmExerciseWrite},
-  ufrmSetting in 'ufrmSetting.pas' {frmSetting},
-  ufrmSemaphoreLittle in 'ufrmSemaphoreLittle.pas' {frmSemaphoreLittle},
-  uPengenalan in 'uPengenalan.pas' {frmPengenalan};
+  ufrmExerciseChoice in 'Form Resolusi 1920 x 1080\ufrmExerciseChoice.pas' {frmExerciseChoice},
+  ufrmExerciseRead in 'Form Resolusi 1920 x 1080\ufrmExerciseRead.pas' {frmExerciseRead},
+  ufrmExerciseWrite in 'Form Resolusi 1920 x 1080\ufrmExerciseWrite.pas' {frmExerciseWrite},
+  ufrmSemaphore in 'Form Resolusi 1920 x 1080\ufrmSemaphore.pas' {frmSemaphore},
+  ufrmSetting in 'Form Resolusi 1920 x 1080\ufrmSetting.pas' {frmSetting},
+  uPengenalan in 'Form Resolusi 1920 x 1080\uPengenalan.pas' {frmPengenalan},
+  ufrmSemaphoreLittle in 'Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas' {frmSemaphoreLittle};
 
 {$R *.res}
 
@@ -17,12 +17,13 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmHome, frmHome);
-  Application.CreateForm(TfrmSemaphore, frmSemaphore);
+  Application.CreateForm(TfrmPengenalan, frmPengenalan);
   Application.CreateForm(TfrmExerciseChoice, frmExerciseChoice);
   Application.CreateForm(TfrmExerciseRead, frmExerciseRead);
   Application.CreateForm(TfrmExerciseWrite, frmExerciseWrite);
+  Application.CreateForm(TfrmSemaphore, frmSemaphore);
   Application.CreateForm(TfrmSetting, frmSetting);
-  Application.CreateForm(TfrmSemaphoreLittle, frmSemaphoreLittle);
   Application.CreateForm(TfrmPengenalan, frmPengenalan);
+  Application.CreateForm(TfrmSemaphoreLittle, frmSemaphoreLittle);
   Application.Run;
 end.

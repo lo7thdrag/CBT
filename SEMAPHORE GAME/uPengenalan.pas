@@ -76,7 +76,7 @@ procedure TfrmPengenalan.lblHistoryMouseLeave(Sender: TObject);
 begin
   lblHistory.Font.Size  := 40;
   lblHistory.Left       := 320;
-  lblHistory.Top        := 251;
+  lblHistory.Top        := 252;
 end;
 
 procedure TfrmPengenalan.lblIntruksiClick(Sender: TObject);
@@ -106,14 +106,14 @@ end;
 procedure TfrmPengenalan.lblNilaiStrategisMouseEnter(Sender: TObject);
 begin
   lblNilaiStrategis.Font.Size  := 45;
-  lblNilaiStrategis.Left       := 217;
+  lblNilaiStrategis.Left       := 324;
   lblNilaiStrategis.Top        := 423;
 end;
 
 procedure TfrmPengenalan.lblNilaiStrategisMouseLeave(Sender: TObject);
 begin
   lblNilaiStrategis.Font.Size  := 40;
-  lblNilaiStrategis.Left       := 237;
+  lblNilaiStrategis.Left       := 332;
   lblNilaiStrategis.Top        := 426;
 end;
 
@@ -125,7 +125,7 @@ end;
 procedure TfrmPengenalan.lblRegulasiMouseEnter(Sender: TObject);
 begin
   lblRegulasi.Font.Size  := 45;
-  lblRegulasi.Left       := 99;
+  lblRegulasi.Left       := 297;
   lblRegulasi.Top        := 598;
 end;
 
@@ -133,7 +133,7 @@ procedure TfrmPengenalan.lblRegulasiMouseLeave(Sender: TObject);
 begin
   lblRegulasi.Font.Size  := 40;
   lblRegulasi.Left       := 134;
-  lblRegulasi.Top        := 601;
+  lblRegulasi.Top        := 308;
 end;
 
 end.

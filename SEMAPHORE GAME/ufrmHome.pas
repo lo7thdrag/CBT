@@ -39,7 +39,7 @@ implementation
 {$R *.dfm}
 
 uses
-  ufrmSemaphore, ufrmExerciseChoice, ufrmExerciseRead, ufrmExerciseWrite;
+  ufrmSemaphore, ufrmExerciseChoice, ufrmExerciseRead, ufrmExerciseWrite, uPengenalan;
 
 procedure TfrmHome.lblExerciseClick(Sender: TObject);
 begin
@@ -73,7 +73,7 @@ end;
 
 procedure TfrmHome.lblIntroduceClick(Sender: TObject);
 begin
-  //
+  frmPengenalan.Show;
 end;
 
 procedure TfrmHome.lblSemaphoreClick(Sender: TObject);

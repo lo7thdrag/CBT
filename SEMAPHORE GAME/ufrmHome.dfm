@@ -11502,8 +11502,8 @@ object frmHome: TfrmHome
   object lbl2: TLabel
     Left = 670
     Top = 987
-    Width = 580
-    Height = 40
+    Width = 383
+    Height = 26
     Alignment = taCenter
     Caption = 'POWERED BY : PRINCE AND TEAM'
     Font.Charset = ANSI_CHARSET

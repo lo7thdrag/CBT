@@ -35,6 +35,13 @@ type
     Image4: TImage;
     Image5: TImage;
     pnlBackground: TPanel;
+    imgJhon: TImage;
+    lblIn: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
     procedure lblHistoryClick(Sender: TObject);
     procedure lblNilaiStrategisClick(Sender: TObject);
     procedure lblRegulasiClick(Sender: TObject);
@@ -154,8 +161,8 @@ end;
 procedure TfrmPengenalan.lblRegulasiMouseLeave(Sender: TObject);
 begin
   lblRegulasi.Font.Size  := 40;
-  lblRegulasi.Left       := 134;
-  lblRegulasi.Top        := 308;
+  lblRegulasi.Left       := 308;
+  lblRegulasi.Top        := 601;
 end;
 
 end.

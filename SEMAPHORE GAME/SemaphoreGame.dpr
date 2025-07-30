@@ -9,7 +9,8 @@ uses
   ufrmSemaphore in 'Form Resolusi 1920 x 1080\ufrmSemaphore.pas' {frmSemaphore},
   ufrmSetting in 'Form Resolusi 1920 x 1080\ufrmSetting.pas' {frmSetting},
   uPengenalan in 'Form Resolusi 1920 x 1080\uPengenalan.pas' {frmPengenalan},
-  ufrmSemaphoreLittle in 'Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas' {frmSemaphoreLittle};
+  ufrmSemaphoreLittle in 'Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas' {frmSemaphoreLittle},
+  ufrmNilai in 'ufrmNilai.pas' {frmNilai};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   Application.CreateForm(TfrmSetting, frmSetting);
   Application.CreateForm(TfrmPengenalan, frmPengenalan);
   Application.CreateForm(TfrmSemaphoreLittle, frmSemaphoreLittle);
+  Application.CreateForm(TfrmNilai, frmNilai);
   Application.Run;
 end.

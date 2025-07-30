@@ -9,7 +9,7 @@ uses
 
 type
   TfrmPengenalan = class(TForm)
-    imgBG: TImage;
+    imgBackground: TImage;
     imgHistory: TImage;
     imgNilaiStrategis: TImage;
     imgRegulasi: TImage;
@@ -34,7 +34,7 @@ type
     imgSmp: TImage;
     Image4: TImage;
     Image5: TImage;
-    lblUsername: TLabel;
+    pnlBackground: TPanel;
     procedure lblHistoryClick(Sender: TObject);
     procedure lblNilaiStrategisClick(Sender: TObject);
     procedure lblRegulasiClick(Sender: TObject);
@@ -47,6 +47,7 @@ type
     procedure lblRegulasiMouseLeave(Sender: TObject);
     procedure lblIntruksiMouseEnter(Sender: TObject);
     procedure lblIntruksiMouseLeave(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,6 +60,27 @@ var
 implementation
 
 {$R *.dfm}
+
+
+procedure EnableComposited(WinControl: TWinControl);
+var
+  i: Integer;
+  NewExStyle: DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or
+    WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for i := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+
+procedure TfrmPengenalan.FormShow(Sender: TObject);
+begin
+  EnableComposited(pnlBackground)
+end;
 
 procedure TfrmPengenalan.lblHistoryClick(Sender: TObject);
 begin

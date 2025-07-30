@@ -79,7 +79,7 @@ end;
 
 procedure TfrmHome.lblSemaphoreClick(Sender: TObject);
 begin
-  frmSemaphoreLittle.Show;
+  frmSemaphore.Show;
 end;
 
 procedure TfrmHome.lblSettingClick(Sender: TObject);

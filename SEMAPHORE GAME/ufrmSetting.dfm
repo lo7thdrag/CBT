@@ -631,18 +631,19 @@ object frmSetting: TfrmSetting
       ParentFont = False
     end
     object lbl2: TLabel
-      Left = 151
-      Top = 144
-      Width = 129
+      Left = 156
+      Top = 146
+      Width = 130
       Height = 27
       Alignment = taCenter
-      Caption = 'Read Exercise'
+      Caption = '1920 x 1080'
       Font.Charset = ANSI_CHARSET
       Font.Color = 14790708
       Font.Height = -27
       Font.Name = 'Deusex'
       Font.Style = []
       ParentFont = False
+      Layout = tlCenter
     end
     object lbl3: TLabel
       Left = 375

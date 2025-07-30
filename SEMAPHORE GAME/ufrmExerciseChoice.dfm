@@ -713,7 +713,7 @@ object frmExerciseChoice: TfrmExerciseChoice
     end
     object lblCancel: TLabel
       Left = 479
-      Top = 435
+      Top = 437
       Width = 62
       Height = 27
       Cursor = crHandPoint

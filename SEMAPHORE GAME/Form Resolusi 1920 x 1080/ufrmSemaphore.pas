@@ -4,11 +4,9 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, TFlatSpeedButtonUnit;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, TFlatSpeedButtonUnit,
 
-const
-  C_ABJAD_ID : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+  uDataType;
 
 type
   TfrmSemaphore = class(TForm)
@@ -182,7 +180,7 @@ end;
 
 procedure TfrmSemaphore.LoadHuruf(hrfVal: string);
 begin
-  imgModel.Picture.LoadFromFile('D:\CBT\Bin\Image\Model\' + hrfVal + '.png');
+  imgModel.Picture.LoadFromFile('Image\Model\' + hrfVal + '.png');
   lblHuruf.Font.Size := 90;
 
   {$REGION ' Set Deskription '}

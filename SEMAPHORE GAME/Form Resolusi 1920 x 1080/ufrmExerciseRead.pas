@@ -59,6 +59,7 @@ type
     pnlJawab100: TPanel;
     lblAgain: TLabel;
     lblHome: TLabel;
+    pnl14: TPanel;
     
     procedure tmr1Timer(Sender: TObject);
     procedure lblReplayClick(Sender: TObject);
@@ -150,6 +151,7 @@ begin
   EnableComposited(pnlBackground);
 
   lblAgainClick(nil);
+  lblHome.Visible := True;
 end;
 
 procedure TfrmExerciseRead.lblAgainClick(Sender: TObject);
@@ -157,25 +159,27 @@ var
   i, val : Integer;
 
 begin
+  lblAgain.Visible := False;
+  lblHome.Visible := False;
   lblNext.Visible := True;
   lblNext.Caption := 'START';
 
   NoSoal := 0;
   lblQuetions.Caption := 'QUESTION NO ' + (NoSoal + 1).ToString;
 
-  val := Random(10);
-
-  if val = 0 then
-  begin
-    for i := 0 to 9 do
-      soalTemp[i] := C_EASY1[i];
-  end
-  else
-  begin
-    for i := 0 to 9 do
-      soalTemp[i] := C_EASY2[i];
+  case exerciseMode of
+    0: edtJawaban.MaxLength := 5;
+    1: edtJawaban.MaxLength := 10;
+    2: edtJawaban.MaxLength := 15;
   end;
 
+  val := Random(10);
+
+  {Create Soal Baru}
+  for i := 0 to 9 do
+    soalTemp[i] := LowerCase(GetQuestion(exerciseMode, val, i));
+
+  {Mengosongkan Lembar Jawaban}
   for i := 0 to 9 do
     jawabanTemp[i] := '-';
 end;
@@ -192,33 +196,18 @@ var
   nilai : Integer;
   
 begin
+  if tmr1.Enabled then
+    Exit;
+
   if lblNext.Caption = 'START' then
   begin
     lblReplay.Visible := True;
-
-    splitWord(C_EASY1[NoSoal]);
-
-    noHuruf := 0;
-    tmr1.Enabled := True;
-    NoSoal := NoSoal + 1;
-
+    lblHome.Visible := False;
     lblNext.Caption := 'NEXT';
   end
   else if lblNext.Caption = 'NEXT' then
   begin
-    if tmr1.Enabled then
-      Exit;
 
-    splitWord(C_EASY1[NoSoal]);
-
-    noHuruf := 0;
-    tmr1.Enabled := True;
-    NoSoal := NoSoal + 1;
-
-    lblQuetions.Caption := 'QUESTION NO ' + (NoSoal).ToString;
-
-    if NoSoal > 9 then
-      lblNext.Caption := 'FINISH';
   end
   else if lblNext.Caption = 'FINISH' then
   begin
@@ -226,33 +215,52 @@ begin
 
     for i := 0 to 9 do
     begin
-      if jawabanTemp[i] = C_EASY1[i] then
+      if jawabanTemp[i] = soalTemp[i] then
       begin
         nilai := nilai + 1;
       end;
     end;
 
-    pnlJawab11.Caption := '  ' + C_EASY1[0];
-    pnlJawab22.Caption := '  ' + C_EASY1[1];
-    pnlJawab33.Caption := '  ' + C_EASY1[2];
-    pnlJawab44.Caption := '  ' + C_EASY1[3];
-    pnlJawab55.Caption := '  ' + C_EASY1[4];
-    pnlJawab66.Caption := '  ' + C_EASY1[5];
-    pnlJawab77.Caption := '  ' + C_EASY1[6];
-    pnlJawab88.Caption := '  ' + C_EASY1[7];
-    pnlJawab99.Caption := '  ' + C_EASY1[8];
-    pnlJawab100.Caption := '  ' + C_EASY1[9];
-
     nilai := nilai * 10;
 
+    pnlJawab11.Caption := '  ' + soalTemp[0];
+    pnlJawab22.Caption := '  ' + soalTemp[1];
+    pnlJawab33.Caption := '  ' + soalTemp[2];
+    pnlJawab44.Caption := '  ' + soalTemp[3];
+    pnlJawab55.Caption := '  ' + soalTemp[4];
+    pnlJawab66.Caption := '  ' + soalTemp[5];
+    pnlJawab77.Caption := '  ' + soalTemp[6];
+    pnlJawab88.Caption := '  ' + soalTemp[7];
+    pnlJawab99.Caption := '  ' + soalTemp[8];
+    pnlJawab100.Caption := '  ' + soalTemp[9];
+
     frmNilai.nilai := nilai;
+    frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
     frmNilai.ShowModal;
 
     lblReplay.Visible := False;
     lblNext.Visible := False;
     lblAgain.Visible := True;
     lblHome.Visible := True;
+
+    edtJawaban.Visible := False;
+    pnl3.Visible := False;
+
+    lblQuetions.Caption := 'COMPLETED';
+
+    Exit;
   end;
+
+  splitWord(soalTemp[NoSoal]);
+
+  noHuruf := 0;
+  tmr1.Enabled := True;
+  NoSoal := NoSoal + 1;
+
+  lblQuetions.Caption := 'QUESTION NO ' + (NoSoal).ToString;
+
+  if NoSoal > 9 then
+      lblNext.Caption := 'FINISH';
 
   edtJawaban.Visible := False;
   pnl3.Visible := False;
@@ -271,7 +279,7 @@ end;
 
 procedure TfrmExerciseRead.pnl3Click(Sender: TObject);
 begin
-  jawabanTemp[NoSoal-1] := edtJawaban.Text;
+  jawabanTemp[NoSoal-1] := LowerCase(edtJawaban.Text);
   showJawab;
 end;
 

@@ -15,8 +15,10 @@ type
     lblIntroduce: TLabel;
     lblOK: TLabel;
     lblKeteranganSkor: TLabel;
-    lbl1: TLabel;
     lblKeteranganGrade: TLabel;
+    imgBintang1: TImage;
+    imgBintang2: TImage;
+    imgBintang3: TImage;
     procedure FormShow(Sender: TObject);
     procedure imgOKClick(Sender: TObject);
 
@@ -52,14 +54,40 @@ end;
 
 procedure TfrmNilai.FormShow(Sender: TObject);
 begin
-  lblKeteranganSkor.Caption := 'Anda mendapatkan skor ' + nilai.ToString + ' poin';
+  lblKeteranganSkor.Caption := 'skor ' + nilai.ToString + ' point';
 
-  if nilai < 50 then
-    lblKeteranganGrade.Caption := 'anda masuk kategori tulul'
+  if nilai = 0 then
+  begin
+    imgBintang1.Picture.LoadFromFile('Image\Button\EmptyStar.png');
+    imgBintang2.Picture.LoadFromFile('Image\Button\EmptyStar.png');
+    imgBintang3.Picture.LoadFromFile('Image\Button\EmptyStar.png');
+
+    lblKeteranganGrade.Caption := 'tulul'
+  end
+  else if nilai < 50 then
+  begin
+    imgBintang1.Picture.LoadFromFile('Image\Button\FullStar.png');
+    imgBintang2.Picture.LoadFromFile('Image\Button\EmptyStar.png');
+    imgBintang3.Picture.LoadFromFile('Image\Button\EmptyStar.png');
+
+    lblKeteranganGrade.Caption := 'idiot'
+  end
   else if (nilai > 50) and (nilai < 70) then
-    lblKeteranganGrade.Caption := 'anda masuk kategori normal'
+  begin
+    imgBintang1.Picture.LoadFromFile('Image\Button\FullStar.png');
+    imgBintang2.Picture.LoadFromFile('Image\Button\FullStar.png');
+    imgBintang3.Picture.LoadFromFile('Image\Button\EmptyStar.png');
+
+    lblKeteranganGrade.Caption := 'good job'
+  end
   else if (nilai > 70) then
-    lblKeteranganGrade.Caption := 'anda masuk kategori bagus'
+  begin
+    imgBintang1.Picture.LoadFromFile('Image\Button\FullStar.png');
+    imgBintang2.Picture.LoadFromFile('Image\Button\FullStar.png');
+    imgBintang3.Picture.LoadFromFile('Image\Button\FullStar.png');
+
+    lblKeteranganGrade.Caption := 'marvelous'
+  end;
 
 end;
 

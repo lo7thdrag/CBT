@@ -25,8 +25,6 @@ object frmExerciseChoice: TfrmExerciseChoice
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 626
-    ExplicitHeight = 488
     object imgBackground: TImage
       Left = 0
       Top = 0

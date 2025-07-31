@@ -116,6 +116,7 @@ begin
         2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
       end;
 
+      frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
       frmExerciseRead.lblUsername.Caption := playerName;
       frmExerciseRead.Show;
     end;

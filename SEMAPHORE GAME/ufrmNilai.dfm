@@ -289,7 +289,7 @@ object frmNilai: TfrmNilai
     end
     object lblKeteranganSkor: TLabel
       Left = 30
-      Top = 151
+      Top = 168
       Width = 657
       Height = 53
       Alignment = taCenter

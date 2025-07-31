@@ -10,7 +10,8 @@ uses
   ufrmSetting in 'Form Resolusi 1920 x 1080\ufrmSetting.pas' {frmSetting},
   uPengenalan in 'Form Resolusi 1920 x 1080\uPengenalan.pas' {frmPengenalan},
   ufrmSemaphoreLittle in 'Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas' {frmSemaphoreLittle},
-  ufrmNilai in 'ufrmNilai.pas' {frmNilai};
+  ufrmNilai in 'ufrmNilai.pas' {frmNilai},
+  uDataType in 'Library\uDataType.pas';
 
 {$R *.res}
 

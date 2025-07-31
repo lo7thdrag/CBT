@@ -8,13 +8,13 @@ uses
   Vcl.Imaging.pngimage, Vcl.ComCtrls;
 
 const
-  C_EASY1 : array [0..9] of string = ('mandi', 'makan', 'pergi', 'duduk', 'tulis', 'warna', 'bubur', 'nanas', 'bebek', 'empat');
-  C_EASY2 : array [0..9] of string = ('bubuk', 'nilai', 'waris', 'harta', 'tulis', 'tahta', 'lapor', 'ingin', 'berak', 'dodol');
-
-//  C_NORMAL : array [0..9] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-//                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
-//  C_HARD : array [0..9] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-//                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+//  C_EASY1 : array [0..9] of string = ('mandi', 'makan', 'pergi', 'duduk', 'tulis', 'warna', 'bubur', 'nanas', 'bebek', 'empat');
+//  C_EASY2 : array [0..9] of string = ('bubuk', 'nilai', 'waris', 'harta', 'tulis', 'tahta', 'lapor', 'ingin', 'berak', 'dodol');
+//
+////  C_NORMAL : array [0..9] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+////                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+////  C_HARD : array [0..9] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+////                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
 
 type
   TfrmExerciseRead = class(TForm)
@@ -131,15 +131,9 @@ var
   i : Integer;
 
 begin
-//  NoSoal := 0;
-//  lblQuetions.Caption := 'QUESTION NO ' + (NoSoal + 1).ToString;
-
   EnableComposited(pnlBackground);
 
   lblAgainClick(nil);
-
-//  for i := 0 to 9 do
-//    jawabTemp[i] := '-';
 end;
 
 procedure TfrmExerciseRead.lblAgainClick(Sender: TObject);
@@ -148,12 +142,12 @@ var
 
 begin
   lblNext.Visible := True;
-  lblNext.Caption := 'Start';
+  lblNext.Caption := 'START';
 
   NoSoal := 0;
   lblQuetions.Caption := 'QUESTION NO ' + (NoSoal + 1).ToString;
 
-  val := Random(1);
+  val := Random(100);
 
   if val = 0 then
   begin
@@ -184,7 +178,7 @@ var
 begin
   if lblNext.Caption = 'START' then
   begin
-    lblReplay.Visible := True; 
+    lblReplay.Visible := True;
 
     copyWord(C_EASY1[NoSoal]);
 

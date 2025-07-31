@@ -11,7 +11,8 @@ uses
   uPengenalan in 'Form Resolusi 1920 x 1080\uPengenalan.pas' {frmPengenalan},
   ufrmSemaphoreLittle in 'Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas' {frmSemaphoreLittle},
   ufrmNilai in 'ufrmNilai.pas' {frmNilai},
-  uDataType in 'Library\uDataType.pas';
+  uDataType in 'Library\uDataType.pas',
+  ufrmPengenalanLittle in 'Form Resolusi 1300 x 720\ufrmPengenalanLittle.pas' {frmPengenalanLittle};
 
 {$R *.res}
 
@@ -28,5 +29,6 @@ begin
   Application.CreateForm(TfrmPengenalan, frmPengenalan);
   Application.CreateForm(TfrmSemaphoreLittle, frmSemaphoreLittle);
   Application.CreateForm(TfrmNilai, frmNilai);
+  Application.CreateForm(TfrmPengenalanLittle, frmPengenalanLittle);
   Application.Run;
 end.

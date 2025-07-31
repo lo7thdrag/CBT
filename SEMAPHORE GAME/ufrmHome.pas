@@ -94,7 +94,7 @@ implementation
 
 uses
   ufrmSemaphore, ufrmExerciseChoice, ufrmExerciseRead, ufrmExerciseWrite, uPengenalan, ufrmSetting,
-  ufrmSemaphoreLittle;
+  ufrmSemaphoreLittle, ufrmPengenalanLittle;
 
 procedure TfrmHome.FormCreate(Sender: TObject);
 begin
@@ -136,7 +136,16 @@ end;
 
 procedure TfrmHome.lblIntroduceClick(Sender: TObject);
 begin
-  frmPengenalan.Show;
+  case displayResolution of
+    0 :
+    begin
+      frmPengenalan.Show;
+    end;
+    1 :
+    begin
+      frmPengenalanLittle.Show;
+    end;
+  end;
 end;
 
 procedure TfrmHome.lblSemaphoreClick(Sender: TObject);

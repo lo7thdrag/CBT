@@ -4,17 +4,9 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Imaging.pngimage, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, Vcl.ComCtrls,
 
-const
-//  C_EASY1 : array [0..9] of string = ('mandi', 'makan', 'pergi', 'duduk', 'tulis', 'warna', 'bubur', 'nanas', 'bebek', 'empat');
-//  C_EASY2 : array [0..9] of string = ('bubuk', 'nilai', 'waris', 'harta', 'tulis', 'tahta', 'lapor', 'ingin', 'berak', 'dodol');
-//
-////  C_NORMAL : array [0..9] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-////                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
-////  C_HARD : array [0..9] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-////                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+  uDataType;
 
 type
   TfrmExerciseRead = class(TForm)
@@ -77,18 +69,23 @@ type
     procedure lblAgainClick(Sender: TObject);
     
   private
-    tempTime2: Integer;
-    soalTemp : array [0..4] of string;
-    jawabTemp : array [0..9] of string;
-    tesTemp : array [0..9] of string;
+    noHuruf: Integer;
+    hurufEasy : array [0..4] of string;
+    hurufNormal : array [0..9] of string;
+    hurufHard : array [0..14] of string;
+
+    soalTemp : array [0..9] of string;
+    jawabanTemp : array [0..9] of string;
+
     NoSoal : Integer;
 
     procedure LoadHuruf(hrfVal: string);
-    procedure copyWord(wrdVal: string);
+    procedure splitWord(wrdVal: string);
     procedure showJawab;
     
   public
-    { Public declarations }
+    exerciseMode : Integer; {0: Easy; 1: Normal; 2: Hard;}
+
   end;
 
 var
@@ -115,14 +112,33 @@ begin
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-procedure TfrmExerciseRead.copyWord(wrdVal: string);
+procedure TfrmExerciseRead.splitWord(wrdVal: string);
 var
   i : Integer;
   
 begin
-  for i := 0 to wrdVal.Length - 1 do
-  begin
-    soalTemp[i] := copy(wrdVal,i+1,1); 
+  case exerciseMode of
+    0:{Easy}
+    begin
+      for i := 0 to wrdVal.Length - 1 do
+      begin
+        hurufEasy[i] := copy(wrdVal,i+1,1);
+      end;
+    end;
+    1:{Normal}
+    begin
+      for i := 0 to wrdVal.Length - 1 do
+      begin
+        hurufNormal[i] := copy(wrdVal,i+1,1);
+      end;
+    end;
+    2:{Hard}
+    begin
+      for i := 0 to wrdVal.Length - 1 do
+      begin
+        hurufHard[i] := copy(wrdVal,i+1,1);
+      end;
+    end;
   end;
 end;
 
@@ -147,21 +163,21 @@ begin
   NoSoal := 0;
   lblQuetions.Caption := 'QUESTION NO ' + (NoSoal + 1).ToString;
 
-  val := Random(100);
+  val := Random(10);
 
   if val = 0 then
   begin
     for i := 0 to 9 do
-      tesTemp[i] := C_EASY1[i];
+      soalTemp[i] := C_EASY1[i];
   end
   else
   begin
     for i := 0 to 9 do
-      tesTemp[i] := C_EASY2[i];
+      soalTemp[i] := C_EASY2[i];
   end;
 
   for i := 0 to 9 do
-    jawabTemp[i] := '-';
+    jawabanTemp[i] := '-';
 end;
 
 procedure TfrmExerciseRead.lblHomeClick(Sender: TObject);
@@ -180,9 +196,9 @@ begin
   begin
     lblReplay.Visible := True;
 
-    copyWord(C_EASY1[NoSoal]);
+    splitWord(C_EASY1[NoSoal]);
 
-    tempTime2 := 0;
+    noHuruf := 0;
     tmr1.Enabled := True;
     NoSoal := NoSoal + 1;
 
@@ -193,9 +209,9 @@ begin
     if tmr1.Enabled then
       Exit;
 
-    copyWord(C_EASY1[NoSoal]);
+    splitWord(C_EASY1[NoSoal]);
 
-    tempTime2 := 0;
+    noHuruf := 0;
     tmr1.Enabled := True;
     NoSoal := NoSoal + 1;
 
@@ -210,7 +226,7 @@ begin
 
     for i := 0 to 9 do
     begin
-      if jawabTemp[i] = C_EASY1[i] then
+      if jawabanTemp[i] = C_EASY1[i] then
       begin
         nilai := nilai + 1;
       end;
@@ -244,7 +260,7 @@ end;
 
 procedure TfrmExerciseRead.lblReplayClick(Sender: TObject);  
 begin
-  tempTime2 := 0;
+  noHuruf := 0;
   tmr1.Enabled := True;    
 end;
 
@@ -255,7 +271,7 @@ end;
 
 procedure TfrmExerciseRead.pnl3Click(Sender: TObject);
 begin
-  jawabTemp[NoSoal-1] := edtJawaban.Text;
+  jawabanTemp[NoSoal-1] := edtJawaban.Text;
   showJawab;
 end;
 
@@ -267,23 +283,23 @@ begin
   for i := 0 to 9 do
   begin
     case i of
-      0 : pnl1Jawab1.Caption := '  ' + jawabTemp[i];
-      1 : pnl1Jawab2.Caption := '  ' + jawabTemp[i];
-      2 : pnl1Jawab3.Caption := '  ' + jawabTemp[i];
-      3 : pnl1Jawab4.Caption := '  ' + jawabTemp[i];
-      4 : pnl1Jawab5.Caption := '  ' + jawabTemp[i];
-      5 : pnl1Jawab6.Caption := '  ' + jawabTemp[i];
-      6 : pnl1Jawab7.Caption := '  ' + jawabTemp[i];
-      7 : pnl1Jawab8.Caption := '  ' + jawabTemp[i];
-      8 : pnl1Jawab9.Caption := '  ' + jawabTemp[i];
-      9 : pnl1Jawab10.Caption := '  ' + jawabTemp[i];
+      0 : pnl1Jawab1.Caption := '  ' + jawabanTemp[i];
+      1 : pnl1Jawab2.Caption := '  ' + jawabanTemp[i];
+      2 : pnl1Jawab3.Caption := '  ' + jawabanTemp[i];
+      3 : pnl1Jawab4.Caption := '  ' + jawabanTemp[i];
+      4 : pnl1Jawab5.Caption := '  ' + jawabanTemp[i];
+      5 : pnl1Jawab6.Caption := '  ' + jawabanTemp[i];
+      6 : pnl1Jawab7.Caption := '  ' + jawabanTemp[i];
+      7 : pnl1Jawab8.Caption := '  ' + jawabanTemp[i];
+      8 : pnl1Jawab9.Caption := '  ' + jawabanTemp[i];
+      9 : pnl1Jawab10.Caption := '  ' + jawabanTemp[i];
     end;
   end;
 end;
 
 procedure TfrmExerciseRead.tmr1Timer(Sender: TObject);
 begin
-  if tempTime2 > 4 then
+  if noHuruf > 4 then
   begin
     tmr1.Enabled := False;
     imgModel.Picture.LoadFromFile('Image\Model\spasi.png');
@@ -293,8 +309,8 @@ begin
     Exit;
   end;
 
-  LoadHuruf(soalTemp[tempTime2]);
-  tempTime2 := tempTime2 + 1;
+  LoadHuruf(hurufEasy[noHuruf]);
+  noHuruf := noHuruf + 1;
 end;
 
 end.

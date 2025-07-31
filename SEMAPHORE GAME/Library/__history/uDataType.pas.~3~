@@ -54,39 +54,6 @@ const
   C_HARD10 : array [0..9] of string = ('Bajai', 'Kabur', 'Kawat', 'Sikat', 'Mimpi', 'Gerah', 'Rindu', 'Keras', 'Legam', 'Kerja');
   {$ENDREGION}
 
-  function GetQuestion(const exerciseMode, randomValue: Integer): string;
-
 implementation
-
-function GetQuestion(const exerciseMode, randomValue: Integer): string;
-begin
-  case exerciseMode of
-    0: {Easy}
-    begin
-      case randomValue of
-        0: {Easy}
-        begin
-
-        end;
-        1: {Normal}
-        begin
-
-        end;
-        2: {Hard}
-        begin
-
-        end;
-      end;
-    end;
-    1: {Normal}
-    begin
-
-    end;
-    2: {Hard}
-    begin
-
-    end;
-  end;
-end;
 
 end.

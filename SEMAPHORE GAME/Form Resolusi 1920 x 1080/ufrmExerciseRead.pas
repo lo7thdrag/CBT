@@ -173,7 +173,7 @@ begin
     2: edtJawaban.MaxLength := 15;
   end;
 
-  val := Random(10);
+  val := 1 + Random(10);
 
   {Create Soal Baru}
   for i := 0 to 9 do

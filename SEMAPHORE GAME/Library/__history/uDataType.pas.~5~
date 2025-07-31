@@ -14,16 +14,16 @@ interface
 const
   C_ABJAD_ID : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
                                            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
-  C_ABJAD_RND1 : array [0..27] of string = ('spasi', 'q', 'r', 's', 'v', 't', 'o', 'z', 'w', 'x', 'numeral', 'a', 'y', 'u', 'g', 'd',
-                                           'b', 'c', 'p', 'f', 'n', 'e', 'i', 'j', 'm', 'h', 'k', 'l');
-  C_ABJAD_RND2 : array [0..27] of string = ('h', 'v', 's', 'x', 'numeral', 'u', 'w', 'a', 'z', 'r', 'spasi', 'o', 'y', 'q', 'l', 'b',
-                                           'n', 'j', 'c', 't', 'f', 'p', 'g', 'd', 'm', 'i', 'e', 'k');
-  C_ABJAD_RND3 : array [0..27] of string = ('r', 't', 'numeral', 'v', 'y', 'q', 'j', 'p', 'z', 'g', 'k', 'l', 'h', 'n', 'u', 'm',
-                                           'numeral', 'a', 'x', 'i', 'w', 'd', 'o', 's', 'e', 'b', 'c', 'f');
-  C_ABJAD_RND4 : array [0..27] of string = ('s', 'w', 'r', 'x', 't', 'g', 'm', 'k', 'y', 'spasi', 'd', 'l', 'f', 'p', 'i', 'z',
-                                           'numeral', 'u', 'a', 'v', 'c', 'e', 'b', 'h', 'o', 'n', 'q', 'j');
-  C_ABJAD_RND5 : array [0..27] of string = ('f', 'r', 'spasi', 't', 'm', 'numeral', 'e', 'o', 'b', 'c', 'y', 'h', 'g', 'v', 'p', 'l',
-                                           'q', 'i', 's', 'z', 'u', 'x', 'w', 'n', 'k', 'd', 'a', 'j');
+  C_ABJAD_RND1 : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+  C_ABJAD_RND2 : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+  C_ABJAD_RND3 : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+  C_ABJAD_RND4 : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
+  C_ABJAD_RND5 : array [0..27] of string = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                                           'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'numeral', 'spasi');
   {$region ' Soal-Soal mode Easy '}
   C_EASY1 : array [0..9] of string = ('Bunga', 'Layar', 'Rambu', 'Tenda', 'Laris', 'Surat', 'Koran', 'Minum', 'Lemak', 'Sinar');
   C_EASY2 : array [0..9] of string = ('Lapar', 'Rumah', 'Pisau', 'Pulau', 'Belut', 'Badan', 'Senin', 'Tanah', 'Datar', 'Pedas');

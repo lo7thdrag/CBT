@@ -20963,8 +20963,7 @@ object frmHome: TfrmHome
         2793DF0070BF2C7D7C6B0038315BC80D007F1900FCFF017CE4C81473C94D6A00
         00000049454E44AE426082}
       Stretch = True
-      ExplicitLeft = -713
-      ExplicitTop = -298
+      ExplicitLeft = 91
     end
     object lbl2: TLabel
       Left = 1466

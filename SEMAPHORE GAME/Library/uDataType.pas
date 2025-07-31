@@ -27,31 +27,31 @@ const
   {$ENDREGION}
 
   {$region ' Soal-Soal mode Normal '}
-  C_NORMAL1 : array [0..9] of string = ('Aku ke luar', 'Kirim', 'Rambu', 'Tenda', 'Laris', 'Surat', 'Koran', 'Minum', 'Lemak', 'Sinar');
-  C_NORMAL2 : array [0..9] of string = ('Tidur', 'Ambil', 'Pisau', 'Pulau', 'Belut', 'Badan', 'Senin', 'Tanah', 'Datar', 'Pedas');
-  C_NORMAL3 : array [0..9] of string = ('Makan', 'Tangis', 'Merah', 'Udang', 'Tenis', 'Petik', 'Ganas', 'Sakit', 'Terik', 'Luwes');
-  C_NORMAL4 : array [0..9] of string = ('Lompat', 'Ciumi', 'Balap', 'Kawat', 'Pikir', 'Indah', 'Rapat', 'Pasar', 'Lautan', 'Nisan');
-  C_NORMAL5 : array [0..9] of string = ('Duduk', 'Cabut', 'Tiket', 'Sopan', 'Keras', 'Sepak', 'Sayur', 'Bakar', 'Goyah', 'Udara');
+  C_NORMAL1 : array [0..9] of string = ('saya lapar', 'kirim uang', 'minum susu', 'tenda biru', 'jalan kaki', 'suka minum', 'koran lama', 'minum susu', 'jari manis', 'rasa pedas');
+  C_NORMAL2 : array [0..9] of string = ('tidur pagi', 'ambil lima', 'lima pisau', 'pulau alor', 'bawah meja', 'pulau rote', 'gula manis', 'kaca hitam', 'rindu ayah', 'banda aceh');
+  C_NORMAL3 : array [0..9] of string = ('teman lama', 'ambil satu', 'merah muda', 'lima pisau', 'saya lapar', 'bola tenis', 'pulau alor', 'kopi pahit', 'empat apel', 'cinta anak');
+  C_NORMAL4 : array [0..9] of string = ('pasar jauh', 'cium bunda', 'teman lama', 'kawat besi', 'pikir dulu', 'gagal lagi', 'butuh kamu', 'ambil lima', 'pasar baru', 'rasa pedas');
+  C_NORMAL5 : array [0..9] of string = ('duduk sini', 'cabut tela', 'tiket kamu', 'kamu sopan', 'batu keras', 'sepak bola', 'pasar raya', 'bakar ikan', 'tidak ikut', 'minum kopi');
 
-  C_NORMAL6 : array [0..9] of string = ('Jalan', 'Pukul', 'Batok', 'Dukun', 'Gagal', 'Butuh', 'Koyak', 'Jarak', 'Tebar', 'Gulat');
-  C_NORMAL7 : array [0..9] of string = ('Lihat', 'Tarik', 'Hutan', 'Nyeri', 'Jemur', 'Perih', 'Tarik', 'Tobat', 'Sadar', 'Kalah');
-  C_NORMAL : array [0..9] of string = ('Dengar', 'Pajak', 'Jeruk', 'Tepis', 'Tepat', 'Beras', 'Gores', 'Mandi', 'Hitam', 'Cinta');
-  C_NORMAL9 : array [0..9] of string = ('Bakar', 'Retak', 'Takut', 'Lekuk', 'Kukuh', 'Gigit', 'Sayap', 'Sorot', 'Merdu', 'Pilih');
-  C_NORMAL10 : array [0..9] of string = ('Tulis', 'Kabur', 'Kawat', 'Sikat', 'Mimpi', 'Gerah', 'Rindu', 'Keras', 'Legam', 'Kerja');
+  C_NORMAL6 : array [0..9] of string = ('jalan kaki', 'pukul tiga', 'sayang dia', 'cinta anak', 'gagal mulu', 'butuh kamu', 'jarak jauh', 'kawat besi', 'suka gulat', 'bola tenis');
+  C_NORMAL7 : array [0..9] of string = ('lihat mata', 'tarik ulur', 'hutan riau', 'nyeri kaki', 'jemur baju', 'jamur enak', 'tarik tali', 'saya tobat', 'sadar diri', 'kamu kalah');
+  C_NORMAL  : array [0..9] of string = ('lihat saya', 'tidur pagi', 'jeruk cina', 'sawi hijau', 'kuda putih', 'Beras enak', 'pulau rote', 'mandi lama', 'gagal lagi', 'tidak akan');
+  C_NORMAL9 : array [0..9] of string = ('bakar ikan', 'kaca retak', 'takut lama', 'lima pisau', 'bawah meja', 'sakit gigi', 'rindu ayah', 'sorot mata', 'bola tenis', 'pikir dulu');
+  C_NORMAL10 : array [0..9] of string = ('lebih lama', 'cium bunda', 'kawat besi', 'sikat gigi', 'rindu ayah', 'pasar daya', 'jaket baru', 'keras batu', 'mata indah', 'sayang ibu');
   {$ENDREGION}
 
   {$region ' Soal-Soal mode Normal '}
-  C_HARD1 : array [0..9] of string = ('Bunga', 'Layar', 'Rambu', 'Tenda', 'Laris', 'Surat', 'Koran', 'Minum', 'Lemak', 'Sinar');
-  C_HARD2 : array [0..9] of string = ('Lapar', 'Rumah', 'Pisau', 'Pulau', 'Belut', 'Badan', 'Senin', 'Tanah', 'Datar', 'Pedas');
-  C_HARD3 : array [0..9] of string = ('Kunci', 'Kanan', 'Merah', 'Udang', 'Tenis', 'Petik', 'Ganas', 'Sakit', 'Terik', 'Luwes');
-  C_HARD4 : array [0..9] of string = ('Hadir', 'Tenar', 'Balap', 'Kawat', 'Pikir', 'Indah', 'Rapat', 'Pasar', 'Lautan', 'Nisan');
-  C_HARD5 : array [0..9] of string = ('Kipas', 'Sinar', 'Tiket', 'Sopan', 'Keras', 'Sepak', 'Sayur', 'Bakar', 'Goyah', 'Udara');
+  C_HARD1 : array [0..9] of string = ('bayam dan tomat', 'layar kaca kita', 'kanan kiri saya', 'jika kamu lihat', 'tenda saya rapi', 'gigi putih saya', 'batu batu berat', 'takut akan ular', 'jalan panjangku', 'dengan doa saya');
+  C_HARD2 : array [0..9] of string = ('sungai bengawan', 'aku tidur malam', 'lihat saya baik', 'tenda saya rapi', 'lihat sawah itu', 'badan saya kuat', 'bantu saya dulu', 'tanah ayah saya', 'jajan kaki lima', 'makanan pedasku');
+  C_HARD3 : array [0..9] of string = ('lupa bawa kunci', 'kanan kiri saya', 'roti merah muda', 'gagal coba lagi', 'teknis perangku', 'petik buah apel', 'hari hari indah', 'panen ubi manis', 'sikap baik kamu', 'cari cari lawan');
+  C_HARD4 : array [0..9] of string = ('hadir merayakan', 'bola besar saya', 'kemenangan kami', 'lupa bawa kunci', 'pikir panjangku', 'panen ubi manis', 'cari cari teman', 'pagi pagi indah', 'katamu dia baik', 'saya cari cari');
+  C_HARD5 : array [0..9] of string = ('beras raja lele', 'bola kecil kamu', 'sepak bola kami', 'keras kepalanya', 'batu batu keras', 'sayur sawi mama', 'pahlawan negara', 'masak teri nasi', 'jalan kaki pagi', 'minggu paginya');
 
-  C_HARD6 : array [0..9] of string = ('Cegah', 'Nyala', 'Batok', 'Dukun', 'Gagal', 'Butuh', 'Koyak', 'Jarak', 'Tebar', 'Gulat');
-  C_HARD7 : array [0..9] of string = ('Lapis', 'Tutur', 'Hutan', 'Nyeri', 'Jemur', 'Perih', 'Tarik', 'Tobat', 'Sadar', 'Kalah');
-  C_HARDL : array [0..9] of string = ('Akhir', 'Pajak', 'Jeruk', 'Tepis', 'Tepat', 'Beras', 'Gores', 'Mandi', 'Hitam', 'Cinta');
-  C_HARD9 : array [0..9] of string = ('Catut', 'Retak', 'Takut', 'Lekuk', 'Kukuh', 'Gigit', 'Sayap', 'Sorot', 'Merdu', 'Pilih');
-  C_HARD10 : array [0..9] of string = ('Bajai', 'Kabur', 'Kawat', 'Sikat', 'Mimpi', 'Gerah', 'Rindu', 'Keras', 'Legam', 'Kerja');
+  C_HARD6 : array [0..9] of string = ('surabaya makmur', 'gagal coba lagi', 'bayam dan tomat', 'roti merah muda', 'nyeri kaki saya', 'jalan panjangku', 'cuaca yang baik', 'rapat guru guru', 'tanah ayah saya', 'bantu saya dulu');
+  C_HARD7 : array [0..9] of string = ('tni bela negara', 'hidup mati saya', 'strategi perang', 'nyeri kaki saya', 'saya jemur baju', 'surabaya makmur', 'tarik ulur tali', 'badan saya kaku', 'kemenangan kami', 'kalah lagi saya');
+  C_HARDL : array [0..9] of string = ('pos jaga markas', 'jika kamu lihat', 'petai cina saya', 'tempatnya indah', 'jajan kaki lima', 'rapat guru guru', 'lomba lari lari', 'mandi pagi hari', 'makan ikan laut', 'kami cinta mama');
+  C_HARD9 : array [0..9] of string = ('strategi perang', 'rindu mama saya', 'takut akan ular', 'lekuk kaki saya', 'mimpi tingginya', 'hewan baik baik', 'lari lari malam', 'pilih baju baru', 'kerja pagi lagi', 'pilih lauk ayam');
+  C_HARD10 : array [0..9] of string = ('kemenangan kami', 'lihat saya baik', 'lupa bawa kunci', 'gigi putih saya', 'panjang jalanku', 'cuaca yang baik', 'sikap baik kamu', 'hidup saya atur', 'masak teri nasi', 'saya cari cari');
   {$ENDREGION}
 
   function GetQuestion(const exerciseMode, randomValue: Integer): string;

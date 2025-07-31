@@ -1,0 +1,92 @@
+unit uDataType;
+
+{
+  Place all user data types here
+  Naming Convention :
+    Constanta  C_XxxXxx  : C_MyConst = 20;
+    User Type  T_XxxXxx  : T_UserType = procedure(Sender : TObject) of TObject;
+    Enum       E_XxxXxx  : E_MyEnum = (meMine, meYours);
+    Record     R_XxxXxx  : R_MyRecord = record
+}
+
+interface
+
+const
+  {$region ' Soal-Soal mode Easy '}
+  C_EASY1 : array [0..9] of string = ('Bunga', 'Layar', 'Rambu', 'Tenda', 'Laris', 'Surat', 'Koran', 'Minum', 'Lemak', 'Sinar');
+  C_EASY2 : array [0..9] of string = ('Lapar', 'Rumah', 'Pisau', 'Pulau', 'Belut', 'Badan', 'Senin', 'Tanah', 'Datar', 'Pedas');
+  C_EASY3 : array [0..9] of string = ('Kunci', 'Kanan', 'Merah', 'Udang', 'Tenis', 'Petik', 'Ganas', 'Sakit', 'Terik', 'Luwes');
+  C_EASY4 : array [0..9] of string = ('Hadir', 'Tenar', 'Balap', 'Kawat', 'Pikir', 'Indah', 'Rapat', 'Pasar', 'Lautan', 'Nisan');
+  C_EASY5 : array [0..9] of string = ('Kipas', 'Sinar', 'Tiket', 'Sopan', 'Keras', 'Sepak', 'Sayur', 'Bakar', 'Goyah', 'Udara');
+
+  C_EASY6 : array [0..9] of string = ('Cegah', 'Nyala', 'Batok', 'Dukun', 'Gagal', 'Butuh', 'Koyak', 'Jarak', 'Tebar', 'Gulat');
+  C_EASY7 : array [0..9] of string = ('Lapis', 'Tutur', 'Hutan', 'Nyeri', 'Jemur', 'Perih', 'Tarik', 'Tobat', 'Sadar', 'Kalah');
+  C_EASY8 : array [0..9] of string = ('Akhir', 'Pajak', 'Jeruk', 'Tepis', 'Tepat', 'Beras', 'Gores', 'Mandi', 'Hitam', 'Cinta');
+  C_EASY9 : array [0..9] of string = ('Catut', 'Retak', 'Takut', 'Lekuk', 'Kukuh', 'Gigit', 'Sayap', 'Sorot', 'Merdu', 'Pilih');
+  C_EASY10 : array [0..9] of string = ('Bajai', 'Kabur', 'Kawat', 'Sikat', 'Mimpi', 'Gerah', 'Rindu', 'Keras', 'Legam', 'Kerja');
+  {$ENDREGION}
+
+  {$region ' Soal-Soal mode Normal '}
+  C_NORMAL1 : array [0..9] of string = ('Aku ke luar', 'Kirim', 'Rambu', 'Tenda', 'Laris', 'Surat', 'Koran', 'Minum', 'Lemak', 'Sinar');
+  C_NORMAL2 : array [0..9] of string = ('Tidur', 'Ambil', 'Pisau', 'Pulau', 'Belut', 'Badan', 'Senin', 'Tanah', 'Datar', 'Pedas');
+  C_NORMAL3 : array [0..9] of string = ('Makan', 'Tangis', 'Merah', 'Udang', 'Tenis', 'Petik', 'Ganas', 'Sakit', 'Terik', 'Luwes');
+  C_NORMAL4 : array [0..9] of string = ('Lompat', 'Ciumi', 'Balap', 'Kawat', 'Pikir', 'Indah', 'Rapat', 'Pasar', 'Lautan', 'Nisan');
+  C_NORMAL5 : array [0..9] of string = ('Duduk', 'Cabut', 'Tiket', 'Sopan', 'Keras', 'Sepak', 'Sayur', 'Bakar', 'Goyah', 'Udara');
+
+  C_NORMAL6 : array [0..9] of string = ('Jalan', 'Pukul', 'Batok', 'Dukun', 'Gagal', 'Butuh', 'Koyak', 'Jarak', 'Tebar', 'Gulat');
+  C_NORMAL7 : array [0..9] of string = ('Lihat', 'Tarik', 'Hutan', 'Nyeri', 'Jemur', 'Perih', 'Tarik', 'Tobat', 'Sadar', 'Kalah');
+  C_NORMAL : array [0..9] of string = ('Dengar', 'Pajak', 'Jeruk', 'Tepis', 'Tepat', 'Beras', 'Gores', 'Mandi', 'Hitam', 'Cinta');
+  C_NORMAL9 : array [0..9] of string = ('Bakar', 'Retak', 'Takut', 'Lekuk', 'Kukuh', 'Gigit', 'Sayap', 'Sorot', 'Merdu', 'Pilih');
+  C_NORMAL10 : array [0..9] of string = ('Tulis', 'Kabur', 'Kawat', 'Sikat', 'Mimpi', 'Gerah', 'Rindu', 'Keras', 'Legam', 'Kerja');
+  {$ENDREGION}
+
+  {$region ' Soal-Soal mode Normal '}
+  C_HARD1 : array [0..9] of string = ('Bunga', 'Layar', 'Rambu', 'Tenda', 'Laris', 'Surat', 'Koran', 'Minum', 'Lemak', 'Sinar');
+  C_HARD2 : array [0..9] of string = ('Lapar', 'Rumah', 'Pisau', 'Pulau', 'Belut', 'Badan', 'Senin', 'Tanah', 'Datar', 'Pedas');
+  C_HARD3 : array [0..9] of string = ('Kunci', 'Kanan', 'Merah', 'Udang', 'Tenis', 'Petik', 'Ganas', 'Sakit', 'Terik', 'Luwes');
+  C_HARD4 : array [0..9] of string = ('Hadir', 'Tenar', 'Balap', 'Kawat', 'Pikir', 'Indah', 'Rapat', 'Pasar', 'Lautan', 'Nisan');
+  C_HARD5 : array [0..9] of string = ('Kipas', 'Sinar', 'Tiket', 'Sopan', 'Keras', 'Sepak', 'Sayur', 'Bakar', 'Goyah', 'Udara');
+
+  C_HARD6 : array [0..9] of string = ('Cegah', 'Nyala', 'Batok', 'Dukun', 'Gagal', 'Butuh', 'Koyak', 'Jarak', 'Tebar', 'Gulat');
+  C_HARD7 : array [0..9] of string = ('Lapis', 'Tutur', 'Hutan', 'Nyeri', 'Jemur', 'Perih', 'Tarik', 'Tobat', 'Sadar', 'Kalah');
+  C_HARDL : array [0..9] of string = ('Akhir', 'Pajak', 'Jeruk', 'Tepis', 'Tepat', 'Beras', 'Gores', 'Mandi', 'Hitam', 'Cinta');
+  C_HARD9 : array [0..9] of string = ('Catut', 'Retak', 'Takut', 'Lekuk', 'Kukuh', 'Gigit', 'Sayap', 'Sorot', 'Merdu', 'Pilih');
+  C_HARD10 : array [0..9] of string = ('Bajai', 'Kabur', 'Kawat', 'Sikat', 'Mimpi', 'Gerah', 'Rindu', 'Keras', 'Legam', 'Kerja');
+  {$ENDREGION}
+
+  function GetQuestion(const exerciseMode, randomValue: Integer): string;
+
+implementation
+
+function GetQuestion(const exerciseMode, randomValue: Integer): string;
+begin
+  case exerciseMode of
+    0: {Easy}
+    begin
+      case randomValue of
+        0: {Easy}
+        begin
+
+        end;
+        1: {Normal}
+        begin
+
+        end;
+        2: {Hard}
+        begin
+
+        end;
+      end;
+    end;
+    1: {Normal}
+    begin
+
+    end;
+    2: {Hard}
+    begin
+
+    end;
+  end;
+end;
+
+end.

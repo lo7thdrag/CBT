@@ -12,6 +12,8 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -31642,12 +31644,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = -8
     object imgModel: TImage
-      Left = 453
-      Top = 95
-      Width = 420
-      Height = 442
+      Left = 427
+      Top = 42
+      Width = 446
+      Height = 495
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000003020000
         03020806000000DABC71B800000009704859730000375D0000375D011980465D
@@ -33382,46 +33383,9 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
         4020100804028140E016E2FFAC79B47CFC5D10130000000049454E44AE426082}
       Stretch = True
     end
-    object lblReplay: TLabel
-      Left = 143
-      Top = 1016
-      Width = 170
-      Height = 48
-      Cursor = crHandPoint
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'REPLAY'
-      Color = clBtnFace
-      Font.Charset = ANSI_CHARSET
-      Font.Color = 14790708
-      Font.Height = -53
-      Font.Name = 'Deusex'
-      Font.Style = [fsBold, fsItalic]
-      ParentColor = False
-      ParentFont = False
-      Visible = False
-    end
-    object lblNext: TLabel
-      Left = 1584
-      Top = 1016
-      Width = 189
-      Height = 48
-      Cursor = crHandPoint
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'START'
-      Color = clBtnFace
-      Font.Charset = ANSI_CHARSET
-      Font.Color = 14790708
-      Font.Height = -53
-      Font.Name = 'Deusex'
-      Font.Style = [fsBold, fsItalic]
-      ParentColor = False
-      ParentFont = False
-    end
     object lblQuetions: TLabel
-      Left = 743
-      Top = 963
+      Left = 371
+      Top = 636
       Width = 433
       Height = 48
       Cursor = crHandPoint
@@ -33437,9 +33401,48 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentColor = False
       ParentFont = False
     end
+    object lblNext: TLabel
+      Left = 1042
+      Top = 672
+      Width = 189
+      Height = 48
+      Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'START'
+      Color = clBtnFace
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -47
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnClick = lblNextClick
+    end
+    object lblReplay: TLabel
+      Left = 78
+      Top = 672
+      Width = 170
+      Height = 48
+      Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'REPLAY'
+      Color = clBtnFace
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -47
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+      OnClick = lblReplayClick
+    end
     object lblAgain: TLabel
-      Left = 1584
-      Top = 1016
+      Left = 1042
+      Top = 672
       Width = 189
       Height = 48
       Cursor = crHandPoint
@@ -33449,81 +33452,48 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       Color = clBtnFace
       Font.Charset = ANSI_CHARSET
       Font.Color = 14790708
-      Font.Height = -53
+      Font.Height = -47
       Font.Name = 'Deusex'
       Font.Style = [fsBold, fsItalic]
       ParentColor = False
       ParentFont = False
       Visible = False
+      OnClick = lblAgainClick
     end
     object lblHome: TLabel
-      Left = 143
-      Top = 1016
+      Left = 78
+      Top = 673
       Width = 170
       Height = 48
       Cursor = crHandPoint
       Alignment = taCenter
       AutoSize = False
-      Caption = 'Home'
+      Caption = 'HOME'
       Color = clBtnFace
       Font.Charset = ANSI_CHARSET
       Font.Color = 14790708
-      Font.Height = -53
+      Font.Height = -47
       Font.Name = 'Deusex'
       Font.Style = [fsBold, fsItalic]
       ParentColor = False
       ParentFont = False
       Visible = False
-    end
-    object edtJawaban: TEdit
-      Left = 544
-      Top = 943
-      Width = 690
-      Height = 89
-      Alignment = taCenter
-      AutoSize = False
-      Font.Charset = ANSI_CHARSET
-      Font.Color = 14790708
-      Font.Height = -53
-      Font.Name = 'Cyborg Punk'
-      Font.Style = []
-      MaxLength = 5
-      ParentFont = False
-      TabOrder = 0
-      Visible = False
-    end
-    object pnl3: TPanel
-      Left = 1240
-      Top = 927
-      Width = 145
-      Height = 89
-      Cursor = crHandPoint
-      Caption = 'submit'
-      Color = clWhite
-      Font.Charset = ANSI_CHARSET
-      Font.Color = 14790708
-      Font.Height = -40
-      Font.Name = 'Deusex'
-      Font.Style = [fsBold, fsItalic]
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 1
-      Visible = False
+      OnClick = lblHomeClick
     end
     object pnl4: TPanel
-      Left = 75
-      Top = 95
-      Width = 233
-      Height = 138
+      Left = 39
+      Top = 100
+      Width = 348
+      Height = 209
       BevelOuter = bvNone
       Color = clGradientActiveCaption
       ParentBackground = False
-      TabOrder = 2
+      TabOrder = 0
       object img4: TImage
         Left = 0
         Top = 0
-        Width = 233
-        Height = 138
+        Width = 348
+        Height = 209
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000002940000
@@ -33656,28 +33626,29 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
           2500007C931294770FFB8F0000E087EBBF01FBA223E893FD23B4000000004945
           4E44AE426082}
         Stretch = True
-        ExplicitTop = 16
+        ExplicitLeft = 32
+        ExplicitTop = 76
       end
       object lbl18: TLabel
         Tag = 1
-        Left = 70
-        Top = 33
-        Width = 93
-        Height = 24
+        Left = 122
+        Top = 43
+        Width = 105
+        Height = 27
         Cursor = crHandPoint
         Caption = 'Username :'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -24
+        Font.Height = -27
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object lblUsername: TLabel
-        Left = 33
-        Top = 84
-        Width = 167
-        Height = 21
+        Left = 22
+        Top = 116
+        Width = 305
+        Height = 48
         Cursor = crHandPoint
         Alignment = taCenter
         AutoSize = False
@@ -33685,16 +33656,52 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
         Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 14790708
-        Font.Height = -27
+        Font.Height = -40
         Font.Name = 'Deusex'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
       end
     end
+    object pnl3: TPanel
+      Left = 812
+      Top = 624
+      Width = 121
+      Height = 72
+      Cursor = crHandPoint
+      Caption = 'submit'
+      Color = clWhite
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -33
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold, fsItalic]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 1
+      Visible = False
+      OnClick = pnl3Click
+    end
+    object edtJawaban: TEdit
+      Left = 368
+      Top = 624
+      Width = 439
+      Height = 72
+      Alignment = taCenter
+      AutoSize = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -47
+      Font.Name = 'Cyborg Punk'
+      Font.Style = []
+      MaxLength = 5
+      ParentFont = False
+      TabOrder = 2
+      Visible = False
+    end
     object pnl1: TPanel
-      Left = 1325
-      Top = 124
+      Left = 913
+      Top = 100
       Width = 348
       Height = 209
       BevelOuter = bvNone
@@ -33867,7 +33874,7 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
         Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 14790708
-        Font.Height = -53
+        Font.Height = -47
         Font.Name = 'Deusex'
         Font.Style = [fsBold]
         ParentColor = False
@@ -33875,97 +33882,101 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       end
     end
     object pnl2: TPanel
-      Left = 16
-      Top = 403
-      Width = 32
-      Height = 31
+      Left = 9
+      Top = 376
+      Width = 39
+      Height = 39
       BevelOuter = bvNone
       Caption = '1'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
     end
-    object pnl5: TPanel
-      Left = 37
-      Top = 440
-      Width = 32
-      Height = 31
+    object pnl1Jawab1: TPanel
+      Left = 52
+      Top = 376
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
       BevelOuter = bvNone
-      Caption = '2'
+      Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 5
     end
-    object pnl6: TPanel
-      Left = 16
-      Top = 477
-      Width = 32
-      Height = 31
+    object pnlJawab11: TPanel
+      Left = 178
+      Top = 376
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
       BevelOuter = bvNone
-      Caption = '3'
+      Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 6
     end
-    object pnl7: TPanel
-      Left = 54
-      Top = 763
+    object pnl5: TPanel
+      Left = 50
+      Top = 419
       Width = 39
-      Height = 50
+      Height = 39
       BevelOuter = bvNone
-      Caption = '4'
+      Caption = '2'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 7
     end
-    object pnl8: TPanel
-      Left = 10
-      Top = 821
-      Width = 39
-      Height = 50
+    object pnl1Jawab2: TPanel
+      Left = 93
+      Top = 419
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
       BevelOuter = bvNone
-      Caption = '5'
+      Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 8
     end
-    object pnl9: TPanel
-      Left = 1435
-      Top = 590
-      Width = 39
-      Height = 50
+    object pnlJawab22: TPanel
+      Left = 219
+      Top = 419
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
       BevelOuter = bvNone
-      Caption = '6'
+      Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -33976,13 +33987,13 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 9
     end
-    object pnl10: TPanel
-      Left = 1396
-      Top = 644
+    object pnl6: TPanel
+      Left = 9
+      Top = 462
       Width = 39
-      Height = 50
+      Height = 39
       BevelOuter = bvNone
-      Caption = '7'
+      Caption = '3'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -33993,13 +34004,14 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 10
     end
-    object pnl11: TPanel
-      Left = 1435
-      Top = 701
-      Width = 39
-      Height = 50
+    object pnl1Jawab3: TPanel
+      Left = 52
+      Top = 462
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
       BevelOuter = bvNone
-      Caption = '8'
+      Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -34010,13 +34022,14 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 11
     end
-    object pnl12: TPanel
-      Left = 1396
-      Top = 759
-      Width = 39
-      Height = 50
+    object pnlJawab33: TPanel
+      Left = 178
+      Top = 462
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
       BevelOuter = bvNone
-      Caption = '9'
+      Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -34027,13 +34040,13 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 12
     end
-    object pnl13: TPanel
-      Left = 1435
-      Top = 817
+    object pnl7: TPanel
+      Left = 50
+      Top = 505
       Width = 39
-      Height = 50
+      Height = 39
       BevelOuter = bvNone
-      Caption = '10'
+      Caption = '4'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -34044,101 +34057,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 13
     end
-    object pnl1Jawab1: TPanel
-      Left = 54
-      Top = 403
-      Width = 162
-      Height = 31
-      Alignment = taLeftJustify
-      BevelOuter = bvNone
-      Caption = '  -'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -24
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 14
-    end
-    object pnl1Jawab2: TPanel
-      Left = 75
-      Top = 440
-      Width = 162
-      Height = 31
-      Alignment = taLeftJustify
-      BevelOuter = bvNone
-      Caption = '  -'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -24
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 15
-    end
-    object pnl1Jawab3: TPanel
-      Left = 54
-      Top = 477
-      Width = 162
-      Height = 31
-      Alignment = taLeftJustify
-      BevelOuter = bvNone
-      Caption = '  -'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -24
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 16
-    end
     object pnl1Jawab4: TPanel
-      Left = 98
-      Top = 757
-      Width = 210
-      Height = 50
-      Alignment = taLeftJustify
-      BevelOuter = bvNone
-      Caption = '  -'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -24
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 17
-    end
-    object pnl1Jawab5: TPanel
-      Left = 54
-      Top = 815
-      Width = 210
-      Height = 50
-      Alignment = taLeftJustify
-      BevelOuter = bvNone
-      Caption = '  -'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -24
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 18
-    end
-    object pnl1Jawab6: TPanel
-      Left = 1479
-      Top = 584
-      Width = 210
-      Height = 50
+      Left = 93
+      Top = 505
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34150,13 +34073,101 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       Font.Style = []
       ParentBackground = False
       ParentFont = False
+      TabOrder = 14
+    end
+    object pnlJawab44: TPanel
+      Left = 219
+      Top = 505
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Caption = '  -'
+      Color = clGray
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 15
+    end
+    object pnl8: TPanel
+      Left = 9
+      Top = 548
+      Width = 39
+      Height = 39
+      BevelOuter = bvNone
+      Caption = '5'
+      Color = clGray
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 16
+    end
+    object pnl1Jawab5: TPanel
+      Left = 52
+      Top = 548
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Caption = '  -'
+      Color = clGray
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 17
+    end
+    object pnlJawab55: TPanel
+      Left = 178
+      Top = 548
+      Width = 122
+      Height = 39
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Caption = '  -'
+      Color = clGray
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 18
+    end
+    object pnl9: TPanel
+      Left = 956
+      Top = 376
+      Width = 39
+      Height = 39
+      BevelOuter = bvNone
+      Caption = '6'
+      Color = clGray
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
       TabOrder = 19
     end
-    object pnl1Jawab7: TPanel
-      Left = 1440
-      Top = 642
-      Width = 210
-      Height = 50
+    object pnl1Jawab6: TPanel
+      Left = 999
+      Top = 376
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34170,11 +34181,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 20
     end
-    object pnl1Jawab8: TPanel
-      Left = 1694
-      Top = 699
-      Width = 210
-      Height = 50
+    object pnlJawab66: TPanel
+      Left = 1125
+      Top = 376
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34188,14 +34199,13 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 21
     end
-    object pnl1Jawab9: TPanel
-      Left = 1440
-      Top = 757
-      Width = 210
-      Height = 50
-      Alignment = taLeftJustify
+    object pnl10: TPanel
+      Left = 999
+      Top = 419
+      Width = 39
+      Height = 39
       BevelOuter = bvNone
-      Caption = '  -'
+      Caption = '7'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -34206,11 +34216,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 22
     end
-    object pnl1Jawab10: TPanel
-      Left = 1479
-      Top = 815
-      Width = 210
-      Height = 50
+    object pnl1Jawab7: TPanel
+      Left = 1042
+      Top = 419
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34224,11 +34234,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 23
     end
-    object pnlJawab11: TPanel
-      Left = 222
-      Top = 405
-      Width = 114
-      Height = 30
+    object pnlJawab77: TPanel
+      Left = 1168
+      Top = 419
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34242,83 +34252,81 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 24
     end
-    object pnlJawab22: TPanel
-      Left = 243
-      Top = 440
-      Width = 114
-      Height = 30
-      Alignment = taLeftJustify
+    object pnl11: TPanel
+      Left = 956
+      Top = 462
+      Width = 39
+      Height = 39
       BevelOuter = bvNone
-      Caption = '  -'
+      Caption = '8'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 25
     end
-    object pnlJawab33: TPanel
-      Left = 222
-      Top = 477
-      Width = 114
-      Height = 30
+    object pnlJawab88: TPanel
+      Left = 999
+      Top = 462
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 26
     end
-    object pnlJawab44: TPanel
-      Left = 313
-      Top = 763
-      Width = 210
-      Height = 50
+    object pnl1Jawab8: TPanel
+      Left = 1125
+      Top = 462
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 27
     end
-    object pnlJawab55: TPanel
-      Left = 270
-      Top = 821
-      Width = 210
-      Height = 50
-      Alignment = taLeftJustify
+    object pnl12: TPanel
+      Left = 999
+      Top = 505
+      Width = 39
+      Height = 39
       BevelOuter = bvNone
-      Caption = '  -'
+      Caption = '9'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Deusex'
       Font.Style = []
       ParentBackground = False
       ParentFont = False
       TabOrder = 28
     end
-    object pnlJawab66: TPanel
-      Left = 1694
-      Top = 590
-      Width = 210
-      Height = 50
+    object pnl1Jawab9: TPanel
+      Left = 1042
+      Top = 505
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34332,11 +34340,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 29
     end
-    object pnlJawab77: TPanel
-      Left = 1655
-      Top = 648
-      Width = 210
-      Height = 50
+    object pnlJawab99: TPanel
+      Left = 1168
+      Top = 505
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34350,14 +34358,13 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 30
     end
-    object pnlJawab88: TPanel
-      Left = 1479
-      Top = 705
-      Width = 210
-      Height = 50
-      Alignment = taLeftJustify
+    object pnl13: TPanel
+      Left = 956
+      Top = 548
+      Width = 39
+      Height = 39
       BevelOuter = bvNone
-      Caption = '  -'
+      Caption = '10'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -34368,11 +34375,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 31
     end
-    object pnlJawab99: TPanel
-      Left = 1655
-      Top = 763
-      Width = 210
-      Height = 50
+    object pnl1Jawab10: TPanel
+      Left = 999
+      Top = 548
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34387,10 +34394,10 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       TabOrder = 32
     end
     object pnlJawab100: TPanel
-      Left = 1694
-      Top = 821
-      Width = 210
-      Height = 50
+      Left = 1125
+      Top = 548
+      Width = 122
+      Height = 39
       Alignment = taLeftJustify
       BevelOuter = bvNone
       Caption = '  -'
@@ -34404,27 +34411,11 @@ object frmExerciseReadLittle: TfrmExerciseReadLittle
       ParentFont = False
       TabOrder = 33
     end
-    object pnl14: TPanel
-      Left = 1904
-      Top = 644
-      Width = 16
-      Height = 29
-      BevelOuter = bvNone
-      Caption = '6'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 34
-    end
   end
   object tmr1: TTimer
     Enabled = False
-    Left = 456
-    Top = 692
+    OnTimer = tmr1Timer
+    Left = 16
+    Top = 12
   end
 end

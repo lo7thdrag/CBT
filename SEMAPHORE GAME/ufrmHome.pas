@@ -94,7 +94,7 @@ implementation
 
 uses
   ufrmSemaphore, ufrmExerciseChoice, ufrmExerciseRead, ufrmExerciseWrite, uPengenalan, ufrmSetting,
-  ufrmSemaphoreLittle, ufrmPengenalanLittle;
+  ufrmSemaphoreLittle, ufrmPengenalanLittle, UfrmExerciseReadLittle;
 
 procedure TfrmHome.FormCreate(Sender: TObject);
 begin
@@ -110,21 +110,36 @@ begin
   case frmExerciseChoice.typeExercise of
     0 : {Read}
     begin
-      case frmExerciseChoice.modeExercise of
-        0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
-        1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
-        2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
-      end;
+      if displayResolution = 0 then
+      begin
+        case frmExerciseChoice.modeExercise of
+          0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
+          1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
+          2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
+        end;
 
-      frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
-      frmExerciseRead.lblUsername.Caption := playerName;
-      frmExerciseRead.Show;
+        frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
+        frmExerciseRead.lblUsername.Caption := playerName;
+        frmExerciseRead.Show;
+      end
+      else if displayResolution = 1 then
+      begin
+        case frmExerciseChoice.modeExercise of
+          0 : frmExerciseReadLittle.lblExerciseMode.Caption := 'EASY';
+          1 : frmExerciseReadLittle.lblExerciseMode.Caption := 'NORMAL';
+          2 : frmExerciseReadLittle.lblExerciseMode.Caption := 'HARD';
+        end;
+
+        frmExerciseReadLittle.exerciseMode := frmExerciseChoice.modeExercise;
+        frmExerciseReadLittle.lblUsername.Caption := playerName;
+        frmExerciseReadLittle.Show;
+      end;
     end;
+
     1 : {Write}
     begin
-      ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
-      Exit;
-
+      if displayResolution = 0 then
+      begin
       case frmExerciseChoice.modeExercise of
         0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
         1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
@@ -133,10 +148,25 @@ begin
 
       frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
       frmExerciseRead.lblUsername.Caption := playerName;
-
       frmExerciseWrite.Show;
+    end
+    else if displayResolution = 1 then
+    begin
+      case frmExerciseChoice.modeExercise of
+        0 : frmExerciseReadLittle.lblExerciseMode.Caption := 'EASY';
+        1 : frmExerciseReadLittle.lblExerciseMode.Caption := 'NORMAL';
+        2 : frmExerciseReadLittle.lblExerciseMode.Caption := 'HARD';
+      end;
+
+      frmExerciseReadLittle.exerciseMode := frmExerciseChoice.modeExercise;
+      frmExerciseReadLittle.lblUsername.Caption := playerName;
+      frmExerciseReadLittle.Show;
     end;
+
+     ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
+      Exit;
   end;
+end;
 end;
 
 procedure TfrmHome.lblExitClick(Sender: TObject);

@@ -67,6 +67,7 @@ const
   {$ENDREGION}
 
   function GetQuestion(const exerciseMode, randomValue, nomorSoal: Integer): string;
+  function GetKeyboard(const randomValue, nomorkey: Integer): string;
 
 implementation
 
@@ -118,6 +119,17 @@ begin
         10: Result := C_HARD10[nomorSoal];
       end;
     end;
+  end;
+end;
+
+function GetKeyboard(const randomValue, nomorkey: Integer): string;
+begin
+  case randomValue of
+    1: Result := C_ABJAD_RND1[nomorkey];
+    2: Result := C_ABJAD_RND2[nomorkey];
+    3: Result := C_ABJAD_RND3[nomorkey];
+    4: Result := C_ABJAD_RND4[nomorkey];
+    5: Result := C_ABJAD_RND5[nomorkey];
   end;
 end;
 

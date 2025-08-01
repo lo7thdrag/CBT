@@ -11,6 +11,7 @@ object frmExerciseWrite: TfrmExerciseWrite
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -9911,7 +9912,7 @@ object frmExerciseWrite: TfrmExerciseWrite
       Tag = 10
       Left = 0
       Top = 986
-      Width = 437
+      Width = 432
       Height = 87
       Cursor = crHandPoint
       Hint = 'a'
@@ -10003,9 +10004,9 @@ object frmExerciseWrite: TfrmExerciseWrite
     end
     object img19: TImage
       Tag = 10
-      Left = 1483
+      Left = 1488
       Top = 986
-      Width = 437
+      Width = 432
       Height = 87
       Cursor = crHandPoint
       Hint = 'a'
@@ -10090,6 +10091,81 @@ object frmExerciseWrite: TfrmExerciseWrite
         130080D9B7623BCEE282B89DE683BED7D32B2C9C9FD4EBB5BE170200E8397BC4
         45F301DF0BE925FF07D94AFFD0282ABF2B0000000049454E44AE426082}
       Stretch = True
+    end
+    object lblQuetions: TLabel
+      Left = 743
+      Top = 164
+      Width = 433
+      Height = 48
+      Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'QUESTION NO  '
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 14790708
+      Font.Height = -40
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblAgain: TLabel
+      Left = 1584
+      Top = 1007
+      Width = 189
+      Height = 48
+      Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Again'
+      Color = clBtnFace
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -53
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+      OnClick = lblAgainClick
+    end
+    object lblHome: TLabel
+      Left = 143
+      Top = 1007
+      Width = 170
+      Height = 48
+      Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Home'
+      Color = clBtnFace
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -53
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+    object lblNext: TLabel
+      Left = 1592
+      Top = 1007
+      Width = 189
+      Height = 48
+      Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'START'
+      Color = clBtnFace
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -53
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
     end
     object pnl4: TPanel
       Left = 180
@@ -10462,7 +10538,7 @@ object frmExerciseWrite: TfrmExerciseWrite
       Width = 713
       Height = 94
       BevelOuter = bvNone
-      Caption = '123456789012345'
+      Caption = '-----'
       Color = clGray
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -10472,33 +10548,16 @@ object frmExerciseWrite: TfrmExerciseWrite
       ParentFont = False
       TabOrder = 2
     end
-    object pnl14: TPanel
-      Left = 1904
-      Top = 660
-      Width = 16
-      Height = 29
-      BevelOuter = bvNone
-      Caption = '6'
-      Color = clGray
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 3
-    end
     object pnl2: TPanel
       Left = 7
-      Top = 792
+      Top = 837
       Width = 1905
       Height = 104
       Anchors = [akLeft, akBottom]
       BevelOuter = bvNone
-      TabOrder = 4
+      TabOrder = 3
       object imgA: TImage
-        Tag = 10
+        Tag = 100
         Left = 20
         Top = 26
         Width = 65
@@ -12278,7 +12337,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgB: TImage
-        Tag = 10
+        Tag = 100
         Left = 89
         Top = 26
         Width = 65
@@ -12591,7 +12650,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgC: TImage
-        Tag = 10
+        Tag = 100
         Left = 158
         Top = 26
         Width = 65
@@ -12906,7 +12965,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgD: TImage
-        Tag = 10
+        Tag = 100
         Left = 227
         Top = 26
         Width = 65
@@ -13221,7 +13280,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgE: TImage
-        Tag = 10
+        Tag = 100
         Left = 296
         Top = 26
         Width = 65
@@ -13536,7 +13595,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgF: TImage
-        Tag = 10
+        Tag = 100
         Left = 365
         Top = 26
         Width = 65
@@ -13849,7 +13908,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgG: TImage
-        Tag = 10
+        Tag = 100
         Left = 434
         Top = 26
         Width = 65
@@ -14165,7 +14224,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgH: TImage
-        Tag = 10
+        Tag = 100
         Left = 503
         Top = 26
         Width = 65
@@ -14481,7 +14540,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgI: TImage
-        Tag = 10
+        Tag = 100
         Left = 572
         Top = 26
         Width = 65
@@ -14797,7 +14856,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgJ: TImage
-        Tag = 10
+        Tag = 100
         Left = 641
         Top = 26
         Width = 65
@@ -15116,7 +15175,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgK: TImage
-        Tag = 10
+        Tag = 100
         Left = 710
         Top = 26
         Width = 65
@@ -15436,7 +15495,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgL: TImage
-        Tag = 10
+        Tag = 100
         Left = 779
         Top = 26
         Width = 65
@@ -15752,7 +15811,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgM: TImage
-        Tag = 10
+        Tag = 100
         Left = 848
         Top = 26
         Width = 65
@@ -16067,7 +16126,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgN: TImage
-        Tag = 10
+        Tag = 100
         Left = 917
         Top = 26
         Width = 65
@@ -16384,7 +16443,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgO: TImage
-        Tag = 10
+        Tag = 100
         Left = 986
         Top = 26
         Width = 65
@@ -16697,7 +16756,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgP: TImage
-        Tag = 10
+        Tag = 100
         Left = 1055
         Top = 26
         Width = 65
@@ -17011,7 +17070,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgQ: TImage
-        Tag = 10
+        Tag = 100
         Left = 1124
         Top = 26
         Width = 65
@@ -17326,7 +17385,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgR: TImage
-        Tag = 10
+        Tag = 100
         Left = 1193
         Top = 26
         Width = 65
@@ -17639,7 +17698,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgS: TImage
-        Tag = 10
+        Tag = 100
         Left = 1262
         Top = 26
         Width = 65
@@ -17955,7 +18014,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgT: TImage
-        Tag = 10
+        Tag = 100
         Left = 1331
         Top = 26
         Width = 65
@@ -18274,7 +18333,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgU: TImage
-        Tag = 10
+        Tag = 100
         Left = 1400
         Top = 26
         Width = 65
@@ -18590,7 +18649,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgV: TImage
-        Tag = 10
+        Tag = 100
         Left = 1469
         Top = 26
         Width = 65
@@ -18910,7 +18969,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgW: TImage
-        Tag = 10
+        Tag = 100
         Left = 1538
         Top = 26
         Width = 65
@@ -19223,7 +19282,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgX: TImage
-        Tag = 10
+        Tag = 100
         Left = 1607
         Top = 26
         Width = 65
@@ -19536,7 +19595,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgY: TImage
-        Tag = 10
+        Tag = 100
         Left = 1676
         Top = 26
         Width = 65
@@ -19849,7 +19908,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgZ: TImage
-        Tag = 10
+        Tag = 100
         Left = 1745
         Top = 26
         Width = 65
@@ -20164,7 +20223,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
       object imgSpasi: TImage
-        Tag = 10
+        Tag = 100
         Left = 1814
         Top = 24
         Width = 70
@@ -20486,15 +20545,15 @@ object frmExerciseWrite: TfrmExerciseWrite
         Proportional = True
       end
     end
-    object pnl3: TPanel
+    object pnlJawabanHuruf: TPanel
       Left = 437
-      Top = 993
+      Top = 987
       Width = 1045
-      Height = 75
+      Height = 93
       Anchors = [akLeft, akBottom]
       BevelOuter = bvNone
-      TabOrder = 5
-      object img2: TImage
+      TabOrder = 4
+      object imgJawabHuruf1: TImage
         Tag = 10
         Left = 0
         Top = 5
@@ -20629,8 +20688,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img3: TImage
+      object imgJawabHuruf2: TImage
         Tag = 10
         Left = 70
         Top = 5
@@ -20765,8 +20825,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img5: TImage
+      object imgJawabHuruf3: TImage
         Tag = 10
         Left = 140
         Top = 5
@@ -20901,8 +20962,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img6: TImage
+      object imgJawabHuruf4: TImage
         Tag = 10
         Left = 210
         Top = 5
@@ -21037,8 +21099,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img7: TImage
+      object imgJawabHuruf5: TImage
         Tag = 10
         Left = 280
         Top = 5
@@ -21173,8 +21236,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img8: TImage
+      object imgJawabHuruf6: TImage
         Tag = 10
         Left = 350
         Top = 5
@@ -21309,8 +21373,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img9: TImage
+      object imgJawabHuruf7: TImage
         Tag = 10
         Left = 420
         Top = 5
@@ -21445,8 +21510,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img10: TImage
+      object imgJawabHuruf8: TImage
         Tag = 10
         Left = 490
         Top = 5
@@ -21581,8 +21647,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img11: TImage
+      object imgJawabHuruf9: TImage
         Tag = 10
         Left = 560
         Top = 5
@@ -21717,8 +21784,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img12: TImage
+      object imgJawabHuruf10: TImage
         Tag = 10
         Left = 630
         Top = 5
@@ -21853,8 +21921,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img13: TImage
+      object imgJawabHuruf11: TImage
         Tag = 10
         Left = 700
         Top = 5
@@ -21989,8 +22058,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img14: TImage
+      object imgJawabHuruf12: TImage
         Tag = 10
         Left = 770
         Top = 5
@@ -22125,8 +22195,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img15: TImage
+      object imgJawabHuruf13: TImage
         Tag = 10
         Left = 840
         Top = 5
@@ -22261,8 +22332,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img16: TImage
+      object imgJawabHuruf14: TImage
         Tag = 10
         Left = 910
         Top = 5
@@ -22397,8 +22469,9 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
       end
-      object img17: TImage
+      object imgJawabHuruf15: TImage
         Tag = 10
         Left = 980
         Top = 5
@@ -22533,6 +22606,17 @@ object frmExerciseWrite: TfrmExerciseWrite
           0010240200001024020000102402000010240200001024020000102402000010
           2402000010F4016AB600843C1C1EFC0000000049454E44AE426082}
         Proportional = True
+        OnClick = selectJawabanClick
+      end
+      object pnlSelect: TPanel
+        Left = 0
+        Top = 76
+        Width = 65
+        Height = 5
+        BevelOuter = bvNone
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 0
       end
     end
   end

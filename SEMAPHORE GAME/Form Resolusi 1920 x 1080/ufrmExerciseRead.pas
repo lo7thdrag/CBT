@@ -37,16 +37,16 @@ type
     pnl11: TPanel;
     pnl12: TPanel;
     pnl13: TPanel;
-    pnl1Jawab1: TPanel;
-    pnl1Jawab2: TPanel;
-    pnl1Jawab3: TPanel;
-    pnl1Jawab4: TPanel;
-    pnl1Jawab5: TPanel;
-    pnl1Jawab6: TPanel;
-    pnl1Jawab7: TPanel;
-    pnl1Jawab8: TPanel;
-    pnl1Jawab9: TPanel;
-    pnl1Jawab10: TPanel;
+    pnlJawab1: TPanel;
+    pnlJawab2: TPanel;
+    pnlJawab3: TPanel;
+    pnlJawab4: TPanel;
+    pnlJawab5: TPanel;
+    pnlJawab6: TPanel;
+    pnlJawab7: TPanel;
+    pnlJawab8: TPanel;
+    pnlJawab9: TPanel;
+    pnlJawab10: TPanel;
     pnlJawab11: TPanel;
     pnlJawab22: TPanel;
     pnlJawab33: TPanel;
@@ -59,7 +59,9 @@ type
     pnlJawab100: TPanel;
     lblAgain: TLabel;
     lblHome: TLabel;
-    pnl14: TPanel;
+    imgReplay1: TImage;
+    imgReplay2: TImage;
+    imgReplay3: TImage;
     
     procedure tmr1Timer(Sender: TObject);
     procedure lblReplayClick(Sender: TObject);
@@ -71,6 +73,7 @@ type
     
   private
     noHuruf: Integer;
+    sumReplay: Integer;
     hurufEasy : array [0..4] of string;
     hurufNormal : array [0..9] of string;
     hurufHard : array [0..14] of string;
@@ -82,7 +85,9 @@ type
 
     procedure LoadHuruf(hrfVal: string);
     procedure splitWord(wrdVal: string);
-    procedure showJawab;
+    procedure showJawaban;
+    procedure showSoal;
+    procedure showReplay;
     
   public
     exerciseMode : Integer; {0: Easy; 1: Normal; 2: Hard;}
@@ -173,15 +178,28 @@ begin
     2: edtJawaban.MaxLength := 15;
   end;
 
-  val := 1 + Random(10);
+  {$REGION ' Reset Replay '}
+  sumReplay := 3;
+  showReplay;
+  {$ENDREGION}
 
-  {Create Soal Baru}
+  {Mengosongkan Lembar Soal}
   for i := 0 to 9 do
-    soalTemp[i] := LowerCase(GetQuestion(exerciseMode, val, i));
+    soalTemp[i] := '-';
+
+  showSoal;
 
   {Mengosongkan Lembar Jawaban}
   for i := 0 to 9 do
     jawabanTemp[i] := '-';
+
+  showJawaban;
+
+  {Create Soal Baru}
+  val := 1 + Random(10);
+  for i := 0 to 9 do
+    soalTemp[i] := LowerCase(GetQuestion(exerciseMode, val, i));
+
 end;
 
 procedure TfrmExerciseRead.lblHomeClick(Sender: TObject);
@@ -223,16 +241,7 @@ begin
 
     nilai := nilai * 10;
 
-    pnlJawab11.Caption := '  ' + soalTemp[0];
-    pnlJawab22.Caption := '  ' + soalTemp[1];
-    pnlJawab33.Caption := '  ' + soalTemp[2];
-    pnlJawab44.Caption := '  ' + soalTemp[3];
-    pnlJawab55.Caption := '  ' + soalTemp[4];
-    pnlJawab66.Caption := '  ' + soalTemp[5];
-    pnlJawab77.Caption := '  ' + soalTemp[6];
-    pnlJawab88.Caption := '  ' + soalTemp[7];
-    pnlJawab99.Caption := '  ' + soalTemp[8];
-    pnlJawab100.Caption := '  ' + soalTemp[9];
+    showSoal;
 
     frmNilai.nilai := nilai;
     frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
@@ -268,22 +277,34 @@ end;
 
 procedure TfrmExerciseRead.lblReplayClick(Sender: TObject);  
 begin
+  if sumReplay < 1 then
+  begin
+    lblReplay.Visible := False;
+    Exit;
+  end;
+
+  sumReplay := sumReplay - 1;
+  showReplay;
+
   noHuruf := 0;
   tmr1.Enabled := True;    
 end;
 
 procedure TfrmExerciseRead.LoadHuruf(hrfVal: string);
 begin
-  imgModel.Picture.LoadFromFile('Image\Model\' + hrfVal + '.png');
+  if hrfVal = ' ' then
+    imgModel.Picture.LoadFromFile('Image\Model\spasi.png')
+  else
+    imgModel.Picture.LoadFromFile('Image\Model\' + hrfVal + '.png');
 end;
 
 procedure TfrmExerciseRead.pnl3Click(Sender: TObject);
 begin
   jawabanTemp[NoSoal-1] := LowerCase(edtJawaban.Text);
-  showJawab;
+  showJawaban;
 end;
 
-procedure TfrmExerciseRead.showJawab;
+procedure TfrmExerciseRead.showJawaban;
 var
   i : Integer;
 
@@ -291,33 +312,119 @@ begin
   for i := 0 to 9 do
   begin
     case i of
-      0 : pnl1Jawab1.Caption := '  ' + jawabanTemp[i];
-      1 : pnl1Jawab2.Caption := '  ' + jawabanTemp[i];
-      2 : pnl1Jawab3.Caption := '  ' + jawabanTemp[i];
-      3 : pnl1Jawab4.Caption := '  ' + jawabanTemp[i];
-      4 : pnl1Jawab5.Caption := '  ' + jawabanTemp[i];
-      5 : pnl1Jawab6.Caption := '  ' + jawabanTemp[i];
-      6 : pnl1Jawab7.Caption := '  ' + jawabanTemp[i];
-      7 : pnl1Jawab8.Caption := '  ' + jawabanTemp[i];
-      8 : pnl1Jawab9.Caption := '  ' + jawabanTemp[i];
-      9 : pnl1Jawab10.Caption := '  ' + jawabanTemp[i];
+      0 : pnlJawab1.Caption := '  ' + jawabanTemp[i];
+      1 : pnlJawab2.Caption := '  ' + jawabanTemp[i];
+      2 : pnlJawab3.Caption := '  ' + jawabanTemp[i];
+      3 : pnlJawab4.Caption := '  ' + jawabanTemp[i];
+      4 : pnlJawab5.Caption := '  ' + jawabanTemp[i];
+      5 : pnlJawab6.Caption := '  ' + jawabanTemp[i];
+      6 : pnlJawab7.Caption := '  ' + jawabanTemp[i];
+      7 : pnlJawab8.Caption := '  ' + jawabanTemp[i];
+      8 : pnlJawab9.Caption := '  ' + jawabanTemp[i];
+      9 : pnlJawab10.Caption := '  ' + jawabanTemp[i];
+    end;
+  end;
+end;
+
+procedure TfrmExerciseRead.showReplay;
+begin
+  case sumReplay of
+    0 :
+    begin
+      imgReplay1.Picture.LoadFromFile('Image\Model\-.png');
+      imgReplay2.Picture.LoadFromFile('Image\Model\-.png');
+      imgReplay3.Picture.LoadFromFile('Image\Model\-.png');
+    end;
+    1:
+    begin
+      imgReplay1.Picture.LoadFromFile('Image\Model\spasi.png');
+      imgReplay2.Picture.LoadFromFile('Image\Model\-.png');
+      imgReplay3.Picture.LoadFromFile('Image\Model\-.png');
+    end;
+    2:
+    begin
+      imgReplay1.Picture.LoadFromFile('Image\Model\spasi.png');
+      imgReplay2.Picture.LoadFromFile('Image\Model\spasi.png');
+      imgReplay3.Picture.LoadFromFile('Image\Model\-.png');
+    end;
+    3:
+    begin
+      imgReplay1.Picture.LoadFromFile('Image\Model\spasi.png');
+      imgReplay2.Picture.LoadFromFile('Image\Model\spasi.png');
+      imgReplay3.Picture.LoadFromFile('Image\Model\spasi.png');
+    end;
+  end;
+end;
+
+procedure TfrmExerciseRead.showSoal;
+var
+  i : Integer;
+
+begin
+  for i := 0 to 9 do
+  begin
+    case i of
+      0 : pnlJawab11.Caption := '  ' + soalTemp[i];
+      1 : pnlJawab22.Caption := '  ' + soalTemp[i];
+      2 : pnlJawab33.Caption := '  ' + soalTemp[i];
+      3 : pnlJawab44.Caption := '  ' + soalTemp[i];
+      4 : pnlJawab55.Caption := '  ' + soalTemp[i];
+      5 : pnlJawab66.Caption := '  ' + soalTemp[i];
+      6 : pnlJawab77.Caption := '  ' + soalTemp[i];
+      7 : pnlJawab88.Caption := '  ' + soalTemp[i];
+      8 : pnlJawab99.Caption := '  ' + soalTemp[i];
+      9 : pnlJawab100.Caption := '  ' + soalTemp[i];
     end;
   end;
 end;
 
 procedure TfrmExerciseRead.tmr1Timer(Sender: TObject);
 begin
-  if noHuruf > 4 then
-  begin
-    tmr1.Enabled := False;
-    imgModel.Picture.LoadFromFile('Image\Model\spasi.png');
-    edtJawaban.Visible := True;
-    edtJawaban.Text := '';
-    pnl3.Visible := True;
-    Exit;
+  case exerciseMode of
+    0:{Easy}
+    begin
+      if noHuruf > 4 then
+      begin
+        tmr1.Enabled := False;
+        imgModel.Picture.LoadFromFile('Image\Model\spasi.png');
+        edtJawaban.Visible := True;
+        edtJawaban.Text := '';
+        pnl3.Visible := True;
+        Exit;
+      end;
+
+      LoadHuruf(hurufEasy[noHuruf]);
+    end;
+    1:{Normal}
+    begin
+      if noHuruf > 9 then
+      begin
+        tmr1.Enabled := False;
+        imgModel.Picture.LoadFromFile('Image\Model\spasi.png');
+        edtJawaban.Visible := True;
+        edtJawaban.Text := '';
+        pnl3.Visible := True;
+        Exit;
+      end;
+
+      LoadHuruf(hurufNormal[noHuruf]);
+    end;
+    2:{Hard}
+    begin
+      if noHuruf > 14 then
+      begin
+        tmr1.Enabled := False;
+        imgModel.Picture.LoadFromFile('Image\Model\spasi.png');
+        edtJawaban.Visible := True;
+        edtJawaban.Text := '';
+        pnl3.Visible := True;
+        Exit;
+      end;
+
+      LoadHuruf(hurufHard[noHuruf]);
+    end;
   end;
 
-  LoadHuruf(hurufEasy[noHuruf]);
   noHuruf := noHuruf + 1;
 end;
 

@@ -124,6 +124,16 @@ begin
     begin
       ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
       Exit;
+
+      case frmExerciseChoice.modeExercise of
+        0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
+        1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
+        2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
+      end;
+
+      frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
+      frmExerciseRead.lblUsername.Caption := playerName;
+
       frmExerciseWrite.Show;
     end;
   end;

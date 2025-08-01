@@ -142,6 +142,9 @@
             <Form>frmPengenalanLittle</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Form Resolusi 1300 x 720\UfrmExerciseReadLittle.pas">
+            <Form>frmExerciseReadLittle</Form>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

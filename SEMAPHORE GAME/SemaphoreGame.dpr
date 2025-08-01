@@ -12,7 +12,8 @@ uses
   ufrmSemaphoreLittle in 'Form Resolusi 1300 x 720\ufrmSemaphoreLittle.pas' {frmSemaphoreLittle},
   ufrmNilai in 'ufrmNilai.pas' {frmNilai},
   uDataType in 'Library\uDataType.pas',
-  ufrmPengenalanLittle in 'Form Resolusi 1300 x 720\ufrmPengenalanLittle.pas' {frmPengenalanLittle};
+  ufrmPengenalanLittle in 'Form Resolusi 1300 x 720\ufrmPengenalanLittle.pas' {frmPengenalanLittle},
+  UfrmExerciseReadLittle in 'Form Resolusi 1300 x 720\UfrmExerciseReadLittle.pas' {frmExerciseReadLittle};
 
 {$R *.res}
 
@@ -30,5 +31,6 @@ begin
   Application.CreateForm(TfrmSemaphoreLittle, frmSemaphoreLittle);
   Application.CreateForm(TfrmNilai, frmNilai);
   Application.CreateForm(TfrmPengenalanLittle, frmPengenalanLittle);
+  Application.CreateForm(TfrmExerciseReadLittle, frmExerciseReadLittle);
   Application.Run;
 end.

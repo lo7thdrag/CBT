@@ -42,6 +42,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    lblHome: TLabel;
     procedure lblHistoryClick(Sender: TObject);
     procedure lblNilaiStrategisClick(Sender: TObject);
     procedure lblRegulasiClick(Sender: TObject);
@@ -55,6 +56,7 @@ type
     procedure lblIntruksiMouseEnter(Sender: TObject);
     procedure lblIntruksiMouseLeave(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure lblHomeClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -106,6 +108,11 @@ begin
   lblHistory.Font.Size  := 40;
   lblHistory.Left       := 320;
   lblHistory.Top        := 252;
+end;
+
+procedure TfrmPengenalan.lblHomeClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TfrmPengenalan.lblIntruksiClick(Sender: TObject);

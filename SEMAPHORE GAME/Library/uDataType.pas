@@ -19,7 +19,7 @@ const
   C_ABJAD_RND2 : array [0..27] of string = ('h', 'v', 's', 'x', 'numeral', 'u', 'w', 'a', 'z', 'r', 'spasi', 'o', 'y', 'q', 'l', 'b',
                                            'n', 'j', 'c', 't', 'f', 'p', 'g', 'd', 'm', 'i', 'e', 'k');
   C_ABJAD_RND3 : array [0..27] of string = ('r', 't', 'numeral', 'v', 'y', 'q', 'j', 'p', 'z', 'g', 'k', 'l', 'h', 'n', 'u', 'm',
-                                           'numeral', 'a', 'x', 'i', 'w', 'd', 'o', 's', 'e', 'b', 'c', 'f');
+                                           'spasi', 'a', 'x', 'i', 'w', 'd', 'o', 's', 'e', 'b', 'c', 'f');
   C_ABJAD_RND4 : array [0..27] of string = ('s', 'w', 'r', 'x', 't', 'g', 'm', 'k', 'y', 'spasi', 'd', 'l', 'f', 'p', 'i', 'z',
                                            'numeral', 'u', 'a', 'v', 'c', 'e', 'b', 'h', 'o', 'n', 'q', 'j');
   C_ABJAD_RND5 : array [0..27] of string = ('f', 'r', 'spasi', 't', 'm', 'numeral', 'e', 'o', 'b', 'c', 'y', 'h', 'g', 'v', 'p', 'l',
@@ -52,7 +52,7 @@ const
   C_NORMAL10 : array [0..9] of string = ('lebih lama', 'cium bunda', 'kawat besi', 'sikat gigi', 'rindu ayah', 'pasar daya', 'jaket baru', 'keras batu', 'mata indah', 'sayang ibu');
   {$ENDREGION}
 
-  {$region ' Soal-Soal mode Normal '}
+  {$region ' Soal-Soal mode Hard '}
   C_HARD1 : array [0..9] of string = ('bayam dan tomat', 'layar kaca kita', 'kanan kiri saya', 'jika kamu lihat', 'tenda saya rapi', 'gigi putih saya', 'batu batu berat', 'takut akan ular', 'jalan panjangku', 'dengan doa saya');
   C_HARD2 : array [0..9] of string = ('sungai bengawan', 'aku tidur malam', 'lihat saya baik', 'tenda saya rapi', 'lihat sawah itu', 'badan saya kuat', 'bantu saya dulu', 'tanah ayah saya', 'jajan kaki lima', 'makanan pedasku');
   C_HARD3 : array [0..9] of string = ('lupa bawa kunci', 'kanan kiri saya', 'roti merah muda', 'gagal coba lagi', 'teknis perangku', 'petik buah apel', 'hari hari indah', 'panen ubi manis', 'sikap baik kamu', 'cari cari lawan');

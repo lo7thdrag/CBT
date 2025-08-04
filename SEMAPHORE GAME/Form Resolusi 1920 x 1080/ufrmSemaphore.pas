@@ -110,10 +110,10 @@ end;
 
 procedure TfrmSemaphore.FormShow(Sender: TObject);
 begin
-  Top := Screen.Monitors[0].Top;
-  Left := Screen.Monitors[0].Left;
-  Height := Screen.Monitors[0].Height;
-  Width := Screen.Monitors[0].Width;
+//  Top := Screen.Monitors[0].Top;
+//  Left := Screen.Monitors[0].Left;
+//  Height := Screen.Monitors[0].Height;
+//  Width := Screen.Monitors[0].Width;
 
   {$REGION ' Initiate button huruf position '}
   imgA.Left := 0;

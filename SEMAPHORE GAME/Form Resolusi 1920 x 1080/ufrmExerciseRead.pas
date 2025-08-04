@@ -149,9 +149,6 @@ begin
 end;
 
 procedure TfrmExerciseRead.FormShow(Sender: TObject);
-var
-  i : Integer;
-
 begin
   EnableComposited(pnlBackground);
 
@@ -212,7 +209,7 @@ var
   i : Integer;
   tempStr : string;
   nilai : Integer;
-  
+
 begin
   if tmr1.Enabled then
     Exit;

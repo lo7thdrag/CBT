@@ -20,7 +20,7 @@ type
     img1: TImage;
     lbl1: TLabel;
     lblExerciseMode: TLabel;
-    pnlJawab11: TPanel;
+    pnlSoal: TPanel;
     pnl2: TPanel;
     imgA: TImage;
     imgB: TImage;
@@ -75,6 +75,7 @@ type
     procedure lblAgainClick(Sender: TObject);
     procedure selectJawabanClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure lblNextClick(Sender: TObject);
 
   private
     noHuruf: Integer;
@@ -104,6 +105,29 @@ var
 implementation
 
 {$R *.dfm}
+
+
+procedure EnableComposited(WinControl: TWinControl);
+var
+  i: Integer;
+  NewExStyle: DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or
+    WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for i := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmExerciseWrite.FormShow(Sender: TObject);
+begin
+  EnableComposited(pnlBackground);
+
+  lblAgainClick(nil);
+//  lblHome.Visible := True;
+end;
 
 procedure TfrmExerciseWrite.randomKeyboard;
 var
@@ -161,11 +185,6 @@ begin
   end;
 end;
 
-procedure TfrmExerciseWrite.FormShow(Sender: TObject);
-begin
-  lblAgainClick(nil);
-end;
-
 procedure TfrmExerciseWrite.lblAgainClick(Sender: TObject);
 var
   i, val : Integer;
@@ -205,5 +224,71 @@ begin
     soalTemp[i] := LowerCase(GetQuestion(exerciseMode, val, i));
 
 end;
+
+procedure TfrmExerciseWrite.lblNextClick(Sender: TObject);
+var
+  i : Integer;
+  tempStr : string;
+  nilai : Integer;
+
+begin
+  if lblNext.Caption = 'START' then
+  begin
+//    lblReplay.Visible := True;
+    lblHome.Visible := False;
+    lblNext.Caption := 'NEXT';
+  end
+  else if lblNext.Caption = 'NEXT' then
+  begin
+
+  end
+  else if lblNext.Caption = 'FINISH' then
+  begin
+    nilai := 0;
+
+    for i := 0 to 9 do
+    begin
+      if jawabanTemp[i] = soalTemp[i] then
+      begin
+        nilai := nilai + 1;
+      end;
+    end;
+
+    nilai := nilai * 10;
+
+//    showSoal;
+//
+//    frmNilai.nilai := nilai;
+//    frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
+//    frmNilai.ShowModal;
+//
+//    lblReplay.Visible := False;
+    lblNext.Visible := False;
+    lblAgain.Visible := True;
+    lblHome.Visible := True;
+
+//    edtJawaban.Visible := False;
+//    pnl3.Visible := False;
+
+    lblQuetions.Caption := 'COMPLETED';
+
+    Exit;
+  end;
+
+//  splitWord(soalTemp[NoSoal]);
+
+//  noHuruf := 0;
+//  tmr1.Enabled := True;
+  NoSoal := NoSoal + 1;
+
+  lblQuetions.Caption := 'QUESTION NO ' + (NoSoal).ToString;
+
+  if NoSoal > 9 then
+      lblNext.Caption := 'FINISH';
+
+//  edtJawaban.Visible := False;
+//  pnl3.Visible := False;
+end;
+
 
 end.

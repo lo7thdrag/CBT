@@ -56,6 +56,7 @@ type
     procedure lblIntruksiMouseEnter(Sender: TObject);
     procedure lblIntruksiMouseLeave(Sender: TObject);
     procedure lblHomeClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,6 +70,26 @@ implementation
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl: TWinControl);
+var
+  i: Integer;
+  NewExStyle: DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or
+    WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for i := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+
+procedure TfrmPengenalanLittle.FormShow(Sender: TObject);
+begin
+  EnableComposited(pnlBackground)
+end;
+
 procedure TfrmPengenalanLittle.lblHistoryClick(Sender: TObject);
 begin
   pnlHistory.Bringtofront;
@@ -77,15 +98,11 @@ end;
 procedure TfrmPengenalanLittle.lblHistoryMouseEnter(Sender: TObject);
 begin
   lblHistory.Font.Size  := 35;
-  lblHistory.Left       := 229;
-  lblHistory.Top        := 150;
 end;
 
 procedure TfrmPengenalanLittle.lblHistoryMouseLeave(Sender: TObject);
 begin
   lblHistory.Font.Size  := 30;
-  lblHistory.Left       := 239;
-  lblHistory.Top        := 153;
 end;
 
 procedure TfrmPengenalanLittle.lblHomeClick(Sender: TObject);
@@ -101,15 +118,11 @@ end;
 procedure TfrmPengenalanLittle.lblIntruksiMouseEnter(Sender: TObject);
 begin
   lblIntruksi.Font.Size  := 35;
-  lblIntruksi.Left       := 229;
-  lblIntruksi.Top        := 150;
 end;
 
 procedure TfrmPengenalanLittle.lblIntruksiMouseLeave(Sender: TObject);
 begin
   lblIntruksi.Font.Size  := 30;
-  lblIntruksi.Left       := 118;
-  lblIntruksi.Top        := 525;
 end;
 
 procedure TfrmPengenalanLittle.lblNilaiStrategisClick(Sender: TObject);
@@ -120,15 +133,11 @@ end;
 procedure TfrmPengenalanLittle.lblNilaiStrategisMouseEnter(Sender: TObject);
 begin
   lblNilaiStrategis.Font.Size  := 35;
-  lblNilaiStrategis.Left       := 87;
-  lblNilaiStrategis.Top        := 522;
 end;
 
 procedure TfrmPengenalanLittle.lblNilaiStrategisMouseLeave(Sender: TObject);
 begin
   lblNilaiStrategis.Font.Size  := 30;
-  lblNilaiStrategis.Left       := 248;
-  lblNilaiStrategis.Top        := 277;
 end;
 
 procedure TfrmPengenalanLittle.lblRegulasiClick(Sender: TObject);
@@ -139,15 +148,11 @@ end;
 procedure TfrmPengenalanLittle.lblRegulasiMouseEnter(Sender: TObject);
 begin
   lblRegulasi.Font.Size  := 35;
-  lblRegulasi.Left       := 401;
-  lblRegulasi.Top        := 230;
 end;
 
 procedure TfrmPengenalanLittle.lblRegulasiMouseLeave(Sender: TObject);
 begin
   lblRegulasi.Font.Size  := 30;
-  lblRegulasi.Left       := 230;
-  lblRegulasi.Top        := 398;
 end;
 
 end.

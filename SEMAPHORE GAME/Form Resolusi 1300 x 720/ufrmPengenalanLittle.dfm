@@ -13,6 +13,7 @@ object frmPengenalanLittle: TfrmPengenalanLittle
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -12650,11 +12651,13 @@ object frmPengenalanLittle: TfrmPengenalanLittle
       Stretch = True
     end
     object lblHistory: TLabel
-      Left = 239
-      Top = 153
-      Width = 120
+      Left = 76
+      Top = 158
+      Width = 447
       Height = 40
       Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
       Caption = 'HISTORY'
       Color = 14790708
       DragCursor = crHandPoint
@@ -12670,11 +12673,13 @@ object frmPengenalanLittle: TfrmPengenalanLittle
       OnMouseLeave = lblHistoryMouseLeave
     end
     object lblIntruksi: TLabel
-      Left = 117
-      Top = 525
-      Width = 363
+      Left = 76
+      Top = 530
+      Width = 447
       Height = 40
       Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
       Caption = 'PANDUAN INTERPRETATIF'
       DragCursor = crHandPoint
       Font.Charset = ANSI_CHARSET
@@ -12688,11 +12693,13 @@ object frmPengenalanLittle: TfrmPengenalanLittle
       OnMouseLeave = lblIntruksiMouseLeave
     end
     object lblNilaiStrategis: TLabel
-      Left = 247
-      Top = 277
-      Width = 103
+      Left = 76
+      Top = 282
+      Width = 447
       Height = 40
       Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
       Caption = 'FUNGSI'
       DragCursor = crHandPoint
       Font.Charset = ANSI_CHARSET
@@ -12706,11 +12713,13 @@ object frmPengenalanLittle: TfrmPengenalanLittle
       OnMouseLeave = lblNilaiStrategisMouseLeave
     end
     object lblRegulasi: TLabel
-      Left = 230
-      Top = 401
-      Width = 139
+      Left = 76
+      Top = 406
+      Width = 447
       Height = 40
       Cursor = crHandPoint
+      Alignment = taCenter
+      AutoSize = False
       Caption = 'REGULASI'
       DragCursor = crHandPoint
       Font.Charset = ANSI_CHARSET
@@ -12727,7 +12736,7 @@ object frmPengenalanLittle: TfrmPengenalanLittle
       Left = 611
       Top = 657
       Width = 79
-      Height = 37
+      Height = 40
       Cursor = crHandPoint
       Caption = 'HOME'
       Font.Charset = ANSI_CHARSET

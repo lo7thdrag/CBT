@@ -10166,6 +10166,7 @@ object frmExerciseWrite: TfrmExerciseWrite
       Font.Style = [fsBold, fsItalic]
       ParentColor = False
       ParentFont = False
+      OnClick = lblNextClick
     end
     object pnl4: TPanel
       Left = 180
@@ -10532,7 +10533,7 @@ object frmExerciseWrite: TfrmExerciseWrite
         ParentFont = False
       end
     end
-    object pnlJawab11: TPanel
+    object pnlSoal: TPanel
       Left = 603
       Top = 443
       Width = 713

@@ -9914,7 +9914,6 @@ object frmExerciseWrite: TfrmExerciseWrite
       Top = 986
       Width = 432
       Height = 87
-      Cursor = crHandPoint
       Hint = 'a'
       DragCursor = crHandPoint
       Picture.Data = {
@@ -10004,7 +10003,7 @@ object frmExerciseWrite: TfrmExerciseWrite
     end
     object img19: TImage
       Tag = 10
-      Left = 1487
+      Left = 1488
       Top = 986
       Width = 432
       Height = 87
@@ -10109,26 +10108,6 @@ object frmExerciseWrite: TfrmExerciseWrite
       ParentColor = False
       ParentFont = False
     end
-    object lblAgain: TLabel
-      Left = 1145
-      Top = 309
-      Width = 127
-      Height = 48
-      Cursor = crHandPoint
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Again'
-      Color = clBtnFace
-      Font.Charset = ANSI_CHARSET
-      Font.Color = 14790708
-      Font.Height = -53
-      Font.Name = 'Deusex'
-      Font.Style = [fsBold, fsItalic]
-      ParentColor = False
-      ParentFont = False
-      Visible = False
-      OnClick = lblAgainClick
-    end
     object lblHome: TLabel
       Left = 131
       Top = 1007
@@ -10147,6 +10126,7 @@ object frmExerciseWrite: TfrmExerciseWrite
       ParentColor = False
       ParentFont = False
       Visible = False
+      OnClick = lblHomeClick
     end
     object lblNext: TLabel
       Left = 916
@@ -10166,6 +10146,25 @@ object frmExerciseWrite: TfrmExerciseWrite
       ParentColor = False
       ParentFont = False
       OnClick = lblNextClick
+    end
+    object lblAgain: TLabel
+      Left = 920
+      Top = 239
+      Width = 80
+      Height = 40
+      Cursor = crHandPoint
+      Alignment = taCenter
+      Caption = 'Again'
+      Color = clBtnFace
+      Font.Charset = ANSI_CHARSET
+      Font.Color = 14790708
+      Font.Height = -40
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+      OnClick = lblAgainClick
     end
     object pnlUsername: TPanel
       Left = 180
@@ -10500,7 +10499,7 @@ object frmExerciseWrite: TfrmExerciseWrite
       end
       object lbl1: TLabel
         Tag = 1
-        Left = 122
+        Left = 98
         Top = 43
         Width = 152
         Height = 27

@@ -124,8 +124,8 @@ begin
     end;
     2 : {Hard}
     begin
-      ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
-      Exit;
+//      ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
+//      Exit;
 
       modeExercise := 2;
       imgEasy.Picture.LoadFromFile('Image\Button\rdUnselect.png');

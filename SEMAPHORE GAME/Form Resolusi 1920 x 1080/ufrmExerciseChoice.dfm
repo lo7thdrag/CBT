@@ -371,7 +371,7 @@ object frmExerciseChoice: TfrmExerciseChoice
     end
     object imgNormal: TImage
       Tag = 1
-      Left = 264
+      Left = 268
       Top = 301
       Width = 30
       Height = 30
@@ -682,7 +682,7 @@ object frmExerciseChoice: TfrmExerciseChoice
       ParentFont = False
     end
     object lbl5: TLabel
-      Left = 298
+      Left = 302
       Top = 303
       Width = 69
       Height = 27

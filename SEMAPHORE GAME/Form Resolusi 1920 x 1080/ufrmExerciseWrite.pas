@@ -107,23 +107,29 @@ type
     procedure FormShow(Sender: TObject);
     procedure lblNextClick(Sender: TObject);
     procedure keyboardClick(Sender: TObject);
+    procedure lblHomeClick(Sender: TObject);
 
   private
-    noHuruf: Integer;
-    hurufEasy : string;
-    hurufNormal : string;
-    hurufHard : string;
+//    noHuruf: Integer;
+//    hurufEasy : string;
+//    hurufNormal : string;
+//    hurufHard : string;
 
     soalTemp : array [0..9] of string;
     jawabanTemp : array [0..9] of string;
 
     keyboardTemp : array [0..27] of string;
 
-
+    maxLeft : Integer;
     NoSoal : Integer;
+    pnlSelectLeft : Integer;
+    pnlNextSelectLeft : Integer;
     pnlSelectName : string;
+    pnlNextSelectName : string;
 
     function mergeWord : string;
+    function getSelectedModelByName : TImage;
+    function getSelectedModelByPosition : TImage;
 
     procedure setPanelJawaban(vMode: Integer);
     procedure randomKeyboard;
@@ -164,7 +170,12 @@ begin
   EnableComposited(pnlBackground);
 
   lblAgainClick(nil);
-//  lblHome.Visible := True;
+
+  case exerciseMode of
+    0: maxLeft := imgJawabHuruf5.Left;
+    1: maxLeft := imgJawabHuruf10.Left;
+    2: maxLeft := imgJawabHuruf15.Left;
+  end;
 end;
 
 procedure TfrmExerciseWrite.randomKeyboard;
@@ -196,6 +207,7 @@ end;
 procedure TfrmExerciseWrite.selectJawabanClick(Sender: TObject);
 begin
   pnlSelectName := TImage(Sender).Name;
+  pnlSelectLeft := TImage(Sender).Left;
   pnlSelect.Left := TImage(Sender).Left;
 end;
 
@@ -300,21 +312,72 @@ begin
   end;
 end;
 
-procedure TfrmExerciseWrite.keyboardClick(Sender: TObject);
+function TfrmExerciseWrite.getSelectedModelByName: TImage;
 var
   i : Integer;
 
 begin
+  Result := nil;
+
   for i:=0 to ComponentCount-1 do
   begin
     if Components[i] is TImage then
     begin
       if TImage(Components[i]).Name = pnlSelectName then
       begin
-        TImage(Components[i]).Hint := TImage(Sender).Hint;
-        TImage(Components[i]).Picture.LoadFromFile('Image\Model\' + TImage(Components[i]).Hint + '.png');
+        Result := TImage(Components[i]);
       end;
     end;
+  end;
+end;
+
+function TfrmExerciseWrite.getSelectedModelByPosition: TImage;
+var
+  i : Integer;
+  nextLeft : Integer;
+
+begin
+  Result := nil;
+
+  nextLeft := pnlSelectLeft + 70;
+
+  for i:=0 to ComponentCount-1 do
+  begin
+    if Components[i] is TImage then
+    begin
+      if TImage(Components[i]).Tag = 10 then
+      begin
+        if TImage(Components[i]).Left = nextLeft  then
+        begin
+          if TImage(Components[i]).Left <= maxLeft then
+            Result := TImage(Components[i]);
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmExerciseWrite.keyboardClick(Sender: TObject);
+var
+  imgTemp : TImage;
+
+begin
+
+  imgTemp := getSelectedModelByName;
+
+  if Assigned(imgTemp) then
+  begin
+    imgTemp.Hint := TImage(Sender).Hint;
+    imgTemp.Picture.LoadFromFile('Image\Model\' + imgTemp.Hint + '.png');
+  end;
+
+  imgTemp := getSelectedModelByPosition;
+
+  if Assigned(imgTemp) then
+  begin
+    pnlSelectName := imgTemp.Name;
+    pnlSelectLeft := imgTemp.Left;
+    pnlSelect.Left := imgTemp.Left;
   end;
 end;
 
@@ -324,7 +387,6 @@ var
 
 begin
   lblAgain.Visible := False;
-  lblHome.Visible := False;
 
   lblNext.Caption := 'START';
   lblNext.Visible := True;
@@ -359,6 +421,11 @@ begin
 
 end;
 
+procedure TfrmExerciseWrite.lblHomeClick(Sender: TObject);
+begin
+  Close;
+end;
+
 procedure TfrmExerciseWrite.lblNextClick(Sender: TObject);
 var
   i : Integer;
@@ -368,11 +435,18 @@ var
 begin
   if lblNext.Caption = 'START' then
   begin
+
+    {$REGION ' Setting panel '}
     pnlKeyboard.Visible := True;
     pnlJawabanHuruf.Visible := True;
 
+    pnlSoal.Visible := True;
+    lblQuetions.Visible := True;
+
     lblHome.Visible := False;
     lblNext.Caption := 'NEXT';
+    {$ENDREGION}
+
   end
   else if lblNext.Caption = 'NEXT' then
   begin
@@ -381,6 +455,8 @@ begin
   end
   else if lblNext.Caption = 'FINISH' then
   begin
+
+    {$REGION ' Perhitungan Nilai '}
     nilai := 0;
 
     for i := 0 to 9 do
@@ -392,18 +468,24 @@ begin
     end;
 
     nilai := nilai * 10;
+    {$ENDREGION}
 
+    {$REGION ' Menampilkan jawaban soal dan setting panel '}
     showSoal;
 
-    frmNilai.nilai := nilai;
-    frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
-    frmNilai.ShowModal;
-
+    pnlSoal.Visible := False;
     lblNext.Visible := False;
     lblAgain.Visible := True;
     lblHome.Visible := True;
 
     lblQuetions.Caption := 'COMPLETED';
+    {$ENDREGION}
+
+    {$REGION ' Menampilkan form penilaian '}
+    frmNilai.nilai := nilai;
+    frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
+    frmNilai.ShowModal;
+    {$ENDREGION}
 
     Exit;
   end;
@@ -432,11 +514,14 @@ begin
     end;
     1:{Normal}
     begin
-      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint;
+      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint +
+                imgJawabHuruf6.Hint + imgJawabHuruf7.Hint + imgJawabHuruf8.Hint + imgJawabHuruf9.Hint + imgJawabHuruf10.Hint;
     end;
     2:{Hard}
     begin
-      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint;
+      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint +
+                imgJawabHuruf6.Hint + imgJawabHuruf7.Hint + imgJawabHuruf8.Hint + imgJawabHuruf9.Hint + imgJawabHuruf10.Hint +
+                imgJawabHuruf11.Hint + imgJawabHuruf12.Hint + imgJawabHuruf13.Hint + imgJawabHuruf14.Hint + imgJawabHuruf15.Hint;
     end;
   end;
 end;

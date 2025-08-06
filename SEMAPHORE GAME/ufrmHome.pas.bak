@@ -3,8 +3,7 @@ unit ufrmHome;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage;
 
@@ -109,74 +108,65 @@ begin
     Exit;
 
   case frmExerciseChoice.typeExercise of
-    0: { Read }
+    0 : {Read}
+    begin
+      if displayResolution = 0 then
       begin
-        if displayResolution = 0 then
-        begin
-          case frmExerciseChoice.modeExercise of
-            0:
-              frmExerciseRead.lblExerciseMode.Caption := 'EASY';
-            1:
-              frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
-            2:
-              frmExerciseRead.lblExerciseMode.Caption := 'HARD';
-          end;
-
-          frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
-          frmExerciseRead.lblUsername.Caption := playerName;
-          frmExerciseRead.Show;
-        end
-        else if displayResolution = 1 then
-        begin
-          case frmExerciseChoice.modeExercise of
-            0:
-              frmExerciseReadLittle.lblExerciseMode.Caption := 'EASY';
-            1:
-              frmExerciseReadLittle.lblExerciseMode.Caption := 'NORMAL';
-            2:
-              frmExerciseReadLittle.lblExerciseMode.Caption := 'HARD';
-          end;
-
-          frmExerciseReadLittle.exerciseMode := frmExerciseChoice.modeExercise;
-          frmExerciseReadLittle.lblUsername.Caption := playerName;
-          frmExerciseReadLittle.Show;
+        case frmExerciseChoice.modeExercise of
+          0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
+          1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
+          2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
         end;
+
+        frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
+        frmExerciseRead.lblUsername.Caption := playerName;
+        frmExerciseRead.Show;
+      end
+      else if displayResolution = 1 then
+      begin
+        case frmExerciseChoice.modeExercise of
+          0 : frmExerciseReadLittle.lblExerciseMode.Caption := 'EASY';
+          1 : frmExerciseReadLittle.lblExerciseMode.Caption := 'NORMAL';
+          2 : frmExerciseReadLittle.lblExerciseMode.Caption := 'HARD';
+        end;
+
+        frmExerciseReadLittle.exerciseMode := frmExerciseChoice.modeExercise;
+        frmExerciseReadLittle.lblUsername.Caption := playerName;
+        frmExerciseReadLittle.Show;
+      end;
+    end;
+
+    1 : {Write}
+    begin
+      if displayResolution = 0 then
+      begin
+      case frmExerciseChoice.modeExercise of
+        0 : frmExerciseRead.lblExerciseMode.Caption := 'EASY';
+        1 : frmExerciseRead.lblExerciseMode.Caption := 'NORMAL';
+        2 : frmExerciseRead.lblExerciseMode.Caption := 'HARD';
       end;
 
-    1: { Write }
-      begin
-        if displayResolution = 0 then
-        begin
-          case frmExerciseChoice.modeExercise of
-            0:
-              frmExerciseWrite.lblExerciseMode.Caption := 'EASY';
-            1:
-              frmExerciseWrite.lblExerciseMode.Caption := 'NORMAL';
-            2:
-              frmExerciseWrite.lblExerciseMode.Caption := 'HARD';
-          end;
-
-          frmExerciseWrite.exerciseMode := frmExerciseChoice.modeExercise;
-          frmExerciseWrite.lblUsername.Caption := playerName;
-          frmExerciseWrite.Show;
-        end
-        else if displayResolution = 1 then
-        begin
-//          case frmExerciseChoice.modeExercise of
-//            0:
-//              frmExerciseWriteLittle.lblExerciseMode.Caption := 'EASY';
-//            1:
-//              frmExerciseWriteLittle.lblExerciseMode.Caption := 'NORMAL';
-//            2:
-//              frmExerciseWriteLittle.lblExerciseMode.Caption := 'HARD';
-//          end;
-//
-//          frmExerciseWriteLittle.exerciseMode := frmExerciseChoice.modeExercise;
-//          frmExerciseWriteLittle.lblUsername.Caption := playerName;
-//          frmExerciseWriteLittle.Show;
-        end;
+      frmExerciseRead.exerciseMode := frmExerciseChoice.modeExercise;
+      frmExerciseRead.lblUsername.Caption := playerName;
+      frmExerciseWrite.Show;
+    end
+    else if displayResolution = 1 then
+    begin
+      case frmExerciseChoice.modeExercise of
+        0 : frmExerciseReadLittle.lblExerciseMode.Caption := 'EASY';
+        1 : frmExerciseReadLittle.lblExerciseMode.Caption := 'NORMAL';
+        2 : frmExerciseReadLittle.lblExerciseMode.Caption := 'HARD';
       end;
+
+      frmExerciseReadLittle.exerciseMode := frmExerciseChoice.modeExercise;
+      frmExerciseReadLittle.lblUsername.Caption := playerName;
+      frmExerciseReadLittle.Show;
+    end;
+
+     ShowMessage('Mode ini tidak bisa digunakan di versi trial, silahkan kunjungi website kami untuk mengaktifkannya');
+      Exit;
   end;
+end;
 end;
 
 procedure TfrmHome.lblExitClick(Sender: TObject);
@@ -187,28 +177,28 @@ end;
 procedure TfrmHome.lblIntroduceClick(Sender: TObject);
 begin
   case displayResolution of
-    0:
-      begin
-        frmPengenalan.Show;
-      end;
-    1:
-      begin
-        frmPengenalanLittle.Show;
-      end;
+    0 :
+    begin
+      frmPengenalan.Show;
+    end;
+    1 :
+    begin
+      frmPengenalanLittle.Show;
+    end;
   end;
 end;
 
 procedure TfrmHome.lblSemaphoreClick(Sender: TObject);
 begin
   case displayResolution of
-    0:
-      begin
-        frmSemaphore.Show;
-      end;
-    1:
-      begin
-        frmSemaphoreLittle.Show;
-      end;
+    0 :
+    begin
+      frmSemaphore.Show;
+    end;
+    1 :
+    begin
+      frmSemaphoreLittle.Show;
+    end;
   end;
 
 end;
@@ -225,20 +215,20 @@ begin
   playerName := frmSetting.playerName;
 
   case displayResolution of
-    0:
-      begin
-        Width := 1920;
-        Height := 1080;
-        pnlBackgroundLarge.BringToFront;
-        Position := poScreenCenter;
-      end;
-    1:
-      begin
-        Width := 1300;
-        Height := 720;
-        pnlBackgroundLittle.BringToFront;
-        Position := poScreenCenter;
-      end;
+    0 :
+    begin
+      Width := 1920;
+      Height := 1080;
+      pnlBackgroundLarge.BringToFront;
+      Position := poScreenCenter;
+    end;
+    1 :
+    begin
+      Width := 1300;
+      Height := 720;
+      pnlBackgroundLittle.BringToFront;
+      Position := poScreenCenter;
+    end;
   end;
 end;
 

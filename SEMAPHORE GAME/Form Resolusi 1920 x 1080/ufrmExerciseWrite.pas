@@ -12,16 +12,16 @@ type
   TfrmExerciseWrite = class(TForm)
     imgBackground: TImage;
     pnlBackground: TPanel;
-    pnl4: TPanel;
+    pnlUsername: TPanel;
     img4: TImage;
     lbl18: TLabel;
     lblUsername: TLabel;
-    pnl1: TPanel;
+    pnlExerciseMode: TPanel;
     img1: TImage;
     lbl1: TLabel;
     lblExerciseMode: TLabel;
     pnlSoal: TPanel;
-    pnl2: TPanel;
+    pnlKeyboard: TPanel;
     imgA: TImage;
     imgB: TImage;
     imgC: TImage;
@@ -72,16 +72,47 @@ type
     lblHome: TLabel;
     lblNext: TLabel;
     pnlSelect: TPanel;
+    pnl2: TPanel;
+    pnlJawab1: TPanel;
+    pnlJawab11: TPanel;
+    pnl5: TPanel;
+    pnlJawab2: TPanel;
+    pnlJawab22: TPanel;
+    pnl6: TPanel;
+    pnlJawab3: TPanel;
+    pnlJawab33: TPanel;
+    pnl7: TPanel;
+    pnlJawab4: TPanel;
+    pnlJawab44: TPanel;
+    pnl8: TPanel;
+    pnlJawab5: TPanel;
+    pnlJawab55: TPanel;
+    pnl9: TPanel;
+    pnlJawab6: TPanel;
+    pnlJawab66: TPanel;
+    pnl10: TPanel;
+    pnlJawab7: TPanel;
+    pnlJawab77: TPanel;
+    pnl11: TPanel;
+    pnlJawab8: TPanel;
+    pnlJawab88: TPanel;
+    pnl12: TPanel;
+    pnlJawab9: TPanel;
+    pnlJawab99: TPanel;
+    pnl13: TPanel;
+    pnlJawab10: TPanel;
+    pnlJawab100: TPanel;
     procedure lblAgainClick(Sender: TObject);
     procedure selectJawabanClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblNextClick(Sender: TObject);
+    procedure keyboardClick(Sender: TObject);
 
   private
     noHuruf: Integer;
-    hurufEasy : array [0..4] of string;
-    hurufNormal : array [0..9] of string;
-    hurufHard : array [0..14] of string;
+    hurufEasy : string;
+    hurufNormal : string;
+    hurufHard : string;
 
     soalTemp : array [0..9] of string;
     jawabanTemp : array [0..9] of string;
@@ -90,9 +121,14 @@ type
 
 
     NoSoal : Integer;
+    pnlSelectName : string;
+
+    function mergeWord : string;
 
     procedure setPanelJawaban(vMode: Integer);
     procedure randomKeyboard;
+    procedure showJawaban;
+    procedure showSoal;
 
   public
     exerciseMode : Integer; {0: Easy; 1: Normal; 2: Hard;}
@@ -106,6 +142,8 @@ implementation
 
 {$R *.dfm}
 
+uses
+  ufrmNilai;
 
 procedure EnableComposited(WinControl: TWinControl);
 var
@@ -157,6 +195,7 @@ end;
 
 procedure TfrmExerciseWrite.selectJawabanClick(Sender: TObject);
 begin
+  pnlSelectName := TImage(Sender).Name;
   pnlSelect.Left := TImage(Sender).Left;
 end;
 
@@ -183,6 +222,100 @@ begin
     1: pnlJawabanHuruf.Left := 613;
     2: pnlJawabanHuruf.Left := 437;
   end;
+
+  imgJawabHuruf1.Hint := ' ';
+  imgJawabHuruf2.Hint := ' ';
+  imgJawabHuruf3.Hint := ' ';
+  imgJawabHuruf4.Hint := ' ';
+  imgJawabHuruf5.Hint := ' ';
+  imgJawabHuruf6.Hint := ' ';
+  imgJawabHuruf7.Hint := ' ';
+  imgJawabHuruf8.Hint := ' ';
+  imgJawabHuruf9.Hint := ' ';
+  imgJawabHuruf10.Hint := ' ';
+  imgJawabHuruf11.Hint := ' ';
+  imgJawabHuruf12.Hint := ' ';
+  imgJawabHuruf13.Hint := ' ';
+  imgJawabHuruf14.Hint := ' ';
+  imgJawabHuruf15.Hint := ' ';
+
+  imgJawabHuruf1.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf2.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf3.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf4.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf5.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf6.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf7.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf8.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf9.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf10.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf11.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf12.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf13.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf14.Picture.LoadFromFile('Image\Model\siluet.png');
+  imgJawabHuruf15.Picture.LoadFromFile('Image\Model\siluet.png');
+end;
+
+procedure TfrmExerciseWrite.showJawaban;
+var
+  i : Integer;
+
+begin
+  for i := 0 to 9 do
+  begin
+    case i of
+      0 : pnlJawab1.Caption := '  ' + jawabanTemp[i];
+      1 : pnlJawab2.Caption := '  ' + jawabanTemp[i];
+      2 : pnlJawab3.Caption := '  ' + jawabanTemp[i];
+      3 : pnlJawab4.Caption := '  ' + jawabanTemp[i];
+      4 : pnlJawab5.Caption := '  ' + jawabanTemp[i];
+      5 : pnlJawab6.Caption := '  ' + jawabanTemp[i];
+      6 : pnlJawab7.Caption := '  ' + jawabanTemp[i];
+      7 : pnlJawab8.Caption := '  ' + jawabanTemp[i];
+      8 : pnlJawab9.Caption := '  ' + jawabanTemp[i];
+      9 : pnlJawab10.Caption := '  ' + jawabanTemp[i];
+    end;
+  end;
+end;
+
+procedure TfrmExerciseWrite.showSoal;
+var
+  i : Integer;
+
+begin
+  for i := 0 to 9 do
+  begin
+    case i of
+      0 : pnlJawab11.Caption := '  ' + soalTemp[i];
+      1 : pnlJawab22.Caption := '  ' + soalTemp[i];
+      2 : pnlJawab33.Caption := '  ' + soalTemp[i];
+      3 : pnlJawab44.Caption := '  ' + soalTemp[i];
+      4 : pnlJawab55.Caption := '  ' + soalTemp[i];
+      5 : pnlJawab66.Caption := '  ' + soalTemp[i];
+      6 : pnlJawab77.Caption := '  ' + soalTemp[i];
+      7 : pnlJawab88.Caption := '  ' + soalTemp[i];
+      8 : pnlJawab99.Caption := '  ' + soalTemp[i];
+      9 : pnlJawab100.Caption := '  ' + soalTemp[i];
+    end;
+  end;
+end;
+
+procedure TfrmExerciseWrite.keyboardClick(Sender: TObject);
+var
+  i : Integer;
+
+begin
+  for i:=0 to ComponentCount-1 do
+  begin
+    if Components[i] is TImage then
+    begin
+      if TImage(Components[i]).Name = pnlSelectName then
+      begin
+        TImage(Components[i]).Hint := TImage(Sender).Hint;
+        TImage(Components[i]).Picture.LoadFromFile('Image\Model\' + TImage(Components[i]).Hint + '.png');
+      end;
+    end;
+  end;
 end;
 
 procedure TfrmExerciseWrite.lblAgainClick(Sender: TObject);
@@ -192,31 +325,32 @@ var
 begin
   lblAgain.Visible := False;
   lblHome.Visible := False;
+
+  lblNext.Caption := 'START';
   lblNext.Visible := True;
 
+  pnlSelectName := imgJawabHuruf1.Name;
+
   NoSoal := 0;
-  lblQuetions.Caption := 'QUESTION NO ' + (NoSoal + 1).ToString;
+  lblQuetions.Caption := '';
 
   setPanelJawaban(exerciseMode);
+  pnlJawabanHuruf.Visible := False;
 
   randomKeyboard;
-
-  {$REGION ' Reset Replay '}
-//  sumReplay := 3;
-//  showReplay;
-  {$ENDREGION}
+  pnlKeyboard.Visible := False;
 
   {Mengosongkan Lembar Soal}
   for i := 0 to 9 do
     soalTemp[i] := '-';
 
-//  showSoal;
+  showSoal;
 
   {Mengosongkan Lembar Jawaban}
   for i := 0 to 9 do
     jawabanTemp[i] := '-';
 
-//  showJawaban;
+  showJawaban;
 
   {Create Soal Baru}
   val := 1 + Random(10);
@@ -234,13 +368,16 @@ var
 begin
   if lblNext.Caption = 'START' then
   begin
-//    lblReplay.Visible := True;
+    pnlKeyboard.Visible := True;
+    pnlJawabanHuruf.Visible := True;
+
     lblHome.Visible := False;
     lblNext.Caption := 'NEXT';
   end
   else if lblNext.Caption = 'NEXT' then
   begin
-
+    jawabanTemp[NoSoal-1] := mergeWord;
+    showJawaban;
   end
   else if lblNext.Caption = 'FINISH' then
   begin
@@ -256,39 +393,52 @@ begin
 
     nilai := nilai * 10;
 
-//    showSoal;
-//
-//    frmNilai.nilai := nilai;
-//    frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
-//    frmNilai.ShowModal;
-//
-//    lblReplay.Visible := False;
+    showSoal;
+
+    frmNilai.nilai := nilai;
+    frmNilai.lblIntroduce.Caption := 'conratulation ' + lblUsername.Caption;
+    frmNilai.ShowModal;
+
     lblNext.Visible := False;
     lblAgain.Visible := True;
     lblHome.Visible := True;
-
-//    edtJawaban.Visible := False;
-//    pnl3.Visible := False;
 
     lblQuetions.Caption := 'COMPLETED';
 
     Exit;
   end;
 
-//  splitWord(soalTemp[NoSoal]);
+  setPanelJawaban(exerciseMode);
+  selectJawabanClick(imgJawabHuruf1);
 
-//  noHuruf := 0;
-//  tmr1.Enabled := True;
+  pnlSoal.Caption := soalTemp[NoSoal];
   NoSoal := NoSoal + 1;
-
   lblQuetions.Caption := 'QUESTION NO ' + (NoSoal).ToString;
 
-  if NoSoal > 9 then
-      lblNext.Caption := 'FINISH';
+  if NoSoal > 10 then
+  begin
+    lblQuetions.Visible := False;
+    lblNext.Caption := 'FINISH';
+  end;
 
-//  edtJawaban.Visible := False;
-//  pnl3.Visible := False;
 end;
 
+function TfrmExerciseWrite.mergeWord : string;
+begin
+  case exerciseMode of
+    0:{Easy}
+    begin
+      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint;
+    end;
+    1:{Normal}
+    begin
+      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint;
+    end;
+    2:{Hard}
+    begin
+      Result := imgJawabHuruf1.Hint + imgJawabHuruf2.Hint + imgJawabHuruf3.Hint + imgJawabHuruf4.Hint + imgJawabHuruf5.Hint;
+    end;
+  end;
+end;
 
 end.

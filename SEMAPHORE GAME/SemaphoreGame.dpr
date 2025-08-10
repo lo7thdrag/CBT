@@ -13,7 +13,8 @@ uses
   ufrmNilai in 'ufrmNilai.pas' {frmNilai},
   uDataType in 'Library\uDataType.pas',
   ufrmPengenalanLittle in 'Form Resolusi 1300 x 720\ufrmPengenalanLittle.pas' {frmPengenalanLittle},
-  UfrmExerciseReadLittle in 'Form Resolusi 1300 x 720\UfrmExerciseReadLittle.pas' {frmExerciseReadLittle};
+  UfrmExerciseReadLittle in 'Form Resolusi 1300 x 720\UfrmExerciseReadLittle.pas' {frmExerciseReadLittle},
+  UfrmfrmExerciseWriteLittle in 'Form Resolusi 1300 x 720\UfrmfrmExerciseWriteLittle.pas' {frmExerciseWriteLittle};
 
 {$R *.res}
 
@@ -32,5 +33,6 @@ begin
   Application.CreateForm(TfrmNilai, frmNilai);
   Application.CreateForm(TfrmPengenalanLittle, frmPengenalanLittle);
   Application.CreateForm(TfrmExerciseReadLittle, frmExerciseReadLittle);
+  Application.CreateForm(TfrmExerciseWriteLittle, frmExerciseWriteLittle);
   Application.Run;
 end.
